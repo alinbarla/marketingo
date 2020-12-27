@@ -102,6 +102,14 @@ const globalStyles = css`
   h6 {
     color: var(--black);
   }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: -0.04rem;
+    line-height: 2.2rem;
+  }
+
   p {
     line-height: 24px;
     font-size: 18px;

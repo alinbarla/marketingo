@@ -3,18 +3,7 @@ import { Avatar } from "@material-ui/core";
 import { styled, css } from "frontity";
 
 import profilePicture from "./Alin-Barla-Remarketingo.svg";
-import { containerPaddingStyles } from "../../Container";
-
-const verticalPadding = "0.75rem";
-
-const Container = styled.div`
-  max-width: 43.75rem;
-  margin: 1.1875rem auto;
-  text-align: center;
-  padding-top: ${verticalPadding};
-  padding-bottom: ${verticalPadding};
-  ${containerPaddingStyles}
-`;
+import { ContentContainer } from "../ContentContainer";
 
 const AvatarContainer = styled.div`
   display: flex;
@@ -50,7 +39,7 @@ const Description = styled.p`
 export class Introduction extends Component {
   render() {
     return (
-      <Container>
+      <ContentContainer>
         <AvatarContainer>
           <Avatar
             css={avatarStyles}
@@ -69,7 +58,7 @@ export class Introduction extends Component {
           estrategias marketing a que tu puedas empezar a ganar online el dinero
           necesario para vivir la vida que mereces!
         </Description>
-      </Container>
+      </ContentContainer>
     );
   }
 }
