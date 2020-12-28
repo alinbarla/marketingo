@@ -21,7 +21,7 @@ const awsminF1 = {
       menu: [
         ["Home", "/"],
         ["Blog", "/blog"],
-        ["About", "/emprendedor-digital-remarketingo/"],
+        ["About", "/about/"],
       ],
       isMobileMenuOpen: false,
       featured: {

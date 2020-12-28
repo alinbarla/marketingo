@@ -12,10 +12,12 @@ import Home from "./pages/index";
 import Jobs from "./pages/jobs";
 import Loading from "./loading";
 import Title from "./title";
+import About from "./pages/about";
 import PageError from "./page-error";
 import BootstrapCss from "./styles/bootstrap.css";
 import gutenbergStyle from "./styles/gutenberg/style.css";
 import gutenbergTheme from "./styles/gutenberg/theme.css";
+import breakpoints from "../constants/breakpoints";
 
 /**
  * Theme is the root React component of our theme. The one we will export
@@ -24,7 +26,6 @@ import gutenbergTheme from "./styles/gutenberg/theme.css";
 const Theme = ({ state }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
-
   return (
     <>
       {/* Add some metatags to the <head> of the HTML. */}
@@ -48,18 +49,19 @@ const Theme = ({ state }) => {
 
       {/* Add the main section. It renders a different component depending
       on the type of URL we are in. */}
-      <Main>
+      <div>
         <Switch>
           <Loading when={data.isFetching} />
           <Home when={data.isHome} />
+          <About when={state.router.link === "/about/"} />
+          <Blog when={state.router.link === "/blog/"} />
           <List when={data.isArchive} />
-          <Blog when={data.isPage} />
           <Jobs when={data.isAwsmJobOpenings} />
           <Page when={data.isPage} />
           <Post when={data.isPostType} />
           <PageError when={data.isError} />
         </Switch>
-      </Main>
+      </div>
       <FooterContainer>
         <Footer />
       </FooterContainer>
@@ -87,6 +89,12 @@ const globalStyles = css`
     font-feature-settings: "kern";
     -webkit-font-smoothing: antialiased;
   }
+
+  a {
+    color: #3ae282;
+    font-weight: 700;
+  }
+
   a,
   a:visited {
     text-decoration: none;
@@ -108,11 +116,22 @@ const globalStyles = css`
     font-weight: 900;
     letter-spacing: -0.04rem;
     line-height: 2.2rem;
+
+    @media (min-width: ${breakpoints.md}) {
+      font-size: 2.5rem;
+    }
   }
 
-  p {
-    line-height: 24px;
-    font-size: 18px;
+  h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+  }
+
+  p,
+  strong,
+  a {
+    font-size: 1.3rem;
+    line-height: 2.25rem;
   }
 
   button {
@@ -161,9 +180,4 @@ const FooterContainer = styled.div`
   width: 100%;
   background: var(--brand);
   // margin-top: auto;
-`;
-
-const Main = styled.div`
-  display: flex;
-  justify-content: center;
 `;

@@ -5,12 +5,16 @@ export const containerPaddingStyles = `
   padding-left: 15px;
 `;
 
+export const containerStyles = `
+max-width: 1200px;
+width: 100%;
+margin: 0 auto;
+position: relative;
+${containerPaddingStyles}
+`;
+
 const Container = styled.div`
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
-  ${containerPaddingStyles}
+  ${containerStyles}
 `;
 
 export default Container;

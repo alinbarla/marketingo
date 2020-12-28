@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { styled } from "frontity";
 
 import Container from "../../Container";
-import Contact from "./Contact";
+import Contact from "../../Contact";
 import heroImage from "./hero-image.svg";
 import breakpoints from "../../../constants/breakpoints";
 

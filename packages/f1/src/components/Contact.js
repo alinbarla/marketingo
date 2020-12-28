@@ -8,7 +8,10 @@ const Group = styled.div`
   position: relative;
 `;
 
+const borderRadius = "0.375rem";
+
 const Input = styled.input`
+  border-radius: ${borderRadius};
   background-color: #ffffff;
   color: #000000;
   text-decoration: none;
@@ -36,8 +39,8 @@ const Button = styled.button`
   font-weight: 600;
   min-height: 3.7875rem;
   outline: none;
-  border-radius: 6px;
-  font-size: 19.25px;
+  border-radius: ${borderRadius};
+  font-size: 1.2031rem;
   color: #fff;
   background-color: #00d07e;
   border-color: #00d07e;
