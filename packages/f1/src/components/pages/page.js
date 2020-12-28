@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect, styled } from "frontity";
 import Link from "../link";
-import List from "../list";
+import List from "../List";
 
 const Page = ({ state, actions, libraries }) => {
   // Get information about the current URL.
@@ -41,9 +41,9 @@ const Page = ({ state, actions, libraries }) => {
 export default connect(Page);
 
 const ArticleContainer = styled.div`
-  width:100%;
+  width: 100%;
   .post-title {
-    text-align:center;    
+    text-align: center;
   }
 `;
 
@@ -56,20 +56,25 @@ const Title = styled.h1`
  * selectors to style that HTML.
  */
 const Content = styled.div`
-  word-break: break-word;  
-  
+  word-break: break-word;
+
   * {
     max-width: 1035px;
     width: 100%;
-    margin:0 auto;
+    margin: 0 auto;
   }
 
   p {
-    margin-bottom:1.5rem;
+    margin-bottom: 1.5rem;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    margin-bottom:1.8rem;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 1.8rem;
   }
 
   img {
@@ -99,12 +104,14 @@ const Content = styled.div`
     border-left: 4px solid rgba(12, 17, 43);
     padding: 4px 16px;
   }
-  .wp-block-button, .wp-block-code, .wp-block-preformatted {
-    width:auto;
-    margin-bottom:2rem;
+  .wp-block-button,
+  .wp-block-code,
+  .wp-block-preformatted {
+    width: auto;
+    margin-bottom: 2rem;
   }
   .wp-block-button__link {
-    color:var(--white);
+    color: var(--white);
   }
   .wp-block-embed {
     max-width: 100%;
@@ -131,8 +138,8 @@ const Content = styled.div`
   @media (max-width: 992px) {
     .wp-block-columns {
       padding-left: 15px;
-      padding-right:15px;
-    }    
+      padding-right: 15px;
+    }
   }
 
   /* Input fields styles */
@@ -151,7 +158,7 @@ const Content = styled.div`
     font-weight: 400;
     line-height: 1.5;
     color: #495057;
-    width:100%;
+    width: 100%;
     height: 3rem;
     background-color: #fff;
     background-clip: padding-box;
@@ -183,7 +190,7 @@ const Content = styled.div`
     line-height: 1.42857143;
     border-radius: 4px;
     color: var(--white);
-    background-color:var(--brand);
+    background-color: var(--brand);
   }
 
   /* WordPress Core Align Classes */
@@ -213,17 +220,17 @@ const Content = styled.div`
   }
   /**Contact Block**/
   .contact-block {
-    background:#F8F8FA;    
+    background: #f8f8fa;
     padding-top: 34px;
-    padding-bottom:34px;
-    max-width: 100%;    
+    padding-bottom: 34px;
+    max-width: 100%;
     @media (min-width: 992px) {
       padding-top: 75px;
-      padding-bottom:75px;
+      padding-bottom: 75px;
     }
     .wp-block-group__inner-container {
-      max-width:1035px;
-      margin:0 auto;
+      max-width: 1035px;
+      margin: 0 auto;
       .wp-block-columns {
         .wp-block-column.contact-details {
           margin-bottom: 2rem;
@@ -234,7 +241,7 @@ const Content = styled.div`
             height: 257px;
             padding: 0;
             overflow: hidden;
-            margin-bottom:2rem;
+            margin-bottom: 2rem;
             iframe {
               position: absolute;
               top: 0;
@@ -244,19 +251,19 @@ const Content = styled.div`
               height: 257px;
               border: 0;
             }
-          }  
+          }
           h4 {
-            margin-bottom:1.2rem;
-          }       
+            margin-bottom: 1.2rem;
+          }
         }
         .wp-block-column.contact-form {
           @media (min-width: 992px) {
             padding-left: 2rem;
           }
-          .wpcf7 {            
+          .wpcf7 {
             .wpcf7-form {
               label {
-                display:block;
+                display: block;
               }
             }
           }
@@ -265,103 +272,103 @@ const Content = styled.div`
     }
   }
   /**Custom style for pages**/
-  /**About Block**/ 
+  /**About Block**/
   .about-highlight {
-    padding-bottom:2rem;
+    padding-bottom: 2rem;
     .wp-block-group__inner-container {
-      max-width:571px;
-    }      
+      max-width: 571px;
+    }
   }
   .about-services {
-    background:#F8F8FA;
+    background: #f8f8fa;
     padding-top: 34px;
-    padding-bottom:34px;
-    max-width: 100%;  
+    padding-bottom: 34px;
+    max-width: 100%;
     @media (min-width: 992px) {
       padding-top: 75px;
-      padding-bottom:75px;
+      padding-bottom: 75px;
     }
     .wp-block-group__inner-container {
-      .about-services-grid {    
+      .about-services-grid {
         .wp-block-image {
-          width: 62px!important;
+          width: 62px !important;
           height: 62px;
           margin: 0 auto;
         }
         h5 {
-          margin-bottom:1rem;
-          margin-top:1rem;
+          margin-bottom: 1rem;
+          margin-top: 1rem;
         }
         p {
-          position:relative;
+          position: relative;
         }
       }
     }
   }
   .about-team {
     padding-top: 34px;
-    padding-bottom:34px;
+    padding-bottom: 34px;
     @media (min-width: 992px) {
       padding-top: 75px;
-      padding-bottom:75px;
+      padding-bottom: 75px;
     }
     .home-team-heading {
       .wp-block-group__inner-container {
-        max-width:539px;
-        margin:0 auto;
-        margin-bottom:3rem;
+        max-width: 539px;
+        margin: 0 auto;
+        margin-bottom: 3rem;
       }
     }
     .wp-block-group__inner-container {
       .wp-block-columns {
         .wp-block-column {
-          margin-bottom:1.5rem;
+          margin-bottom: 1.5rem;
           p {
             margin-bottom: 0rem;
           }
         }
-      }    
+      }
     }
   }
   .about-vision {
     padding-top: 34px;
-    padding-bottom:34px;
-    background:#F8F8FA;
-    max-width:100%;
+    padding-bottom: 34px;
+    background: #f8f8fa;
+    max-width: 100%;
     @media (min-width: 992px) {
       padding-top: 75px;
-      padding-bottom:75px;
+      padding-bottom: 75px;
     }
     .about-vision-heading {
       .wp-block-group__inner-container {
-        max-width:539px;
-        margin:0 auto;
-        margin-bottom:3rem;
+        max-width: 539px;
+        margin: 0 auto;
+        margin-bottom: 3rem;
       }
     }
     .about-vision-grid {
       .wp-block-column {
-        margin-bottom:1.5rem;
+        margin-bottom: 1.5rem;
         h5 {
-          margin-bottom:1.2rem;
+          margin-bottom: 1.2rem;
         }
-      }      
+      }
     }
   }
   .about-services-two {
     padding-top: 34px;
-    padding-bottom:34px;
+    padding-bottom: 34px;
     @media (min-width: 992px) {
       padding-top: 75px;
-      padding-bottom:75px;
+      padding-bottom: 75px;
     }
     .wp-block-group__inner-container {
       .wp-block-columns {
         .wp-block-column {
           ol {
             counter-reset: myOrderedCounter;
-            padding-left:0;
-            margin-top:2rem;
+            padding-left: 0;
+            margin-top: 2rem;
             li {
               list-style-type: none;
               position: relative;
@@ -389,55 +396,55 @@ const Content = styled.div`
   }
   /**Services Page **/
   .services-highlight {
-    padding-bottom:2rem;
+    padding-bottom: 2rem;
     .wp-block-group__inner-container {
-      max-width:571px;
-    } 
+      max-width: 571px;
+    }
   }
   .hero-services {
     max-width: 100%;
     padding-top: 34px;
-    padding-bottom:34px;
+    padding-bottom: 34px;
     @media (min-width: 992px) {
       padding-top: 75px;
-      padding-bottom:75px;
+      padding-bottom: 75px;
     }
     .wp-block-columns {
       max-width: 100%;
       .wp-block-column {
-        margin-bottom:2rem;
+        margin-bottom: 2rem;
         max-width: 100%;
       }
       align-items: center;
       .wp-block-button {
-        width:auto;
+        width: auto;
         .wp-block-button__link {
-          background: var(--brand);  
-          border:1px solid transparent;   
-          border-color:var(--brand);  
-          box-shadow:0px 2px 5px 0px rgb(0 0 0 / 0.4); 
-          transition: all 0.3s ease;  
+          background: var(--brand);
+          border: 1px solid transparent;
+          border-color: var(--brand);
+          box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 0.4);
+          transition: all 0.3s ease;
           margin-right: 0.5rem;
-          text-decoration:non;  
+          text-decoration: non;
           &:hover {
-            color:var(--black);
-            background:transparent;
+            color: var(--black);
+            background: transparent;
           }
         }
       }
-      .wp-block-button.is-style-outline {       
+      .wp-block-button.is-style-outline {
         .wp-block-button__link {
           background: transparent;
-          border-color:var(--brand);     
-          color:var(--brand);  
+          border-color: var(--brand);
+          color: var(--brand);
           &:hover {
-            color:var(--black);
+            color: var(--black);
           }
         }
       }
     }
   }
   .home-services-img-left {
-    background:#F8F8FA; 
+    background: #f8f8fa;
   }
 `;

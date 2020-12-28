@@ -1,15 +1,12 @@
 import React from "react";
-import { Global, css, connect, styled, Head } from "frontity";
+import { Global, Head, connect, css, styled } from "frontity";
 import Switch from "@frontity/components/switch";
 
 import Header from "./header/header";
 import Footer from "./footer/footer";
-import List from "./list";
 import Post from "./post";
-import Page from "./pages/page";
 import Blog from "./pages/blog";
 import Home from "./pages/index";
-import Jobs from "./pages/jobs";
 import Loading from "./loading";
 import Title from "./title";
 import About from "./pages/about";
@@ -26,6 +23,7 @@ import breakpoints from "../constants/breakpoints";
 const Theme = ({ state }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
+
   return (
     <>
       {/* Add some metatags to the <head> of the HTML. */}
@@ -55,9 +53,6 @@ const Theme = ({ state }) => {
           <Home when={data.isHome} />
           <About when={state.router.link === "/about/"} />
           <Blog when={state.router.link === "/blog/"} />
-          <List when={data.isArchive} />
-          <Jobs when={data.isAwsmJobOpenings} />
-          <Page when={data.isPage} />
           <Post when={data.isPostType} />
           <PageError when={data.isError} />
         </Switch>

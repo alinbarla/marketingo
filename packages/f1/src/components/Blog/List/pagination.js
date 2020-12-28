@@ -12,7 +12,7 @@ import Link from "@frontity/components/link";
  */
 const Pagination = ({ state, actions }) => {
   // Get the total posts to be displayed based for the current link
-  const { next, previous } = state.source.get(state.router.link);
+  const { next, previous } = state.source.get("/");
 
   // Pre-fetch the the next page if it hasn't been fetched yet.
   useEffect(() => {
