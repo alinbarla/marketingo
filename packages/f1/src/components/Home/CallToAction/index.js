@@ -5,19 +5,23 @@ import sectionImage from "./negocio-online-estrategias-marketing.svg";
 import breakpoints from "../../../constants/breakpoints";
 
 const col1 = "col1";
-
 const col2 = "col2";
+const flexBreakpoint = breakpoints.md;
 
 const Container = styled.div`
   padding: 8% 5%;
   background-color: #f6f5f1;
   box-sizing: border-box;
-  background-image: url(${sectionImage});
-  background-repeat: no-repeat;
   width: 100%;
+  max-width: 100rem;
+  margin: 5rem auto;
+
+  @media (min-width: ${flexBreakpoint}) {
+    background-image: url(${sectionImage});
+    background-repeat: no-repeat;
+  }
 `;
 
-const flexBreakpoint = breakpoints.md;
 const Grid = styled.div`
   max-width: 43.75rem;
   margin: 0 auto;
@@ -57,6 +61,7 @@ const BodyColumn = styled.div`
   @media (min-width: ${flexBreakpoint}) {
     margin-left: 9.375rem;
     grid-area: none;
+    width: 31.75rem;
   }
 `;
 
@@ -68,19 +73,20 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
 
-  @media (min-width: ${breakpoints.lg}) {
-    justify-content: flex-end;
+  @media (min-width: ${flexBreakpoint}) {
+    justify-content: flex-start;
   }
 `;
 
 const Link = styled.a`
   color: #ffffff;
-  background-color: #00d07e;
+  background-color: var(--brand);
   transition: transform 0.2s ease !important;
   border-radius: 6.25rem;
   padding: 0.75rem 1.25rem;
   font-weight: 700;
   font-size: 1.25rem;
+  line-height: 1;
 `;
 
 export class CallToAction extends Component {

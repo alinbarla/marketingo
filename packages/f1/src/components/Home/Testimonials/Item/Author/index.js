@@ -16,10 +16,11 @@ const Name = styled.h2`
   color: ${color};
   font-size: 1rem;
   margin-bottom: 0;
+  line-height: 1.2;
 `;
 
 const Title = styled.span`
-  line-height: 1.12rem;
+  line-height: 1.4;
   font-size: 0.8rem;
   font-style: italic;
 `;

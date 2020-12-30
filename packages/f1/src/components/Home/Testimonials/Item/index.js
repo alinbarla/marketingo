@@ -11,6 +11,7 @@ const ListItem = styled.li`
   padding: 5%;
   border-radius: 5px;
   margin-bottom: 1.2em;
+  max-width: 42.5rem;
 `;
 
 const Body = styled.p`

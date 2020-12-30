@@ -29,6 +29,11 @@ const Subtitle = styled.p`
   line-height: 2.275rem;
 `;
 
+const EmphasizedSubtitlte = styled.strong`
+  color: var(--brand);
+  font-weight: 700;
+`;
+
 const Description = styled.p`
   padding-top: 1.125rem;
   font-size: 1.3rem;
@@ -49,14 +54,18 @@ export class Introduction extends Component {
           />
         </AvatarContainer>
         <Title>Hola, soy Alin.</Title>
-        <Subtitle>Un poco sobre mi</Subtitle>
+        <Subtitle>
+          Un poco <EmphasizedSubtitlte>sobre mi</EmphasizedSubtitlte>
+        </Subtitle>
         <Description>
           <strong>Soy emprendedor y experto en marketing digital.</strong>{" "}
-          Actualmente, vivo en Noruega con mi esposa Selene. Además, juntos
-          viajamos por el mundo gracias al éxito de nuestros negocios online. De
-          hecho, eso es a lo que me dedico. Ayudar con los mejores consejos y
-          estrategias marketing a que tu puedas empezar a ganar online el dinero
-          necesario para vivir la vida que mereces!
+          <em>
+            Actualmente, vivo en Noruega con mi esposa Selene. Además, juntos
+            viajamos por el mundo gracias al éxito de nuestros negocios online.
+            De hecho, eso es a lo que me dedico. Ayudar con los mejores consejos
+            y estrategias marketing a que tu puedas empezar a ganar online el
+            dinero necesario para vivir la vida que mereces!
+          </em>
         </Description>
       </ContentContainer>
     );

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { styled } from "frontity";
 
 import { containerLargeStyles } from "../ContainerLarge";
-import Contact from "../Contact";
+import Contact from "../Contact/index";
 
 const verticalPadding = "9rem";
 

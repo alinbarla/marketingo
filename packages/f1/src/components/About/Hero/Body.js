@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { styled } from "frontity";
 
-import Contact from "../../Contact";
+import Contact from "../../Contact/index";
 import { columnWidthStyles } from "./styles";
 
 const Container = styled.section`
