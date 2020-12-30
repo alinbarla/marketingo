@@ -42,8 +42,7 @@ const badgeStyles = (theme) =>
 const StyledBadge = withStyles(badgeStyles)(Badge);
 
 const avatarStyles = css`
-  border-color: #e7ebed;
-  border-width: 0.1875rem;
+  border: 2px solid #e7ebed;
 `;
 
 const Body = styled.div`
