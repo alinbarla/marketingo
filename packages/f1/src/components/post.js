@@ -43,7 +43,11 @@ const Title = styled.h1`
   font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
-  font-size: 2.45rem !important;
+  font-size: 1.875rem !important;
+
+  @media (min-width: ${breakpoints.md}) {
+    font-size: 2.45rem !important;
+  }
 `;
 
 const ArticleContainer = styled.div`
@@ -517,7 +521,7 @@ const Content = styled.div`
   #entry-title-background {
     z-index: -999;
     min-height: 400px !important;
-    margin-top: ${getBackgroundMargin("18.125rem")};
+    margin-top: ${getBackgroundMargin("18.625rem")};
 
     @media (min-width: ${breakpoints.md}) {
       margin-top: ${getBackgroundMargin("10.5rem")};

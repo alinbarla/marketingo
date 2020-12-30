@@ -129,7 +129,8 @@ const globalStyles = css`
     border: none;
   }
 
-  img {
+  img,
+  video {
     max-width: 100%;
   }
 
@@ -161,4 +162,6 @@ const HeadContainer = styled.div`
   justify-content: space-between;
   margin: 0 auto;
   padding: 1.25rem 0.9375rem;
+  background-color: white;
+  z-index: 1000;
 `;
