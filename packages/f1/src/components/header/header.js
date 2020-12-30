@@ -1,15 +1,27 @@
 import React from "react";
 import { connect, styled } from "frontity";
+
 import Link from "../link";
 import Nav from "./nav";
 import MobileMenu from "./menu";
+import logo from "../images/logo-remarketingo.svg";
+import breakpoints from "../../constants/breakpoints";
+
+const Image = styled.img`
+  width: 12.5rem;
+
+  @media (min-width: ${breakpoints.sm}) {
+    max-height: 5rem;
+    width: 100%;
+  }
+`;
 
 const Header = ({ state }) => {
   return (
     <>
       <BrandContainer>
         <StyledLink link="/">
-          <Title><span>F1</span> by awsm</Title>
+          <Image src={logo} alt="Remarketingo" />
         </StyledLink>
         <MobileMenu />
       </BrandContainer>
@@ -25,25 +37,17 @@ const BrandContainer = styled.div`
   box-sizing: border-box;
   color: var(--brand);
   width: 100%;
+  display: flex;
   @media (min-width: 768px) {
-    display: flex;
     width: auto;
-  }
-`;
-
-const Title = styled.div`
-  margin: 0;
-  font-size: 20px;
-  span {
-    font-weight:800;
   }
 `;
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color:var(--brand);
+  color: var(--brand);
   transition: all 0.3s ease;
   &:hover {
-    color:var(--black);
+    color: var(--black);
   }
 `;

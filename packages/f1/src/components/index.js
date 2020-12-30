@@ -3,7 +3,7 @@ import { Global, Head, connect, css, styled } from "frontity";
 import Switch from "@frontity/components/switch";
 
 import Header from "./header/header";
-import Footer from "./footer/footer";
+import Footer from "./Layout/Footer";
 import Post from "./post";
 import Blog from "./pages/blog";
 import Home from "./pages/index";
@@ -55,9 +55,7 @@ const Theme = ({ state }) => {
           <PageError when={data.isError} />
         </Switch>
       </div>
-      <FooterContainer>
-        <Footer />
-      </FooterContainer>
+      <Footer />
     </>
   );
 };
@@ -162,14 +160,5 @@ const HeadContainer = styled.div`
   max-width: 1200px;
   justify-content: space-between;
   margin: 0 auto;
-  padding-top: 2.75rem;
-  padding-right: 15px;
-  padding-left: 15px;
-  padding-bottom: 6.25rem;
-`;
-const FooterContainer = styled.div`
-  display: flex;
-  width: 100%;
-  background: var(--brand);
-  // margin-top: auto;
+  padding: 1.25rem 0.9375rem;
 `;
