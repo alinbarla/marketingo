@@ -87,6 +87,12 @@ const Link = styled.a`
   font-weight: 700;
   font-size: 1.25rem;
   line-height: 1;
+
+  &:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.14);
+    transform: translate3d(0, -3px, 0);
+    color: white;
+  }
 `;
 
 export class CallToAction extends Component {
@@ -103,7 +109,7 @@ export class CallToAction extends Component {
           <BodyColumn>
             <Title>Las mejores estrategias marketing!</Title>
             <ButtonContainer>
-              <Link href="#">Todos los recursos</Link>
+              <Link href="/blog">Todos los recursos</Link>
             </ButtonContainer>
           </BodyColumn>
         </Grid>
