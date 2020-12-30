@@ -5,6 +5,7 @@ import Link from "./link";
 import List from "./Blog/List";
 import FeaturedMedia from "./featured-media";
 import Info from "./Info";
+import breakpoints from "../constants/breakpoints";
 
 const Container = styled.div`
   max-width: 50rem;
@@ -14,17 +15,19 @@ const Container = styled.div`
 
 const Main = styled.main`
   float: none;
-  margin: 45px auto 140px;
+  margin: 0 auto 140px;
   max-width: 680px;
 `;
+
+const headerMarginBottom = "2.8125rem";
 
 const Header = styled.header`
   z-index: 999;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -80px !important;
-  margin-bottom: 35px;
+  padding-top: 3rem;
+  margin-bottom: ${headerMarginBottom};
 `;
 
 const Title = styled.h1`
@@ -126,6 +129,18 @@ export default connect(Post);
  * This component is the parent of the `content.rendered` HTML. We can use nested
  * selectors to style that HTML.
  */
+
+const headerPadding = "2.8125rem";
+const containerPadding = "1.25rem";
+const encabezadoMarginBottom = "5rem";
+
+const getBackgroundMargin = (backgroundHeight) =>
+  `calc(-${backgroundHeight} - ${headerMarginBottom} - ${headerPadding} - ${containerPadding})`;
+
+const getImageMargin = (marginTop) => `calc(
+  -${headerMarginBottom} - ${encabezadoMarginBottom} + ${marginTop}
+);`;
+
 const Content = styled.div`
   word-break: break-word;
   position: relative;
@@ -442,7 +457,7 @@ const Content = styled.div`
   }
 
   .encabezado {
-    margin-bottom: 80px;
+    margin-bottom: ${encabezadoMarginBottom};
   }
 
   .encabezado-content {
@@ -496,18 +511,24 @@ const Content = styled.div`
 
   #entry-title-background {
     z-index: -999;
-    margin-top: -310px;
-    z-index: -999;
     min-height: 400px !important;
+    margin-top: ${getBackgroundMargin("18.125rem")};
+
+    @media (min-width: ${breakpoints.md}) {
+      margin-top: ${getBackgroundMargin("10.5rem")};
+    }
   }
 
   .primera {
     box-shadow: 2px 5px 10px #00000073;
     display: block !important;
     border-radius: 10px;
-    margin: -200px auto 50px;
-    margin-top: -170px !important;
     margin-left: auto;
     margin-right: auto;
+    margin-top: ${getImageMargin("1.25rem")};
+
+    @media (min-width: ${breakpoints.md}) {
+      margin-top: ${getImageMargin("-3rem")};
+    }
   }
 `;
