@@ -52,12 +52,13 @@ const NavItem = styled.div`
     display: inline-block;
     line-height: 2em;
     transition: all 0.3s ease;
+    color: black;
     /* Use for semantic approach to style the current link */
     &[aria-current="page"] {
       color: var(--brand);
     }
     &:hover {
-      color: white;
+      color: var(--brand);
     }
   }
 
