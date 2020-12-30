@@ -7,7 +7,6 @@ import Footer from "./footer/footer";
 import Post from "./post";
 import Blog from "./pages/blog";
 import Home from "./pages/index";
-import Loading from "./loading";
 import Title from "./title";
 import About from "./pages/about";
 import PageError from "./page-error";
@@ -49,7 +48,6 @@ const Theme = ({ state }) => {
       on the type of URL we are in. */}
       <div>
         <Switch>
-          <Loading when={data.isFetching} />
           <Home when={data.isHome} />
           <About when={state.router.link === "/about/"} />
           <Blog when={state.router.link === "/blog/"} />
@@ -123,7 +121,6 @@ const globalStyles = css`
   }
 
   p,
-  strong,
   a {
     font-size: 1.3rem;
     line-height: 2.25rem;

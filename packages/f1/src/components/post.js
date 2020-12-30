@@ -1,69 +1,47 @@
 import React, { useEffect } from "react";
 import { connect, styled } from "frontity";
+
 import Link from "./link";
 import List from "./Blog/List";
 import FeaturedMedia from "./featured-media";
+import Info from "./Info";
 
-const Post = ({ state, actions, libraries }) => {
-  // Get information about the current URL.
-  const data = state.source.get(state.router.link);
-  // Get the data of the post.
-  const post = state.source[data.type][data.id];
-  // Get the data of the author.
-  const author = state.source.author[post.author];
-  // Get a human readable date.
-  const date = new Date(post.date);
+const Container = styled.div`
+  max-width: 50rem;
+  margin: 0 auto;
+  padding-top: 1.25rem;
+`;
 
-  // Get the html2react component.
-  const Html2React = libraries.html2react.Component;
+const Main = styled.main`
+  float: none;
+  margin: 45px auto 140px;
+  max-width: 680px;
+`;
 
-  /**
-   * Once the post has loaded in the DOM, prefetch both the
-   * home posts and the list component so if the user visits
-   * the home page, everything is ready and it loads instantly.
-   */
-  useEffect(() => {
-    actions.source.fetch("/");
-    List.preload();
-  }, []);
+const Header = styled.header`
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -80px !important;
+  margin-bottom: 35px;
+`;
 
-  // Load the post, but only if the data is ready.
-  return data.isReady ? (
-    <ArticleContainer>
-      <div className="post-title">
-        <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-
-        {/* Only display author and date on posts */}
-        {data.isPost && (
-          <div>
-            {author && (
-              <StyledLink link={author.link}>
-                <Author>
-                  By <b>{author.name}</b>
-                </Author>
-              </StyledLink>
-            )}
-            <DateWrapper>
-              {" "}
-              on <b>{date.toDateString()}</b>
-            </DateWrapper>
-          </div>
-        )}
-      </div>
-
-      {/* Look at the settings to see if we should include the featured image */}
-      {state.theme.featured.showOnPost && (
-        <FeaturedMedia id={post.featured_media} />
-      )}
-
-      <Content>
-        <Html2React html={post.content.rendered} />
-      </Content>
-    </ArticleContainer>
-  ) : null;
-};
-
-export default connect(Post);
+const Title = styled.h1`
+  margin-bottom: 1.2rem;
+  width: 100% !important;
+  text-shadow: 0 5px 10px rgba(14, 27, 35, 0.25);
+  text-align: center;
+  margin-top: 50px;
+  color: #fff !important;
+  line-height: 1.4 !important;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+  font-size: 2.45rem !important;
+`;
 
 const ArticleContainer = styled.div`
   width: 100%;
@@ -74,10 +52,6 @@ const ArticleContainer = styled.div`
   .post-title {
     text-align: center;
   }
-`;
-
-const Title = styled.h1`
-  margin-bottom: 1.2rem;
 `;
 
 const StyledLink = styled(Link)`
@@ -96,20 +70,138 @@ const DateWrapper = styled.p`
   display: inline;
 `;
 
+const InfoText = styled.span`
+  font-size: 1.3rem;
+  color: white;
+`;
+
+const Post = ({ state, actions, libraries }) => {
+  // Get information about the current URL.
+  const data = state.source.get(state.router.link);
+  // Get the data of the post.
+  const post = state.source[data.type][data.id];
+  // Get the data of the author.
+  const author = state.source.author[post.author];
+  // Get the html2react component.
+  const Html2React = libraries.html2react.Component;
+
+  /**
+   * Once the post has loaded in the DOM, prefetch both the
+   * home posts and the list component so if the user visits
+   * the home page, everything is ready and it loads instantly.
+   */
+  useEffect(() => {
+    actions.source.fetch("/");
+    List.preload();
+  }, []);
+
+  // Load the post, but only if the data is ready.
+  return data.isReady ? (
+    <ArticleContainer>
+      {/* Look at the settings to see if we should include the featured image */}
+      {state.theme.featured.showOnPost && (
+        <FeaturedMedia id={post.featured_media} />
+      )}
+
+      <Container>
+        <Main>
+          <Content>
+            <Header>
+              <Title
+                dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+              />
+              <Info InfoText={InfoText} author={author} date={post.date} />
+            </Header>
+            <Html2React html={post.content.rendered} />
+          </Content>
+        </Main>
+      </Container>
+    </ArticleContainer>
+  ) : null;
+};
+
+export default connect(Post);
+
 /**
  * This component is the parent of the `content.rendered` HTML. We can use nested
  * selectors to style that HTML.
  */
 const Content = styled.div`
   word-break: break-word;
-  * {
-    max-width: 771px;
-    width: 100%;
-    margin: 0 auto;
-  }
+  position: relative;
+
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 680px;
 
   p {
     margin-bottom: 1.5rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #111;
+    font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 900;
+    line-height: 1.2;
+    margin: 0 0 20px;
+    text-decoration: none;
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: 56px;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  h2 {
+    font-size: 42px;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  h3 {
+    color: #111;
+    font-size: 28px;
+    letter-spacing: -0.01em;
+    line-height: 1.23;
+  }
+
+  h2,
+  h3,
+  h4 {
+    margin-bottom: 20px;
+    margin-top: 40px;
+  }
+
+  h4 {
+    color: #000cff;
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  h5,
+  h6 {
+    color: #000cff;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  h6 {
+    color: #555;
   }
 
   img {
@@ -239,5 +331,183 @@ const Content = styled.div`
       float: left;
       margin-right: 24px;
     }
+  }
+
+  .alignfull {
+    margin-left: calc(-100vw / 2 + 100% / 2);
+    margin-right: calc(-100vw / 2 + 100% / 2);
+    max-width: 100vw;
+  }
+
+  .wrapper-tabla {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 35% !important;
+  }
+
+  @media only screen and (max-width: 680px) {
+    .wrapper-tabla {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0 !important;
+    }
+
+    .card {
+      width: 300px !important;
+    }
+  }
+
+  @media only screen and (max-width: 1075px) and (min-width: 681px) {
+    .card {
+      width: 300px !important;
+    }
+
+    .wrapper-tabla {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0 !important;
+    }
+  }
+
+  .card {
+    overflow: hidden;
+    box-shadow: 0px 2px 20px var(--clr-gray-light);
+    background: #fff;
+    border-radius: 0.5rem;
+    position: relative;
+    width: 250px;
+    margin: 1.5rem;
+    transition: 0.25s all ease-in-out;
+    cursor: pointer;
+    box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  .card:hover {
+    box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  .banner-img {
+    position: absolute;
+    object-fit: cover;
+    height: 14rem;
+    width: 100%;
+  }
+
+  .category-tag {
+    font-size: 0.9rem !important;
+    font-weight: 700;
+    color: #fff;
+    background: red;
+    padding: 0 15px;
+    text-transform: uppercase;
+    position: absolute;
+    z-index: 1;
+    top: 13rem;
+    border-radius: 0 50px 0 0;
+  }
+
+  .capitulo-number {
+    background-color: #0beef9;
+    background-image: linear-gradient(315deg, #0beef9 0%, #48a9fe 74%);
+  }
+
+  .card-body {
+    margin: 15rem 1rem 1rem;
+  }
+
+  .capitulotitle {
+    font-weight: 800;
+    line-height: 1.3em;
+    margin: 1rem 0 0.5rem;
+    color: #3e4348;
+    letter-spacing: 0px;
+    text-transform: none;
+    font-size: 1.6rem;
+  }
+
+  .capitulotitle:hover {
+    text-decoration: none;
+  }
+
+  .leer-capitulo {
+    font-size: 1rem !important;
+    color: #3f51b5;
+    font-weight: 400;
+    display: inline;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  .encabezado {
+    margin-bottom: 80px;
+  }
+
+  .encabezado-content {
+    color: #fff;
+    padding: 5px 5%;
+    margin: auto !important;
+    display: block !important;
+    max-width: 980px !important;
+  }
+
+  .encabezado-title {
+    color: #fff;
+    margin-bottom: 80px;
+    font-weight: 100;
+    text-align: center;
+    font-size: 3.2rem;
+    border-bottom: 0.1px solid #fff;
+    padding-bottom: 25px;
+    line-height: 1.1;
+  }
+
+  .encabezado-chapter {
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+  }
+
+  .encabezado-img-and-content {
+    margin-bottom: 70px;
+    margin-top: 70px;
+  }
+
+  @media only screen and (min-width: 600px) {
+    .encabezado-img-and-content {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .encabezado-txt {
+      max-width: 50%;
+      flex: 0 0 50%;
+    }
+
+    .encabezado-img {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
+
+  #entry-title-background {
+    z-index: -999;
+    margin-top: -310px;
+    z-index: -999;
+    min-height: 400px !important;
+  }
+
+  .primera {
+    box-shadow: 2px 5px 10px #00000073;
+    display: block !important;
+    border-radius: 10px;
+    margin: -200px auto 50px;
+    margin-top: -170px !important;
+    margin-left: auto;
+    margin-right: auto;
   }
 `;

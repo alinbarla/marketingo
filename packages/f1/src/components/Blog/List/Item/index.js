@@ -1,10 +1,9 @@
 import React from "react";
 import { connect, css, styled } from "frontity";
 import Link from "@frontity/components/link";
-import { Avatar } from "@material-ui/core";
 
+import Info from "../../../Info/index";
 import FeaturedMedia from "../../../featured-media";
-import avatarImage from "./avatar.jpg";
 
 const Article = styled.article`
   max-width: 771px;
@@ -37,18 +36,7 @@ const Title = styled.h2`
   line-height: 2.6125rem;
 `;
 
-const Info = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const avatarStyles = css`
-  border-color: #e7ebed;
-  border-width: 0.1875rem;
-  margin-right: 0.9375rem;
-`;
-
-const InfoText = styled.div`
+const InfoText = styled.span`
   color: #555;
 `;
 
@@ -70,25 +58,14 @@ const Excerpt = styled.div`
 
 const Item = ({ state, item }) => {
   const author = state.source.author[item.author];
-  const { featured_image_src, title } = item;
-  const date = new Date(item.date);
-  const dateString = date.toLocaleDateString("es-MX", {
-    month: "short",
-    year: "numeric",
-    day: "numeric",
-  });
+  const { featured_image_src, title, date } = item;
 
   return (
     <Article>
       <Image src={featured_image_src} />
       <Header>
         <Title dangerouslySetInnerHTML={{ __html: title.rendered }} />
-        <Info>
-          <Avatar css={avatarStyles} src={avatarImage} />
-          <InfoText>{author.name}</InfoText>
-          <InfoText>.</InfoText>
-          <InfoText>{dateString}</InfoText>
-        </Info>
+        <Info author={author} InfoText={InfoText} date={date} />
       </Header>
 
       {/* If the post has an excerpt (short summary text), we render it */}
