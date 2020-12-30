@@ -352,6 +352,10 @@ const Content = styled.div`
     margin-left: calc(-100vw / 2 + 100% / 2);
     margin-right: calc(-100vw / 2 + 100% / 2);
     max-width: 100vw;
+
+    a {
+      text-decoration: none;
+    }
   }
 
   .wrapper-tabla {
@@ -441,6 +445,7 @@ const Content = styled.div`
     letter-spacing: 0px;
     text-transform: none;
     font-size: 1.6rem;
+    text-decoration: none;
   }
 
   .capitulotitle:hover {
