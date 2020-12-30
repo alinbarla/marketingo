@@ -38,6 +38,8 @@ const BrandContainer = styled.div`
   color: var(--brand);
   width: 100%;
   display: flex;
+  flex-direction: column;
+
   @media (min-width: 768px) {
     width: auto;
   }
