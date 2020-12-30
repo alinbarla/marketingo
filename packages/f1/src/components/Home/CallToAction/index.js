@@ -6,10 +6,10 @@ import breakpoints from "../../../constants/breakpoints";
 
 const col1 = "col1";
 const col2 = "col2";
-const flexBreakpoint = breakpoints.md;
+const flexBreakpoint = breakpoints.sm;
 
 const Container = styled.div`
-  padding: 8% 5%;
+  padding: 5% 8%;
   background-color: #f6f5f1;
   box-sizing: border-box;
   width: 100%;
