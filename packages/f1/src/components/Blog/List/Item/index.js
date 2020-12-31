@@ -22,7 +22,7 @@ const Image = styled.img`
   width: 100%;
 `;
 
-const Header = styled.div`
+const Header = styled.a`
   margin-bottom: 4.6875rem;
   display: flex;
   flex-direction: column;
@@ -62,9 +62,13 @@ const Item = ({ state, item }) => {
 
   return (
     <Article>
-      <Image src={featured_image_src} />
+      <a href={item.link}>
+        <Image src={featured_image_src} />
+      </a>
       <Header>
-        <Title dangerouslySetInnerHTML={{ __html: title.rendered }} />
+        <a href={item.link}>
+          <Title dangerouslySetInnerHTML={{ __html: title.rendered }} />
+        </a>
         <Info author={author} InfoText={InfoText} date={date} />
       </Header>
 
