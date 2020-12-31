@@ -20,7 +20,7 @@ const awsminF1 = {
     theme: {
       menu: [
         ["Home", "/"],
-        ["Blog", "/blog"],
+        ["Blog", "/blog/"],
         ["About", "/about/"],
       ],
       isMobileMenuOpen: false,

@@ -36,20 +36,21 @@ const MenuToggle = styled.button`
   height: 40px;
   width: 40px;
   display: none;
-  outline:0;
+  outline: 0;
   transition: all 0.3s ease;
   &:focus {
-    outline:0;
+    outline: 0;
   }
-  .opensvg, .closesvg {
+  .opensvg,
+  .closesvg {
     transition: all 0.3s ease;
   }
   &:hover {
     .opensvg {
-      color:var(--brand);
+      color: var(--brand);
     }
     .closesvg {
-      color:var(--white);
+      color: var(--white);
     }
   }
   @media (max-width: 768px) {
