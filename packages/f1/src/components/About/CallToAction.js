@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { styled } from "frontity";
 
 import { containerLargeStyles } from "../ContainerLarge";
+import breakpoints from "../../constants/breakpoints";
 import Contact from "../Contact/index";
 
 const verticalPadding = "9rem";
@@ -32,6 +33,13 @@ const Body = styled.div`
   margin-bottom: 1.75rem;
 `;
 
+const ContactContainer = styled.div`
+  @media (min-width: ${breakpoints.lg}) {
+    width: 50%;
+    margin: 0 auto;
+  }
+`;
+
 export class CallToAction extends Component {
   render() {
     return (
@@ -46,7 +54,9 @@ export class CallToAction extends Component {
               <em>Remarketingo.</em>
             </p>
           </Body>
-          <Contact />
+          <ContactContainer>
+            <Contact />
+          </ContactContainer>
         </Container>
       </Section>
     );
