@@ -38,6 +38,8 @@ const Title = styled.h2`
 
 const InfoText = styled.span`
   color: #555;
+  font-weight: 400;
+  text-transform: capitalize;
 `;
 
 const readMoreLink = css`

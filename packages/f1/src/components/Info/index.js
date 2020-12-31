@@ -49,17 +49,31 @@ const Body = styled.div`
   margin-left: 1rem;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 `;
 
 export class Info extends Component {
-  render() {
-    const { author, date: postDate, InfoText } = this.props;
-    const date = new Date(postDate);
-    const dateString = date.toLocaleDateString("es-MX", {
+  getMonth = (date) => {
+    const monthString = date.toLocaleDateString("es-MX", {
       month: "short",
-      year: "numeric",
-      day: "numeric",
     });
+    const secondLastIndex = monthString.length - 1;
+    // To remove the period at the end. For example, "dec." becomes "dec"
+    return monthString.splice(0, secondLastIndex);
+  };
+
+  getDateString = () => {
+    const { date: postDate } = this.props;
+    const date = new Date(postDate);
+    const month = this.getMonth(date);
+    const day = date.getDate();
+    const year = date.getFullYear();
+    return `${day} ${month} ${year}`;
+  };
+
+  render() {
+    const { author, InfoText } = this.props;
+    const dateString = this.getDateString();
     return (
       <Group>
         <StyledBadge

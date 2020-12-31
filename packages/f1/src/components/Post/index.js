@@ -81,6 +81,7 @@ const DateWrapper = styled.p`
 const InfoText = styled.span`
   font-size: 1.3rem;
   color: white;
+  text-transform: capitalize;
 `;
 
 const Post = ({ state, actions, libraries }) => {
