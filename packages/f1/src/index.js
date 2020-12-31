@@ -21,7 +21,7 @@ const awsminF1 = {
       menu: [
         ["Home", "/"],
         ["Blog", "/blog/"],
-        ["About", "/about/"],
+        ["Sobre mi", "/about/"],
       ],
       isMobileMenuOpen: false,
       featured: {
