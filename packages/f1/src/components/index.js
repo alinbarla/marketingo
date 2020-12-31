@@ -4,7 +4,7 @@ import Switch from "@frontity/components/switch";
 
 import Header from "./header/header";
 import Footer from "./Layout/Footer";
-import Post from "./post";
+import Post from "./Post/index";
 import Blog from "./pages/blog";
 import Home from "./pages/index";
 import Title from "./title";

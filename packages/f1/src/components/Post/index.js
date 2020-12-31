@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { connect, styled } from "frontity";
 
-import Link from "./link";
-import List from "./Blog/List";
-import FeaturedMedia from "./featured-media";
-import Info from "./Info";
-import breakpoints from "../constants/breakpoints";
+import Link from "../link";
+import List from "../Blog/List";
+import FeaturedMedia from "../featured-media";
+import Info from "../Info";
+import CallToAction from "./CallToAction";
+import breakpoints from "../../constants/breakpoints";
 
 const Container = styled.div`
   max-width: 50rem;
@@ -92,38 +93,59 @@ const Post = ({ state, actions, libraries }) => {
   // Get the html2react component.
   const Html2React = libraries.html2react.Component;
 
-  /**
-   * Once the post has loaded in the DOM, prefetch both the
-   * home posts and the list component so if the user visits
-   * the home page, everything is ready and it loads instantly.
-   */
+  const addLinkSmoothScroll = () => {
+    var links = document.getElementsByTagName("a");
+
+    //Browse the previously created array
+    Array.prototype.forEach.call(links, function (elem) {
+      //Get the hyperlink target and if it refers to an id go inside condition
+      var elemAttr = elem.getAttribute("href");
+      if (elemAttr && elemAttr.includes("#")) {
+        //Replace the regular action with a scrolling to target on click
+        elem.addEventListener("click", function (ev) {
+          ev.preventDefault();
+          //Scroll to the target element using replace() and regex to find the href's target id
+          document.getElementById(elemAttr.replace(/#/g, "")).scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest",
+          });
+        });
+      }
+    });
+  };
+
   useEffect(() => {
     actions.source.fetch("/");
     List.preload();
+    addLinkSmoothScroll();
   }, []);
 
   // Load the post, but only if the data is ready.
   return data.isReady ? (
-    <ArticleContainer>
-      {/* Look at the settings to see if we should include the featured image */}
-      {state.theme.featured.showOnPost && (
-        <FeaturedMedia id={post.featured_media} />
-      )}
+    <>
+      <ArticleContainer>
+        {/* Look at the settings to see if we should include the featured image */}
+        {state.theme.featured.showOnPost && (
+          <FeaturedMedia id={post.featured_media} />
+        )}
 
-      <Container>
-        <Main>
-          <Content>
-            <Header>
-              <Title
-                dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-              />
-              <Info InfoText={InfoText} author={author} date={post.date} />
-            </Header>
-            <Html2React html={post.content.rendered} />
-          </Content>
-        </Main>
-      </Container>
-    </ArticleContainer>
+        <Container>
+          <Main>
+            <Content>
+              <Header>
+                <Title
+                  dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+                />
+                <Info InfoText={InfoText} author={author} date={post.date} />
+              </Header>
+              <Html2React html={post.content.rendered} />
+            </Content>
+          </Main>
+        </Container>
+      </ArticleContainer>
+      <CallToAction />
+    </>
   ) : null;
 };
 

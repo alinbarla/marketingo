@@ -3,6 +3,10 @@ import { styled } from "frontity";
 
 import Metadata from "./Metadata";
 
+const Form = styled.form`
+  width: 100%;
+`;
+
 const Group = styled.div`
   display: flex;
   justify-content: space-between;
@@ -57,7 +61,7 @@ const Button = styled.button`
 export class Contact extends Component {
   render() {
     return (
-      <form
+      <Form
         action="https://www.aweber.com/scripts/addlead.pl"
         method="post"
         acceptCharset="UTF-8"
@@ -71,7 +75,7 @@ export class Contact extends Component {
           ></Input>
           <Button type="submit">Empieza</Button>
         </Group>
-      </form>
+      </Form>
     );
   }
 }
