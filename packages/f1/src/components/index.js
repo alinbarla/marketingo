@@ -14,6 +14,7 @@ import BootstrapCss from "./styles/bootstrap.css";
 import gutenbergStyle from "./styles/gutenberg/style.css";
 import gutenbergTheme from "./styles/gutenberg/theme.css";
 import breakpoints from "../constants/breakpoints";
+import favicon from "./images/favicon.png";
 
 /**
  * Theme is the root React component of our theme. The one we will export
@@ -29,7 +30,8 @@ const Theme = ({ state }) => {
       <Title />
       <Head>
         <meta name="description" content={state.frontity.description} />
-        <html lang="en" />
+        <html lang="es" />
+        <link rel="icon" href={favicon} type="image/png" />
       </Head>
 
       {/* Add some global styles for the whole site, like body or a's.

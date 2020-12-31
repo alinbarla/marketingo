@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "air-dining-38b4c"
+    "default": "air-dining-38b4c",
+    "production": "remarketingo"
   }
 }
