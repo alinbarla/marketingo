@@ -1,6 +1,7 @@
 import React from "react";
 import { connect, styled } from "frontity";
 import Link from "../link";
+import { expandBreaekpoint } from "./styles";
 
 /**
  * Navigation Component
@@ -28,15 +29,17 @@ export default connect(Nav);
 
 const NavContainer = styled.nav`
   list-style: none;
-  display: flex;
   max-width: 100%;
   box-sizing: border-box;
   padding: 0 24px;
   margin: 0;
   overflow-x: auto;
+  width: 100%;
+  display: none;
 
-  @media screen and (max-width: 768px) {
-    display: none;
+  @media (min-width: ${expandBreaekpoint}) {
+    width: auto;
+    display: flex;
   }
 `;
 
@@ -47,6 +50,7 @@ const NavItem = styled.div`
   font-size: 0.9em;
   box-sizing: border-box;
   flex-shrink: 0;
+  height: 100%;
 
   & > a {
     display: inline-block;

@@ -2,6 +2,7 @@ import React from "react";
 import { styled, connect, Global } from "frontity";
 import { CloseIcon, HamburgerIcon } from "./menu-icon";
 import MenuModal from "./menu-modal";
+import { expandBreaekpoint } from "./styles";
 
 function MobileMenu({ state, actions }) {
   const { isMobileMenuOpen } = state.theme;
@@ -35,9 +36,12 @@ const MenuToggle = styled.button`
   z-index: 5;
   height: 40px;
   width: 40px;
-  display: none;
   outline: 0;
+  margin-top: -1.25rem;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   &:focus {
     outline: 0;
   }
@@ -53,10 +57,8 @@ const MenuToggle = styled.button`
       color: var(--white);
     }
   }
-  @media (max-width: 768px) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  @media (min-width: ${expandBreaekpoint}) {
+    display: none;
   }
 `;
 

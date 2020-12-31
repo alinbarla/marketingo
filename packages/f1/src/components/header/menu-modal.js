@@ -41,6 +41,9 @@ const MenuContent = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100vh;
+  justify-content: center;
+  /* align-items: center; */
 `;
 
 const MenuLink = styled(Link)`
@@ -61,7 +64,6 @@ const MenuLink = styled(Link)`
   }
   /* styles for active link */
   &[aria-current="page"] {
-    color: var(--black);
     font-weight: bold;
   }
 `;

@@ -6,11 +6,12 @@ import Nav from "./nav";
 import MobileMenu from "./menu";
 import logo from "../images/logo-remarketingo.svg";
 import breakpoints from "../../constants/breakpoints";
+import { expandBreaekpoint } from "./styles";
 
 const Image = styled.img`
   width: 12.5rem;
 
-  @media (min-width: ${breakpoints.sm}) {
+  @media (min-width: ${expandBreaekpoint}) {
     max-height: 5rem;
     width: 100%;
   }
@@ -39,8 +40,7 @@ const BrandContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-
-  @media (min-width: 768px) {
+  @media (min-width: ${expandBreaekpoint}) {
     width: auto;
   }
 `;
