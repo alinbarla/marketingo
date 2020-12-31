@@ -248,6 +248,7 @@ const Content = styled.div`
   img {
     object-fit: cover;
     object-position: center;
+    max-width: 100% !important;
   }
 
   figure {

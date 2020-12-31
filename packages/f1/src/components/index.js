@@ -81,6 +81,7 @@ const globalStyles = css`
       sans-serif;
     font-feature-settings: "kern";
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
   a {
