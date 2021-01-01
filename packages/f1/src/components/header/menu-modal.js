@@ -43,6 +43,9 @@ const MenuContent = styled.div`
   width: 100%;
   height: 100vh;
   justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
   /* align-items: center; */
 `;
 
@@ -51,7 +54,7 @@ const MenuLink = styled(Link)`
   outline: 0;
   font-size: 20px;
   text-align: center;
-  padding: 1.2rem 0;
+  padding: 0.5rem 0;
   color: var(--white);
   display: block;
   position: relative;
