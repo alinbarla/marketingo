@@ -1,9 +1,9 @@
 import React from "react";
 import { styled } from "frontity";
 
-import Contact from "../Contact";
 import { containerStyles } from "../Container";
 import image from "./email-marketing-remarketingo.jpg";
+import ContactContainer from "../ContactContainer";
 
 const Section = styled.section`
   background-color: #f6f5f1;
@@ -28,12 +28,6 @@ const Container = styled.div`
   max-width: 54.5rem;
 `;
 
-const ContactContainer = styled.div`
-  max-width: 31.25rem;
-  margin: 0 auto;
-  width: 100%;
-`;
-
 const CallToAction = () => {
   return (
     <Section>
@@ -47,9 +41,7 @@ const CallToAction = () => {
           Recibe contenido marketing exclusivo que no encontrarás en el blog
           Remarketingo.
         </p>
-        <ContactContainer>
-          <Contact />
-        </ContactContainer>
+        <ContactContainer />
       </Container>
     </Section>
   );
