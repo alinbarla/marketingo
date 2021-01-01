@@ -88,7 +88,7 @@ export class Info extends Component {
         </StyledBadge>
         <Body>
           <InfoText>{author.name}</InfoText>
-          <InfoText>.</InfoText>
+          <InfoText>·</InfoText>
           <InfoText>{dateString}</InfoText>
         </Body>
       </Group>
