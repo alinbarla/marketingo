@@ -3,6 +3,7 @@ import { styled } from "frontity";
 
 import { containerStyles } from "../../Container";
 import Caption from "../Caption";
+import Link from "../../link";
 import weddingImage from "./Wedding.jpg";
 
 const Container = styled.section`
@@ -60,7 +61,7 @@ export class Introduction extends Component {
               tener que preocuparnos más por nuestra situación económica.
               ¿Buscas lo mismo?
             </span>
-            <a href="/blog"> Aqui estamos</a>
+            <Link link="/blog"> Aqui estamos</Link>
             <span> para ayudarte.</span>
           </p>
         </Body>

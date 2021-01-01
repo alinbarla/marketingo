@@ -59,7 +59,7 @@ export class Info extends Component {
     });
     const secondLastIndex = monthString.length - 1;
     // To remove the period at the end. For example, "dec." becomes "dec"
-    return monthString.splice(0, secondLastIndex);
+    return monthString.substring(0, secondLastIndex);
   };
 
   getDateString = () => {

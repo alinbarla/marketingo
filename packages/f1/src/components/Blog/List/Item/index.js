@@ -62,15 +62,17 @@ const Item = ({ state, item }) => {
   const author = state.source.author[item.author];
   const { featured_image_src, title, date } = item;
 
+  const PostLink = (props) => <Link link={item.link} {...props} />;
+
   return (
     <Article>
-      <a href={item.link}>
+      <PostLink>
         <Image src={featured_image_src} />
-      </a>
+      </PostLink>
       <Header>
-        <a href={item.link}>
+        <PostLink>
           <Title dangerouslySetInnerHTML={{ __html: title.rendered }} />
-        </a>
+        </PostLink>
         <Info author={author} InfoText={InfoText} date={date} />
       </Header>
 
@@ -78,9 +80,7 @@ const Item = ({ state, item }) => {
       {item.excerpt && (
         <Excerpt dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
       )}
-      <Link link={item.link} css={readMoreLink}>
-        Leer más →
-      </Link>
+      <PostLink css={readMoreLink}>Leer más →</PostLink>
     </Article>
   );
 };

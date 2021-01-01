@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { styled } from "frontity";
+import { css, styled } from "frontity";
 
+import Link from "../../link";
 import sectionImage from "./negocio-online-estrategias-marketing.svg";
 import breakpoints from "../../../constants/breakpoints";
 
@@ -78,7 +79,7 @@ const ButtonContainer = styled.div`
   }
 `;
 
-const Link = styled.a`
+const linkStyles = css`
   color: #ffffff;
   background-color: var(--brand);
   transition: transform 0.2s ease !important;
@@ -109,7 +110,9 @@ export class CallToAction extends Component {
           <BodyColumn>
             <Title>Las mejores estrategias marketing!</Title>
             <ButtonContainer>
-              <Link href="/blog">Todos los recursos</Link>
+              <Link link="/blog" css={linkStyles}>
+                Todos los recursos
+              </Link>
             </ButtonContainer>
           </BodyColumn>
         </Grid>
