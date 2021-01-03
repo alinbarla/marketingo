@@ -550,4 +550,8 @@ const Content = styled.div`
     margin-right: auto;
     display: block;
   }
+
+  .css-7yxilg-Article {
+    padding: 2.8125rem;
+  }
 `;

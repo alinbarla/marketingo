@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { styled } from "frontity";
 
+import PageLink from "../../link";
 import { containerStyles } from "../../Container";
 import Social from "./Social";
 import logo from "../../images/logo-remarketingo.svg";
@@ -88,7 +89,9 @@ const Footer = () => {
     <Section>
       <Container>
         <Body>
-          <Logo src={logo} alt="Remarketingo" />
+          <PageLink link="/">
+            <Logo src={logo} alt="Remarketingo" />
+          </PageLink>
           <Social />
           <Legal>
             <LegalText>© COPYRIGHT 2021 · REMARKETINGO</LegalText>

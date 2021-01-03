@@ -29,7 +29,7 @@ const Title = ({ state }) => {
     // 2. Remove any HTML tags found in the title.
     const cleanTitle = decode(postTitle);
     // 3. Render the proper title.
-    title = `${cleanTitle} - ${state.frontity.title}`;
+    title = `${cleanTitle} - Remarketingo`;
   } else if (data.isPostArchive) {
     // Add titles to 404's.
     title = `Blog - ${state.frontity.title}`;
