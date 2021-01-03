@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import { Avatar } from "@material-ui/core";
 import { styled, css } from "frontity";
 
+import Link from "../../link";
 import profilePicture from "./Alin-Barla-Remarketingo.svg";
 import { ContentContainer } from "../ContentContainer";
+import links from "../../../constants/links";
 
 const AvatarContainer = styled.div`
   display: flex;
@@ -55,7 +57,7 @@ export class Introduction extends Component {
         </AvatarContainer>
         <Title>Hola, soy Alin.</Title>
         <Subtitle>
-          Un poco <EmphasizedSubtitlte>sobre mi</EmphasizedSubtitlte>
+          Un poco <Link link={links.sobreMi}>sobre mi</Link>
         </Subtitle>
         <Description>
           <strong>Soy emprendedor y experto en marketing digital.</strong>{" "}

@@ -8,13 +8,14 @@ import Post from "./Post/index";
 import Blog from "./pages/blog";
 import Home from "./pages/index";
 import Title from "./title";
-import About from "./pages/about";
+import SobreMi from "./pages/sobre-mi";
 import PageError from "./page-error";
 import BootstrapCss from "./styles/bootstrap.css";
 import gutenbergStyle from "./styles/gutenberg/style.css";
 import gutenbergTheme from "./styles/gutenberg/theme.css";
 import breakpoints from "../constants/breakpoints";
 import favicon from "./images/favicon.png";
+import links from "../constants/links";
 
 /**
  * Theme is the root React component of our theme. The one we will export
@@ -51,8 +52,8 @@ const Theme = ({ state }) => {
       <div>
         <Switch>
           <Home when={data.isHome} />
-          <About when={state.router.link === "/about/"} />
-          <Blog when={state.router.link === "/blog/"} />
+          <SobreMi when={state.router.link === links.sobreMi} />
+          <Blog when={state.router.link === links.blog} />
           <Post when={data.isPostType} />
           <PageError when={data.isError} />
         </Switch>

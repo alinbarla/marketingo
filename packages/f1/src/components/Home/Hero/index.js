@@ -69,11 +69,9 @@ export class Hero extends Component {
             <Title>Empieza un negocio online (exitoso)</Title>
             <Description>
               ¿Quieres ser emprendedor digital y ganar dinero <em>online</em>?{" "}
-              <strong>
-                En Remarketingo, nos dedicamos a enseñarte a crear un negocio
-                online paso a paso con los mejores consejos y estrategias
-                marketing.
-              </strong>
+              En Remarketingo, nos dedicamos a enseñarte a crear un
+              <strong> negocio online </strong>
+              paso a paso con los mejores consejos y estrategias marketing.
             </Description>
             <Contact />
           </Body>

@@ -3,6 +3,8 @@ import image from "@frontity/html2react/processors/image";
 import iframe from "@frontity/html2react/processors/iframe";
 import links from "./processor/links";
 
+import linkPaths from "./constants/links";
+
 const awsminF1 = {
   name: "@awsmin/f1",
   roots: {
@@ -20,8 +22,8 @@ const awsminF1 = {
     theme: {
       menu: [
         ["Home", "/"],
-        ["Blog", "/blog/"],
-        ["Sobre mi", "/about/"],
+        ["Blog", linkPaths.blog],
+        ["Sobre mi", linkPaths.sobreMi],
       ],
       isMobileMenuOpen: false,
       featured: {

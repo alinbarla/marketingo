@@ -4,6 +4,7 @@ import { css, styled } from "frontity";
 import Link from "../../link";
 import sectionImage from "./negocio-online-estrategias-marketing.svg";
 import breakpoints from "../../../constants/breakpoints";
+import links from "../../../constants/links";
 
 const col1 = "col1";
 const col2 = "col2";
@@ -110,7 +111,7 @@ export class CallToAction extends Component {
           <BodyColumn>
             <Title>Las mejores estrategias marketing!</Title>
             <ButtonContainer>
-              <Link link="/blog" css={linkStyles}>
+              <Link link={links.blog} css={linkStyles}>
                 Todos los recursos
               </Link>
             </ButtonContainer>
