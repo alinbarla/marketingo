@@ -26,10 +26,6 @@ const Body = styled.div`
   }
 `;
 
-const Credits = styled.div`
-  margin-top: 1rem;
-`;
-
 const Logo = styled.img`
   margin-bottom: 20px;
   width: 100%;
@@ -97,34 +93,6 @@ const Footer = () => {
             <LegalText>© COPYRIGHT 2021 · REMARKETINGO</LegalText>
           </Legal>
         </Body>
-        <Credits>
-          <LegalText>
-            Icons made by{" "}
-            <Link
-              href="https://www.flaticon.com/authors/pixel-perfect"
-              title="Pixel perfect"
-            >
-              Pixel perfect
-            </Link>{" "}
-            from{" "}
-            <Link href="https://www.flaticon.com/" title="Flaticon">
-              www.flaticon.com
-            </Link>
-          </LegalText>
-          <LegalText>
-            Icons made by{" "}
-            <Link
-              href="https://www.flaticon.com/authors/freepik"
-              title="Freepik"
-            >
-              Freepik
-            </Link>{" "}
-            from{" "}
-            <Link href="https://www.flaticon.com/" title="Flaticon">
-              www.flaticon.com
-            </Link>
-          </LegalText>
-        </Credits>
       </Container>
     </Section>
   );

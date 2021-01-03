@@ -16,6 +16,7 @@ import gutenbergTheme from "./styles/gutenberg/theme.css";
 import breakpoints from "../constants/breakpoints";
 import favicon from "./images/favicon.png";
 import links from "../constants/links";
+import PrivacyPolicy from "./pages/privacy-policy";
 
 /**
  * Theme is the root React component of our theme. The one we will export
@@ -54,6 +55,7 @@ const Theme = ({ state }) => {
           <Home when={data.isHome} />
           <SobreMi when={state.router.link === links.sobreMi} />
           <Blog when={state.router.link === links.blog} />
+          <PrivacyPolicy when={state.router.link === links.privacyPolicy} />
           <Post when={data.isPostType} />
           <PageError when={data.isError} />
         </Switch>
