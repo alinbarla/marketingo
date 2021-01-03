@@ -52,9 +52,9 @@ const MenuContent = styled.div`
 const MenuLink = styled(Link)`
   width: 100%;
   outline: 0;
-  font-size: 20px;
+  font-size: 1.6rem;
   text-align: center;
-  padding: 0.5rem 0;
+  padding: 0.25rem 0;
   color: var(--white);
   display: block;
   position: relative;
