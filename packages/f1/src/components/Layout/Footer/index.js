@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { styled } from "frontity";
 
 import { containerStyles } from "../../Container";
@@ -58,6 +58,32 @@ const Link = styled.a`
 `;
 
 const Footer = () => {
+  const addLinkSmoothScroll = () => {
+    var links = document.getElementsByTagName("a");
+
+    //Browse the previously created array
+    Array.prototype.forEach.call(links, function (elem) {
+      //Get the hyperlink target and if it refers to an id go inside condition
+      var elemAttr = elem.getAttribute("href");
+      if (elemAttr && elemAttr.includes("#")) {
+        //Replace the regular action with a scrolling to target on click
+        elem.addEventListener("click", function (ev) {
+          ev.preventDefault();
+          //Scroll to the target element using replace() and regex to find the href's target id
+          document.getElementById(elemAttr.replace(/#/g, "")).scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest",
+          });
+        });
+      }
+    });
+  };
+
+  useEffect(() => {
+    addLinkSmoothScroll();
+  }, []);
+
   return (
     <Section>
       <Container>
