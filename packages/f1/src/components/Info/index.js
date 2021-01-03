@@ -52,6 +52,10 @@ const Body = styled.div`
   flex-wrap: wrap;
 `;
 
+const VerticalDot = styled.div`
+  margin: 0 0.25rem;
+`;
+
 export class Info extends Component {
   getMonth = (date) => {
     const monthString = date.toLocaleDateString("es-MX", {
@@ -88,8 +92,10 @@ export class Info extends Component {
         </StyledBadge>
         <Body>
           <InfoText>{author.name}</InfoText>
-          <InfoText>·</InfoText>
-          <InfoText>{dateString}</InfoText>
+          <VerticalDot>
+            <InfoText>·</InfoText>
+          </VerticalDot>
+          <InfoText> {dateString}</InfoText>
         </Body>
       </Group>
     );
