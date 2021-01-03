@@ -68,7 +68,7 @@ const Theme = ({ state }) => {
 export default connect(Theme);
 
 const globalStyles = css`
-  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap");
+  
 
   :root {
     --brand: #00d07e;
