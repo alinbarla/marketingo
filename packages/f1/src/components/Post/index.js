@@ -55,8 +55,7 @@ const ArticleContainer = styled.div`
   width: 100%;
   max-width: 1035px;
   margin: 0 auto;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding: 2.8125rem;
   .post-title {
     text-align: center;
   }
@@ -549,9 +548,5 @@ const Content = styled.div`
     margin-left: auto;
     margin-right: auto;
     display: block;
-  }
-
-  .css-7yxilg-Article {
-    padding: 2.8125rem;
   }
 `;
