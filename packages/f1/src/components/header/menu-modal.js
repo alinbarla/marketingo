@@ -29,6 +29,9 @@ const MenuOverlay = styled.div`
   background-color: var(--brand);
   background-image: url('https://svgshare.com/i/Sq6.svg');
   background-repeat: no-repeat;
+  background-size: 300px;
+  background-position-x: 10px;
+  background-position-y: 10px;
   width: 100vw;
   height: 100vh;
   overflow: hidden auto;
