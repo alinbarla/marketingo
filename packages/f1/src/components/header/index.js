@@ -9,7 +9,9 @@ import breakpoints from "../../constants/breakpoints";
 import { expandBreaekpoint } from "./styles";
 
 const Image = styled.img`
-  width: 12.5rem;
+  width: 300px;
+  margin-top: -15px;
+  
 
   @media (min-width: ${expandBreaekpoint}) {
     max-height: 5rem;
