@@ -27,6 +27,8 @@ const MenuModal = ({ state }) => {
 
 const MenuOverlay = styled.div`
   background-color: var(--brand);
+  background-image: url('https://svgshare.com/i/Sq6.svg');
+  background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
   overflow: hidden auto;
