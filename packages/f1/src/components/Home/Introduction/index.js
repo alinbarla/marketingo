@@ -61,13 +61,13 @@ export class Introduction extends Component {
         </Subtitle>
         <Description>
           <strong>Soy emprendedor y experto en marketing digital.</strong>{" "}
-          <em>
+          
             Actualmente, vivo en Noruega con mi esposa Selene. Además, juntos
             viajamos por el mundo gracias al éxito de nuestros negocios online.
             De hecho, eso es a lo que me dedico. Ayudar con los mejores consejos
             y estrategias marketing a que tu puedas empezar a ganar online el
-            dinero necesario para vivir la vida que mereces!
-          </em>
+            dinero necesario para <strong>vivir la vida que mereces!</strong>
+          
         </Description>
       </ContentContainer>
     );
