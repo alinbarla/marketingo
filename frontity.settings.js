@@ -2,7 +2,7 @@ const settings = {
   name: "remarketingo",
   state: {
     frontity: {
-      url: "https://remarketingo.com/",
+      url: "https://www.borjagiron.com/",
       title: "Negocio Online - Consejos y Estrategias Marketing",
       description:
         "Hay que aprender como empezar un negocio online. El team Remarketingo te puede dar los mejores consejos y estrategias marketing.",
@@ -25,7 +25,7 @@ const settings = {
       name: "@frontity/wp-source",
       state: {
         source: {
-          url: "https://remarketingo.com/",
+          url: "https://www.borjagiron.com/",
         },
       },
     },
