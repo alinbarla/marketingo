@@ -534,6 +534,7 @@ const Content = styled.div`
     margin-left: auto;
     margin-right: auto;
     margin-top: ${getImageMargin("1.25rem")};
+    margin-bottom:30px;
 
     @media (min-width: ${breakpoints.md}) {
       margin-top: ${getImageMargin("-3rem")};
