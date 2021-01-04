@@ -28,8 +28,8 @@ function MobileMenu({ state, actions }) {
 
 const MenuToggle = styled.button`
   position: absolute;
-  right: 24px;
-  top: 40px;
+  right: 12px;
+  top: 30px;
   background: transparent;
   border: 0;
   color: var(--white);
@@ -44,6 +44,7 @@ const MenuToggle = styled.button`
   justify-content: center;
   &:focus {
     outline: 0;
+    color: white;
   }
   .opensvg,
   .closesvg {
