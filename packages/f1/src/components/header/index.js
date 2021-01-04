@@ -10,7 +10,6 @@ import { expandBreaekpoint } from "./styles";
 
 const Image = styled.img`
   width: 300px;
-  margin-top: -20px;
   margin-left: -5px;
   
 
