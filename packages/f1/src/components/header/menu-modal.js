@@ -31,7 +31,7 @@ const MenuOverlay = styled.div`
   background-repeat: no-repeat;
   background-size: 300px;
   background-position-x: 10px;
-  background-position-y: 10px;
+  background-position-y: 20px;
   width: 100vw;
   height: 100vh;
   overflow: hidden auto;
