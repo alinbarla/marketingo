@@ -520,7 +520,7 @@ const Content = styled.div`
   #entry-title-background {
     z-index: -999;
     min-height: 400px !important;
-    margin-top: ${getBackgroundMargin("22.625rem")};
+    margin-top: -21rem;
 
     @media (min-width: ${breakpoints.md}) {
       margin-top: ${getBackgroundMargin("10.5rem")};
