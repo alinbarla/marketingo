@@ -40,11 +40,11 @@ export class CallToAction extends Component {
         <Container>
           <Body>
             <Title>
-              Más de 37.000 personas reciben mis consejos marketing.
+              Más de +3.700 personas reciben mis consejos marketing.
             </Title>
             <p>
               Recibe contenido marketing exclusivo que no encontrarás en el blog{" "}
-              <em>Remarketingo.</em>
+              
             </p>
           </Body>
           <ContactContainer />
