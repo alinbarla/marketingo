@@ -542,6 +542,7 @@ const Content = styled.div`
     
     @media (min-width: ${breakpoints.md}) {
       margin-top: ${getImageMargin("-3rem")};
+      width:80%;
     }
   }
 
