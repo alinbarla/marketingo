@@ -29,7 +29,7 @@ function MobileMenu({ state, actions }) {
 const MenuToggle = styled.button`
   position: absolute;
   right: 12px;
-  top: 42px;
+  top: 39px;
   background: transparent;
   border: 0;
   color: var(--white);
@@ -49,6 +49,7 @@ const MenuToggle = styled.button`
   .opensvg,
   .closesvg {
     transition: all 0.3s ease;
+    margin-top: -5px;
   }
   &:hover {
     .opensvg {
