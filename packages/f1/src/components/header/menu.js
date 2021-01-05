@@ -46,10 +46,13 @@ const MenuToggle = styled.button`
     outline: 0;
     color: white;
   }
-  .opensvg,
+  .opensvg {
+    transition: all 0.3s ease;
+    margin-top: 5px;
+  }
   .closesvg {
     transition: all 0.3s ease;
-    margin-top: -5px;
+    margin-top: 1px;
   }
   &:hover {
     .opensvg {
