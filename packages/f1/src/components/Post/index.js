@@ -157,6 +157,7 @@ const Content = styled.div`
 
   p {
     margin-bottom: 1.5rem;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   }
 
   h1,
@@ -166,7 +167,7 @@ const Content = styled.div`
   h5,
   h6 {
     color: #111;
-    font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-weight: 900;
     line-height: 1.2;
     margin: 0 0 20px;
@@ -536,9 +537,9 @@ const Content = styled.div`
     border-radius: 10px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: ${getImageMargin("1.25rem")};
+    margin-top: -150px;
     margin-bottom:30px;
-
+    
     @media (min-width: ${breakpoints.md}) {
       margin-top: ${getImageMargin("-3rem")};
     }
