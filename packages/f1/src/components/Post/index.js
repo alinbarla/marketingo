@@ -29,6 +29,9 @@ const Header = styled.header`
   align-items: center;
   padding-top: 3rem;
   margin-bottom: ${headerMarginBottom};
+  @media (max-width: ${breakpoints.xl}) {
+    padding-top: 0rem;
+  }
 `;
 
 const Title = styled.h1`
