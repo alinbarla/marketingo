@@ -12,9 +12,9 @@ export const HamburgerIcon = ({ size, color }) => {
     >
       <title>Open menu</title>
       <g fill="#848181">
-        <rect height="1" width="32" rx="1" ry="1" x=".5" y="2.5" />
-        <rect height="1" width="32" rx="1" ry="1" x=".5" y="8.5" />
-        <rect height="1" width="32" rx="1" ry="1" x=".5" y="14.5" />
+        <rect height="1.5" width="35" rx="1" ry="1" x=".5" y="2.5" />
+        <rect height="1.5" width="35" rx="1" ry="1" x=".5" y="8.5" />
+        <rect height="1.5" width="35" rx="1" ry="1" x=".5" y="14.5" />
       </g>
     </svg>
   );
