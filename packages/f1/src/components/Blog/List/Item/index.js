@@ -21,9 +21,11 @@ const Image = styled.img`
   max-width: 100%;
   width: 100%;
   margin-left: auto;
-  width: 75%;
   display: block;
   margin-right: auto;
+  @media (min-width:768px) {
+    width: 75%;
+  }
 `;
 
 const Header = styled.a`
