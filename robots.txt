@@ -1,0 +1,3 @@
+Sitemap: https://wp.domain.com/sitemap.xml
+User-agent:*
+Disallow:
