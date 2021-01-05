@@ -440,7 +440,7 @@ const Content = styled.div`
   }
 
   .card-body {
-    margin: 15rem 1rem 1rem;
+    margin: 16.5rem 1rem 1rem;
   }
 
   .capitulotitle {
