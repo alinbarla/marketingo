@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { styled, connect } from "frontity";
 
 import InputGrid from "./InputGroup/inputs/InputGrid";
@@ -30,11 +30,19 @@ const CommentNotes = styled.p`
   margin-bottom: 1.75rem;
 `;
 
-const CommentForm = ({ postId, actions }) => {
+const CommentForm = ({ postId, actions, parent }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     actions.comments.submit(postId);
   };
+
+  const setCommentParent = () => {
+    actions.comments.updateFields(postId, { parent });
+  };
+
+  useEffect(() => {
+    setCommentParent();
+  }, []);
 
   return (
     <Container>

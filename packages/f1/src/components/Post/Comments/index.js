@@ -19,7 +19,7 @@ const Title = styled.h3`
 `;
 
 const Comments = ({ state, actions, postId }) => {
-  const [isReplying, setIsReplying] = useState(false);
+  const [commentForm, setCommentForm] = useState(null);
 
   const commentId = `@comments/${postId}`;
 
@@ -37,8 +37,14 @@ const Comments = ({ state, actions, postId }) => {
       <Section>
         <Container>
           <Title>Discussion</Title>
-          <List items={data.items} Comment={ParentComment} />
-          {!isReplying && <CommentForm postId={postId} />}
+          <List
+            items={data.items}
+            Comment={ParentComment}
+            commentForm={commentForm}
+            setCommentForm={setCommentForm}
+            postId={postId}
+          />
+          {!commentForm && <CommentForm postId={postId} />}
         </Container>
       </Section>
     );

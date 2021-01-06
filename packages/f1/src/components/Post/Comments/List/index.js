@@ -5,10 +5,28 @@ const List = styled.ol`
   list-style: none;
 `;
 
-const CommentsList = ({ items, state, Comment }) => {
+const CommentsList = ({
+  items,
+  state,
+  Comment,
+  setCommentForm,
+  commentForm,
+  postId,
+  parent,
+}) => {
   const renderComment = ({ id, children }, index) => {
     const commentData = state.source.comment[id];
-    return <Comment {...commentData} key={index} children={children} />;
+    return (
+      <Comment
+        {...commentData}
+        key={index}
+        children={children}
+        setCommentForm={setCommentForm}
+        commentForm={commentForm}
+        postId={postId}
+        parent={parent}
+      />
+    );
   };
 
   const renderedComments = items.map(renderComment);

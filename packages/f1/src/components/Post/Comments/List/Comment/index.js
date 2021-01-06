@@ -4,10 +4,13 @@ import { styled } from "frontity";
 import List from "../../List";
 import Header from "./Header";
 import ChildComment from "../ChildComment";
+import Reply from "./Reply";
+import CommentForm from "../CommentForm";
 import { avatarMargin, avatarSize } from "./Header/styles";
 
 export const containerStyles = `
   list-style: none;
+  margin: 1rem 0;
 `;
 
 const Body = styled.p`
@@ -24,12 +27,29 @@ const Comment = ({
   content: { rendered },
   children,
   css,
+  id,
+  setCommentForm,
+  commentForm,
+  postId,
+  parent,
 }) => {
+  const showCommentForm = id === commentForm;
   return (
     <li css={css}>
       <Header name={name} avatar={author_avatar_urls} site={site} />
       <Body dangerouslySetInnerHTML={{ __html: rendered }} />
-      {children && <List items={children} Comment={ChildComment} />}
+      {!parent && <Reply commentId={id} setCommentForm={setCommentForm} />}
+      {showCommentForm && <CommentForm parent={id} postId={postId} />}
+      {children && (
+        <List
+          items={children}
+          Comment={ChildComment}
+          setCommentForm={setCommentForm}
+          commentForm={commentForm}
+          postId={postId}
+          parent={id}
+        />
+      )}
     </li>
   );
 };
