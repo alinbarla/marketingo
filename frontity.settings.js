@@ -1,3 +1,8 @@
+const sourceUrl =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost/wordpress"
+    : "https://wp.remarketingo.com/";
+
 const settings = {
   name: "remarketingo",
   state: {
@@ -9,6 +14,7 @@ const settings = {
     },
   },
   packages: [
+    "@frontity/wp-comments",
     {
       name: "@awsmin/f1",
       state: {
@@ -25,7 +31,7 @@ const settings = {
       name: "@frontity/wp-source",
       state: {
         source: {
-          url: "https://wp.remarketingo.com/",
+          url: sourceUrl,
         },
       },
     },
