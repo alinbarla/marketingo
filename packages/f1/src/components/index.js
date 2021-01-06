@@ -27,6 +27,7 @@ const Theme = ({ state }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
 
+  const { link } = state.router;
   return (
     <>
       {/* Add some metatags to the <head> of the HTML. */}
@@ -53,12 +54,12 @@ const Theme = ({ state }) => {
       on the type of URL we are in. */}
       <div>
         <Switch>
-          <SobreMi when={state.router.link === links.sobreMi} />
-          <Blog when={state.router.link === links.blog} />
+          <Home when={link === "/"} />
+          <SobreMi when={link === links.sobreMi} />
+          <Blog when={link === links.blog} />
           <List when={data.isArchive} />
-          <PrivacyPolicy when={state.router.link === links.privacyPolicy} />
+          <PrivacyPolicy when={link === links.privacyPolicy} />
           <Post when={data.isPostType} />
-          <Home when={data.isHome} />
           <PageError when={data.isError} />
         </Switch>
       </div>
