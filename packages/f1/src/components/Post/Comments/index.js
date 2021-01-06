@@ -51,7 +51,9 @@ const Comments = ({ state, actions, postId }) => {
               postId={postId}
             />
           </Body>
-          {!commentForm && <CommentForm postId={postId} />}
+          {!commentForm && (
+            <CommentForm postId={postId} title="Deja un comentario:" />
+          )}
         </Container>
       </Section>
     );

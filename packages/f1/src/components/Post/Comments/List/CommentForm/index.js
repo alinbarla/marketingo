@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { styled, connect } from "frontity";
+import { styled, connect, css } from "frontity";
 
 import InputGrid from "./InputGroup/inputs/InputGrid";
 import Name from "./Name";
@@ -21,10 +21,20 @@ const Container = styled.section`
   }
 `;
 
-const Title = styled.h3`
-  font-size: 2rem;
-  font-weight: 900;
-  margin-bottom: 1.25rem;
+const titleStyles = `
+font-size: 2rem;
+font-weight: 900;
+margin-bottom: 1.25rem;
+`;
+
+const mainTitleCss = css`
+  ${titleStyles}
+`;
+
+const replyTitleCss = css`
+  ${titleStyles}
+  border-bottom: 1px solid gray;
+  padding-bottom: 0.625rem;
 `;
 
 const CommentNotes = styled.p`
@@ -32,7 +42,7 @@ const CommentNotes = styled.p`
   margin-bottom: 1.75rem;
 `;
 
-const CommentForm = ({ postId, actions, parent }) => {
+const CommentForm = ({ postId, actions, parent, title }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     actions.comments.submit(postId);
@@ -46,9 +56,11 @@ const CommentForm = ({ postId, actions, parent }) => {
     setCommentParent();
   }, []);
 
+  const titleCss = parent ? replyTitleCss : mainTitleCss;
+
   return (
     <Container>
-      <Title>Deja un comentario:</Title>
+      <h3 css={titleCss}>{title}</h3>
       <CommentNotes>
         Estamos tomando muy en serio la privacidad de nuestros lectores
       </CommentNotes>

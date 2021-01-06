@@ -4,7 +4,7 @@ import InputGroup from "./InputGroup";
 import InputColumn from "./InputGroup/inputs/InputGrid/InputColumn";
 
 const Input = (props) => (
-  <InputColumn placeholder="Correo electronico" {...props} />
+  <InputColumn placeholder="Correo electrónico*" {...props} />
 );
 
 const Email = (props) => (

@@ -42,7 +42,13 @@ const Comment = ({
       <Header name={name} avatar={author_avatar_urls} site={site} />
       <Body dangerouslySetInnerHTML={{ __html: rendered }} />
       {!parent && <Reply commentId={id} setCommentForm={setCommentForm} />}
-      {showCommentForm && <CommentForm parent={id} postId={postId} />}
+      {showCommentForm && (
+        <CommentForm
+          parent={id}
+          postId={postId}
+          title={`Responder a ${name}`}
+        />
+      )}
       {children && (
         <List
           items={children}

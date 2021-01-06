@@ -5,7 +5,8 @@ export const inputStyles = `
   border: 1px solid #d4d4d4;
   color: rgb(17, 17, 17);
   width: 100%;
-  &::placeholder: {
+  font-size: 1.125rem;
+  &::placeholder {
     color: #d4d4d4;
   }
 `;
