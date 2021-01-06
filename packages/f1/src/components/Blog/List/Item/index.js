@@ -20,6 +20,12 @@ const Image = styled.img`
   margin-bottom: 1.5rem;
   max-width: 100%;
   width: 100%;
+  margin-left: auto;
+  display: block;
+  margin-right: auto;
+  @media (min-width:768px) {
+    width: 75%;
+  }
 `;
 
 const Header = styled.a`

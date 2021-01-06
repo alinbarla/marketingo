@@ -32,7 +32,7 @@ const Title = ({ state }) => {
     title = `${cleanTitle} - Remarketingo`;
   } else if (data.isPostArchive) {
     // Add titles to 404's.
-    title = `Blog - ${state.frontity.title}`;
+    title = `${state.frontity.title}`;
   } else if (data.isAwsmJobOpeningsArchive) {
     // Add titles to 404's.
     title = `Career - ${state.frontity.title}`;
