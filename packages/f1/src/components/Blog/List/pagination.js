@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect, styled } from "frontity";
 import Link from "@frontity/components/link";
+import { getPostsFetchUrl } from "../../../utils/posts";
 
 /**
  * Pagination Component
@@ -12,7 +13,8 @@ import Link from "@frontity/components/link";
  */
 const Pagination = ({ state, actions }) => {
   // Get the total posts to be displayed based for the current link
-  const { next, previous } = state.source.get("/");
+  const postsFetchUrl = getPostsFetchUrl(state.router.link);
+  const { next, previous } = state.source.get(postsFetchUrl);
 
   // Pre-fetch the the next page if it hasn't been fetched yet.
   useEffect(() => {

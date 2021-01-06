@@ -10,6 +10,7 @@ import Home from "./pages/index";
 import Title from "./title";
 import SobreMi from "./pages/sobre-mi";
 import PageError from "./page-error";
+import List from "./Blog/List";
 import BootstrapCss from "./styles/bootstrap.css";
 import gutenbergStyle from "./styles/gutenberg/style.css";
 import gutenbergTheme from "./styles/gutenberg/theme.css";
@@ -52,11 +53,12 @@ const Theme = ({ state }) => {
       on the type of URL we are in. */}
       <div>
         <Switch>
-          <Home when={data.isHome} />
           <SobreMi when={state.router.link === links.sobreMi} />
           <Blog when={state.router.link === links.blog} />
+          <List when={data.isArchive} />
           <PrivacyPolicy when={state.router.link === links.privacyPolicy} />
           <Post when={data.isPostType} />
+          <Home when={data.isHome} />
           <PageError when={data.isError} />
         </Switch>
       </div>
@@ -68,8 +70,6 @@ const Theme = ({ state }) => {
 export default connect(Theme);
 
 const globalStyles = css`
-  
-
   :root {
     --brand: #00d07e;
     --black: #000000;
