@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect, styled } from "frontity";
 
 import Container from "../../ContainerLarge";
 import ParentComment from "./List/ParentComment";
 import List from "./List";
+import CommentForm from "./List/CommentForm";
 
 const Section = styled.section`
   margin-top: 1rem;
@@ -18,6 +19,8 @@ const Title = styled.h3`
 `;
 
 const Comments = ({ state, actions, postId }) => {
+  const [isReplying, setIsReplying] = useState(false);
+
   const commentId = `@comments/${postId}`;
 
   const fetchPostComments = async () => {
@@ -35,6 +38,7 @@ const Comments = ({ state, actions, postId }) => {
         <Container>
           <Title>Discussion</Title>
           <List items={data.items} Comment={ParentComment} />
+          {!isReplying && <CommentForm postId={postId} />}
         </Container>
       </Section>
     );
