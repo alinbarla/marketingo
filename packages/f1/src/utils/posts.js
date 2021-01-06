@@ -1,5 +1,5 @@
 export const getPostsFetchUrl = (currentPage) => {
-  if (currentPage === "/blog") {
+  if (currentPage === "/blog/") {
     return "/";
   }
   return currentPage;
