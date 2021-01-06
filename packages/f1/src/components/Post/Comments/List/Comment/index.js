@@ -7,17 +7,20 @@ import ChildComment from "../ChildComment";
 import Reply from "./Reply";
 import CommentForm from "../CommentForm";
 import { avatarMargin, avatarSize } from "./Header/styles";
+import breakpoints from "../../../../../constants/breakpoints";
 
-export const containerStyles = `
-  list-style: none;
-  margin: 1rem 0;
-`;
+const Body = styled.div`
+  p {
+    font-weight: 300;
+    margin-bottom: 0.9375rem;
+    font-size: 1.125rem;
+    line-height: 1.85;
+    color: #6e7076;
+  }
 
-const Body = styled.p`
-  padding-left: calc(${avatarSize} + ${avatarMargin});
-  font-size: 1.125rem;
-  font-weight: 300;
-  margin-bottom: 0.9375rem;
+  @media (min-width: ${breakpoints.md}) {
+    padding-left: calc(${avatarSize} + ${avatarMargin});
+  }
 `;
 
 const Comment = ({

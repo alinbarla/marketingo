@@ -10,10 +10,12 @@ import Button from "../../../../../components/Button";
 import breakpoints from "../../../../../constants/breakpoints";
 import SubmitButton from "./SubmitButton";
 
-const Container = styled.div`
+const Container = styled.section`
   padding: 3.4375rem 0.9375rem;
   box-shadow: 0 10px 40px 0 rgba(47, 47, 47, 0.1);
   border-radius: 0.375rem;
+  margin-bottom: 4.375rem;
+
   @media (min-width: ${breakpoints.md}) {
     padding: 3.4375rem;
   }

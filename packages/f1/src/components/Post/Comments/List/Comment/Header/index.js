@@ -2,6 +2,7 @@ import React from "react";
 import { styled } from "frontity";
 
 import Avatar from "./Avatar";
+import breakpoints from "../../../../../../constants/breakpoints";
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -13,8 +14,14 @@ const Link = styled.a`
 `;
 
 const Name = styled.h4`
-  font-size: 1.3rem;
-  font-weight: bold;
+  font-size: 1.125rem;
+  font-weight: 900;
+  color: #555;
+  margin-top: 0.4375rem;
+
+  @media (min-width: ${breakpoints.md}) {
+    font-size: 1.3rem;
+  }
 `;
 
 const getResolutionAsNumber = (resolution) => parseInt(resolution);

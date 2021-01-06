@@ -1,21 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { connect, styled } from "frontity";
 
-import Container from "../../ContainerLarge";
+import Container from "../../Container";
 import ParentComment from "./List/ParentComment";
 import List from "./List";
 import CommentForm from "./List/CommentForm";
 
 const Section = styled.section`
-  margin-top: 1rem;
+  max-width: 42.5rem;
+  margin: 3rem auto 0;
 `;
 
 const Title = styled.h3`
   font-size: 2rem;
   font-weight: 900;
-  padding-bottom: 1.25rem;
+  padding-bottom: 0.625rem;
   margin-bottom: 1.25rem;
   border-bottom: 1px solid gray;
+`;
+
+const Body = styled.div`
+  margin-bottom: 4.375rem;
 `;
 
 const Comments = ({ state, actions, postId }) => {
@@ -36,14 +41,16 @@ const Comments = ({ state, actions, postId }) => {
     return (
       <Section>
         <Container>
-          <Title>Discussion</Title>
-          <List
-            items={data.items}
-            Comment={ParentComment}
-            commentForm={commentForm}
-            setCommentForm={setCommentForm}
-            postId={postId}
-          />
+          <Body>
+            <Title>Discussion</Title>
+            <List
+              items={data.items}
+              Comment={ParentComment}
+              commentForm={commentForm}
+              setCommentForm={setCommentForm}
+              postId={postId}
+            />
+          </Body>
           {!commentForm && <CommentForm postId={postId} />}
         </Container>
       </Section>

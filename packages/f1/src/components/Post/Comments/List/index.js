@@ -3,6 +3,7 @@ import { styled, connect } from "frontity";
 
 const List = styled.ol`
   list-style: none;
+  padding: 0;
 `;
 
 const CommentsList = ({

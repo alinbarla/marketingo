@@ -4,8 +4,8 @@ import BaseAvatar from "@material-ui/core/Avatar";
 import { avatarSize, avatarMargin } from "./styles";
 
 const avatarCss = css`
-  width: ${avatarSize};
-  height: ${avatarSize};
+  width: ${avatarSize} !important;
+  height: ${avatarSize} !important;
   margin-right: ${avatarMargin};
 `;
 

@@ -1,7 +1,8 @@
 import React from "react";
 import { styled } from "frontity";
 
-import Comment, { containerStyles } from "./Comment";
+import Comment from "./Comment";
+import { containerStyles } from "./Comment/styles";
 
 const Container = styled.li`
   ${containerStyles}
