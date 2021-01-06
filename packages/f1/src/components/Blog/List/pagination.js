@@ -11,6 +11,12 @@ import { getPostsFetchUrl } from "../../../utils/posts";
  * The `state`, `actions`, `libraries` props are provided by the global context,
  * when we wrap this component in `connect(...)`
  */
+
+const Toolbar = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 const Pagination = ({ state, actions }) => {
   // Get the total posts to be displayed based for the current link
   const postsFetchUrl = getPostsFetchUrl(state.router.link);
@@ -22,7 +28,7 @@ const Pagination = ({ state, actions }) => {
   }, []);
 
   return (
-    <div>
+    <Toolbar>
       {/* If there's a next page, render this link */}
       {next && (
         <Link link={next}>
@@ -38,7 +44,7 @@ const Pagination = ({ state, actions }) => {
           <Text>Newer posts →</Text>
         </Link>
       )}
-    </div>
+    </Toolbar>
   );
 };
 
