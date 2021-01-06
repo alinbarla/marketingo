@@ -24,8 +24,10 @@ const Pagination = ({ state, actions }) => {
 
   // Pre-fetch the the next page if it hasn't been fetched yet.
   useEffect(() => {
-    if (next) actions.source.fetch(next);
+    if (next) actions.source.fetch(postsFetchUrl);
   }, []);
+
+  const previousLink = previous === "/" ? "/blog/" : previous;
 
   return (
     <Toolbar>
@@ -40,7 +42,7 @@ const Pagination = ({ state, actions }) => {
 
       {/* If there's a previous page, render this link */}
       {previous && (
-        <Link link={previous}>
+        <Link link={previousLink}>
           <Text>Newer posts →</Text>
         </Link>
       )}
