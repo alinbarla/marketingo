@@ -26,7 +26,7 @@ const Comment = ({
   author_url: site,
   content: { rendered },
   children,
-  css,
+  Component,
   id,
   setCommentForm,
   commentForm,
@@ -35,7 +35,7 @@ const Comment = ({
 }) => {
   const showCommentForm = id === commentForm;
   return (
-    <li css={css}>
+    <Component>
       <Header name={name} avatar={author_avatar_urls} site={site} />
       <Body dangerouslySetInnerHTML={{ __html: rendered }} />
       {!parent && <Reply commentId={id} setCommentForm={setCommentForm} />}
@@ -50,7 +50,7 @@ const Comment = ({
           parent={id}
         />
       )}
-    </li>
+    </Component>
   );
 };
 

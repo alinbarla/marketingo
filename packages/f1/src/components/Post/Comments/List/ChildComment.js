@@ -1,12 +1,14 @@
 import React from "react";
-import { css } from "frontity";
+import { styled } from "frontity";
 
-import Comment from "./Comment";
+import Comment, { containerStyles } from "./Comment";
 
-const commentStyles = css`
-  border-left: 1px solid gray;
+const Container = styled.li`
+  ${containerStyles}
+  border-left: 2px solid #eee;
+  padding-left: 2.1875rem;
 `;
 
-const ChildComment = (props) => <Comment css={commentStyles} {...props} />;
+const ChildComment = (props) => <Comment Component={Container} {...props} />;
 
 export default ChildComment;

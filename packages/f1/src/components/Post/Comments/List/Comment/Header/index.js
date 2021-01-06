@@ -17,15 +17,27 @@ const Name = styled.h4`
   font-weight: bold;
 `;
 
+const getResolutionAsNumber = (resolution) => parseInt(resolution);
+
+const getResolutions = (author_avatar_urls) => {
+  const resolutionKeys = Object.keys(author_avatar_urls);
+  return resolutionKeys.map(getResolutionAsNumber);
+};
+
+const getMaxResolution = (author_avatar_urls) => {
+  const resolutions = getResolutions(author_avatar_urls);
+  const resolutionNumber = Math.max(...resolutions);
+  return resolutionNumber.toString();
+};
+
 const getAvatarUrl = (author_avatar_urls) => {
   if (!author_avatar_urls) return null;
-  const resolutions = Object.keys(author_avatar_urls);
-  const highestResolution = Math.max(resolutions);
+  const highestResolution = getMaxResolution(author_avatar_urls);
   return author_avatar_urls[highestResolution];
 };
 
-const Header = ({ name, site, author_avatar_urls }) => {
-  const avatarUrl = getAvatarUrl(author_avatar_urls);
+const Header = ({ name, site, avatar }) => {
+  const avatarUrl = getAvatarUrl(avatar);
   return (
     <HeaderContainer>
       <Avatar avatar={avatarUrl} name={name} />
