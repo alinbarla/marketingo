@@ -1,0 +1,3 @@
+Sitemap: https://wp.remarketingo.com/sitemap.xml
+User-agent:*
+Disallow:

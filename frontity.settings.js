@@ -1,13 +1,13 @@
 const sourceUrl =
   process.env.NODE_ENV === "development"
     ? "http://localhost/wordpress"
-    : "https://www.borjagiron.com/";
+    : "https://wp.remarketingo.com/";
 
 const settings = {
   name: "remarketingo",
   state: {
     frontity: {
-      url: "https://www.borjagiron.com/",
+      url: "https://wp.remarketingo.com/",
       title: "Negocio Online - Consejos y Estrategias Marketing",
       description:
         "Hay que aprender como empezar un negocio online. El team Remarketingo te puede dar los mejores consejos y estrategias marketing.",
