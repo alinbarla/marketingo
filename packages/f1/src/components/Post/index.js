@@ -6,6 +6,7 @@ import List from "../Blog/List";
 import FeaturedMedia from "../featured-media";
 import Info from "../Info";
 import CallToAction from "./CallToAction";
+import Comments from "./Comments";
 import breakpoints from "../../constants/breakpoints";
 
 const Container = styled.div`
@@ -122,6 +123,7 @@ const Post = ({ state, actions, libraries }) => {
         </Container>
       </ArticleContainer>
       <CallToAction />
+      <Comments postId={data.id} />
     </>
   ) : null;
 };
@@ -534,7 +536,7 @@ const Content = styled.div`
     margin-left: auto;
     margin-right: auto;
     margin-top: ${getImageMargin("1.25rem")};
-    margin-bottom:30px;
+    margin-bottom: 30px;
 
     @media (min-width: ${breakpoints.md}) {
       margin-top: ${getImageMargin("-3rem")};
