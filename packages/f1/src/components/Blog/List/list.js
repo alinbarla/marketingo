@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { connect, styled } from "frontity";
+import { connect, styled, Head } from "frontity";
 
 import Item from "./Item";
 import Container from "../../ContainerLarge";
@@ -25,6 +25,9 @@ const List = ({ state, actions }) => {
 
   return (
     <Container>
+      <Head>
+        <title>Blog - Remarketingo</title>
+      </Head>
       <>
         {data.items.map(({ type, id }) => {
           const item = state.source[type][id];

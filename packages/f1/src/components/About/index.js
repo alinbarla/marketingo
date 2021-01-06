@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Head } from "frontity";
 
 import Hero from "./Hero";
 import Introduction from "./Introduction";
@@ -9,6 +10,9 @@ export class About extends Component {
   render() {
     return (
       <div>
+        <Head>
+          <title>Sobre mi - Remarketingo</title>
+        </Head>
         <Hero />
         <Introduction />
         <Features />
