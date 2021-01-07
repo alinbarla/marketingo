@@ -39,7 +39,7 @@ const Pagination = ({ state, actions }) => {
         </Link>
       )}
 
-      {previous && next}
+      {previous && next  && " ⠀ "}
 
       {/* If there's a previous page, render this link */}
       {previous && (
