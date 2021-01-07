@@ -35,7 +35,7 @@ const Pagination = ({ state, actions }) => {
       {/* If there's a next page, render this link */}
       {next && (
         <Link link={next}>
-          <Text>← Older posts</Text>
+          <Text>← Atrás</Text>
         </Link>
       )}
 
@@ -44,7 +44,7 @@ const Pagination = ({ state, actions }) => {
       {/* If there's a previous page, render this link */}
       {previous && (
         <Link link={previousLink}>
-          <Text>Newer posts →</Text>
+          <Text>Recientes →</Text>
         </Link>
       )}
     </Toolbar>
