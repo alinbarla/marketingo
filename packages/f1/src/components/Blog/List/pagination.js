@@ -14,7 +14,8 @@ import { getPostsFetchUrl } from "../../../utils/posts";
 
 const Toolbar = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  margin-bottom: 20px;
 `;
 
 const Pagination = ({ state, actions }) => {
@@ -38,7 +39,7 @@ const Pagination = ({ state, actions }) => {
         </Link>
       )}
 
-      {previous && next && " - "}
+      {previous && next}
 
       {/* If there's a previous page, render this link */}
       {previous && (
