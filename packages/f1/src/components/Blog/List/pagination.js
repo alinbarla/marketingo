@@ -60,4 +60,8 @@ export default connect(Pagination);
 const Text = styled.em`
   display: inline-block;
   margin-top: 16px;
+color: white;
+    background: #00d07e;
+    border-radius: 5px;
+    padding: 10px 20px;
 `;
