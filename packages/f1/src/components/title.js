@@ -3,9 +3,11 @@ import { Head, connect, decode } from "frontity";
 
 const Title = ({ state }) => {
   // Get data about the current URL.
-  const data = state.source.get(state.router.link);
+  const data = state.source.get("/");
   // Set the default title.
-  let title = state.frontity.title;
+  const { frontity = { title: "Remarketingo" } } = state;
+  const { title: frontityTitle } = frontity;
+  let title = frontityTitle;
 
   if (data.isTaxonomy) {
     // Add titles to taxonomies, like "Category: Nature - Blog Name" or "Tag: Japan - Blog Name".
@@ -15,13 +17,13 @@ const Title = ({ state }) => {
     const taxonomyCapitalized =
       taxonomy.charAt(0).toUpperCase() + taxonomy.slice(1);
     // 3. Render the proper title.
-    title = `${taxonomyCapitalized}: ${decode(name)} - ${state.frontity.title}`;
+    title = `${taxonomyCapitalized}: ${decode(name)} - ${frontityTitle}`;
   } else if (data.isAuthor) {
     // Add titles to authors, like "Author: Jon Snow - Blog Name".
     // 1. Get the author entity from the state to get its name.
     const { name } = state.source.author[data.id];
     // 2. Render the proper title.
-    title = `Author: ${decode(name)} - ${state.frontity.title}`;
+    title = `Author: ${decode(name)} - ${frontityTitle}`;
   } else if (data.isPostType) {
     // Add titles to posts and pages, using the title and ending with the Blog Name.
     // 1. Get the post entity from the state and get its title.
@@ -32,13 +34,13 @@ const Title = ({ state }) => {
     title = `${cleanTitle} - Remarketingo`;
   } else if (data.isPostArchive) {
     // Add titles to 404's.
-    title = `${state.frontity.title}`;
+    title = `${frontityTitle}`;
   } else if (data.isAwsmJobOpeningsArchive) {
     // Add titles to 404's.
-    title = `Career - ${state.frontity.title}`;
+    title = `Career - ${frontityTitle}`;
   } else if (data.is404) {
     // Add titles to 404's.
-    title = `404 Not Found - ${state.frontity.title}`;
+    title = `404 Not Found - ${frontityTitle}`;
   }
 
   return (
