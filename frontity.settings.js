@@ -32,6 +32,9 @@ const settings = {
       state: {
         source: {
           url: sourceUrl,
+          params: {
+            per_page: 5,
+          },
         },
       },
     },

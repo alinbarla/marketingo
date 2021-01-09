@@ -3,13 +3,16 @@ import { connect, styled } from "frontity";
 
 import Item from "./Item";
 import Container from "../../ContainerLarge";
+import Pagination from "./pagination";
+import { getPostsFetchUrl } from "../../../utils/posts";
 
 const List = ({ state, actions }) => {
   // Get the data of the current list.
-  const data = state.source.get("/");
+  const urlToFetch = getPostsFetchUrl(state.router.link);
+  const data = state.source.get(urlToFetch);
 
   const fetchAndSetData = async () => {
-    await actions.source.fetch("/");
+    await actions.source.fetch(urlToFetch);
   };
 
   useEffect(() => {
@@ -31,6 +34,7 @@ const List = ({ state, actions }) => {
           return <Item key={item.id} item={item} />;
         })}
       </>
+      <Pagination />
     </Container>
   );
 };
