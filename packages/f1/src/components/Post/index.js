@@ -98,7 +98,6 @@ const Post = ({ state, actions, libraries }) => {
   const Html2React = libraries.html2react.Component;
 
   useEffect(() => {
-    actions.source.fetch("/");
     List.preload();
   }, []);
 
