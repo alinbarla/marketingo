@@ -48,7 +48,9 @@ const settings = {
           containerId: "GTM-MGLC6QK",
         },
         analytics: {
-          pageviews: true,
+          pageviews: {
+            googleAnalytics: true,
+          },
         },
       },
     },
