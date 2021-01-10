@@ -45,10 +45,12 @@ const settings = {
       name: "@frontity/google-analytics",
       state: {
         googleAnalytics: {
-          trackingId: "G-0PZY6GYCHH",
+          trackingId: "UA-157522109-2",
         },
         analytics: {
-          pageviews: true,
+          pageviews: {
+            googleAnalytics: true,
+          },
         },
       },
     },
