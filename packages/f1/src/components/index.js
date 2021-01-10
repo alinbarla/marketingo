@@ -60,6 +60,7 @@ const Theme = ({ state }) => {
           <List when={data.isArchive} />
           <PrivacyPolicy when={link === links.privacyPolicy} />
           <Post when={data.isPostType} />
+          <Home when={data.is404} />
           <PageError when={data.isError} />
         </Switch>
       </div>

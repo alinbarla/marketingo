@@ -28,5 +28,9 @@
     "@frontity/yoast": "^2.0.1",
     "@material-ui/core": "^4.11.2",
     "frontity": "^1.13.0"
+  },
+  "eslintConfig": {
+    "extends": "react-app",
+    "parser": "babel-eslint"
   }
 }
