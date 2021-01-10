@@ -40,6 +40,18 @@ const settings = {
     },
     "@frontity/tiny-router",
     "@frontity/html2react",
+    "@frontity/yoast",
+    {
+      name: "@frontity/google-analytics",
+      state: {
+        googleAnalytics: {
+          trackingId: "G-0PZY6GYCHH",
+        },
+        analytics: {
+          pageviews: true,
+        },
+      },
+    },
   ],
 };
 
