@@ -8,6 +8,7 @@ import Info from "../Info";
 import CallToAction from "./CallToAction";
 import Comments from "./Comments";
 import breakpoints from "../../constants/breakpoints";
+import { addLinkSmoothScroll } from "../../../../../utils/smoothScroll";
 
 const Container = styled.div`
   max-width: 50rem;
@@ -97,8 +98,13 @@ const Post = ({ state, actions, libraries }) => {
   // Get the html2react component.
   const Html2React = libraries.html2react.Component;
 
+  const fetchDataAndAddSmoothScroll = async () => {
+    await actions.source.fetch(state.router.link);
+    addLinkSmoothScroll();
+  };
+
   useEffect(() => {
-    actions.source.fetch(state.router.link);
+    fetchDataAndAddSmoothScroll();
     List.preload();
   }, []);
 
