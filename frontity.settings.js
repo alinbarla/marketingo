@@ -1,7 +1,7 @@
-const sourceUrl =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost/wordpress"
-    : "https://wp.remarketingo.com/";
+const sourceUrl = "https://wp.remarketingo.com/";
+// process.env.NODE_ENV === "development"
+//   ? "http://localhost/wordpress"
+//   : "https://wp.remarketingo.com/";
 
 const settings = {
   name: "remarketingo",
@@ -42,13 +42,15 @@ const settings = {
     "@frontity/html2react",
     "@frontity/yoast",
     {
-      name: "@frontity/google-analytics",
+      name: "@frontity/google-tag-manager-analytics",
       state: {
-        googleAnalytics: {
-          trackingId: "UA-185292311-1",
+        googleTagManagerAnalytics: {
+          containerId: "GTM-P9BRLJ7",
         },
         analytics: {
-          pageviews: true,
+          pageviews: {
+            googleAnalytics: true,
+          },
         },
       },
     },
