@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect, styled } from "frontity";
 import Link from "@frontity/components/link";
+import { getPostsFetchUrl } from "../../../utils/posts";
 
 /**
  * Pagination Component
@@ -10,33 +11,43 @@ import Link from "@frontity/components/link";
  * The `state`, `actions`, `libraries` props are provided by the global context,
  * when we wrap this component in `connect(...)`
  */
+
+const Toolbar = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+`;
+
 const Pagination = ({ state, actions }) => {
   // Get the total posts to be displayed based for the current link
-  const { next, previous } = state.source.get("/");
+  const postsFetchUrl = getPostsFetchUrl(state.router.link);
+  const { next, previous } = state.source.get(postsFetchUrl);
 
   // Pre-fetch the the next page if it hasn't been fetched yet.
   useEffect(() => {
-    if (next) actions.source.fetch(next);
+    if (next) actions.source.fetch(postsFetchUrl);
   }, []);
 
+  const previousLink = previous === "/" ? "/blog/" : previous;
+
   return (
-    <div>
+    <Toolbar>
       {/* If there's a next page, render this link */}
       {next && (
         <Link link={next}>
-          <Text>← Older posts</Text>
+          <Text>← Atrás</Text>
         </Link>
       )}
 
-      {previous && next && " - "}
+      {previous && next  && " ⠀ "}
 
       {/* If there's a previous page, render this link */}
       {previous && (
-        <Link link={previous}>
-          <Text>Newer posts →</Text>
+        <Link link={previousLink}>
+          <Text>Recientes →</Text>
         </Link>
       )}
-    </div>
+    </Toolbar>
   );
 };
 
@@ -49,4 +60,8 @@ export default connect(Pagination);
 const Text = styled.em`
   display: inline-block;
   margin-top: 16px;
+color: white;
+    background: #00d07e;
+    border-radius: 5px;
+    padding: 10px 20px;
 `;
