@@ -14,7 +14,9 @@
     "start": "frontity serve --port $PORT",
     "dev": "frontity dev",
     "build": "frontity build",
-    "serve": "frontity serve"
+    "serve": "frontity serve",
+     "start": "SET NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
+   "build": "SET NODE_OPTIONS=--openssl-legacy-provider && react-scripts build"
   },
   "prettier": {},
   "dependencies": {
