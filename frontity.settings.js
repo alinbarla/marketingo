@@ -1,13 +1,13 @@
-const sourceUrl = "https://wp.marketingo.it/";
+const sourceUrl = "https://wp.evangely.it/";
 // process.env.NODE_ENV === "development"
 //   ? "http://localhost/wordpress"
-//   : "https://wp.marketingo.it/";
+//   : "https://wp.evangely.it/";
 
 const settings = {
   name: "marketingo",
   state: {
     frontity: {
-      url: "https://wp.marketingo.it/",
+      url: "https://wp.evangely.it/",
       title: "Negocio Online - Consejos y Estrategias Marketing",
       description:
         "Hay que aprender como empezar un negocio online. El team Remarketingo te puede dar los mejores consejos y estrategias marketing.",
