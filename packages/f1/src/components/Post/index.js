@@ -103,10 +103,7 @@ const Post = ({ state, actions, libraries }) => {
     addLinkSmoothScroll();
   };
 
-  useEffect(() => {
-    fetchDataAndAddSmoothScroll();
-    List.preload();
-  }, []);
+ 
 
   // Load the post, but only if the data is ready.
   return data.isReady ? (
