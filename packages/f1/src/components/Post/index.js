@@ -8,7 +8,7 @@ import Info from "../Info";
 import CallToAction from "./CallToAction";
 import Comments from "./Comments";
 import breakpoints from "../../constants/breakpoints";
-import { addLinkSmoothScroll } from "../../../../../utils/smoothScroll";
+
 
 const Container = styled.div`
   max-width: 50rem;
