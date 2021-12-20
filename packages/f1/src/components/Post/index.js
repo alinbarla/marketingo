@@ -378,7 +378,7 @@ const Content = styled.div`
     justify-content: center;
     padding: 0 35% !important;
   }
-
+ 
   @media only screen and (max-width: 680px) {
     .wrapper-tabla {
       display: flex;
