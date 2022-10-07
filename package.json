@@ -33,5 +33,5 @@
   "eslintConfig": {
     "extends": "react-app",
     "parser": "babel-eslint"
-  }
+  } 
 }
