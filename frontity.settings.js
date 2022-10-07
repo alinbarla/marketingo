@@ -1,4 +1,4 @@
-const sourceUrl = "https://wp.evangely.it/";
+const sourceUrl = "https://deploy.marketingo.it/";
 // process.env.NODE_ENV === "development"
 //   ? "http://localhost/wordpress"
 //   : "https://wp.evangely.it/";
