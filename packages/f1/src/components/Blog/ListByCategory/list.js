@@ -32,20 +32,19 @@ const List = ({ state, actions }) => {
           return null;
 
         return (
-          <>
+          <React.Fragment key={categoryData.id}>
             <Title>{items[index].name}</Title>
-            {console.log(categoryData)}
             <Grid container spacing={3}>
               {categoryData.items.map(({ type, id }) => {
                 const item = state.source[type][id];
                 return (
-                  <Grid item xs={4}>
-                    <Item key={item.id} item={item} />
+                  <Grid key={item.id} item xs={4}>
+                    <Item item={item} />
                   </Grid>
                 );
               })}
             </Grid>
-          </>
+          </React.Fragment>
         );
       })}
     </Container>
