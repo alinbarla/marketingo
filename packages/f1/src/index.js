@@ -22,8 +22,7 @@ const allCategoriesHandler = {
 
     // 2. get an array with each item in json format
     const unitems = await response.json();
-    let unmapitems = unitems.filter((item) => item.name !== "Uncategorized");
-    const items = unmapitems.map((item) => {
+    const items = unitems.map((item) => {
       const newItem = item;
       newItem.link = newItem.link.replace(state.source.url, "/");
       return newItem;
