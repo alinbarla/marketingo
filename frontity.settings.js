@@ -7,10 +7,10 @@ const settings = {
   name: "marketingo",
   state: {
     frontity: {
-      url: "https://wp.evangely.it/",
-      title: "Negocio Online - Consejos y Estrategias Marketing",
+      url: "https://deploy.marketingo.it/",
+      title: "Tutti gli strumenti marketing",
       description:
-        "Hay que aprender como empezar un negocio online. El team Remarketingo te puede dar los mejores consejos y estrategias marketing.",
+        "Tips e strategie Marketing",
     },
   },
   packages: [
