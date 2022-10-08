@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import Hero from "./Hero";
-import List from "./List/list";
+import List from "./ListByCategory/list";
 
 export class Blog extends Component {
   render() {
