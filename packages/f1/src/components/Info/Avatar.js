@@ -43,7 +43,7 @@ const avatarStyles = css`
 const InfoAvatar = () => {
   return (
     <StyledBadge
-      overlap="circle"
+      overlap="circular"
       anchorOrigin={{
         vertical: "bottom",
         horizontal: "right",

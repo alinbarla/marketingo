@@ -6,6 +6,7 @@ import Avatar from "./Avatar";
 const Group = styled.div`
   display: flex;
   align-items: center;
+  margin-right: auto;
 `;
 
 const Body = styled.div`
@@ -39,17 +40,17 @@ export class Info extends Component {
   };
 
   render() {
-    const { author, InfoText } = this.props;
+    const { author, InfoText, InfoTextDate = InfoText } = this.props;
     const dateString = this.getDateString();
     return (
       <Group>
         <Avatar />
         <Body>
-          <InfoText>{author.name}</InfoText>
+          <InfoText>Written By: {author.name}</InfoText>
           <VerticalDot>
             <InfoText>·</InfoText>
           </VerticalDot>
-          <InfoText> {dateString}</InfoText>
+          <InfoTextDate> {dateString}</InfoTextDate>
         </Body>
       </Group>
     );

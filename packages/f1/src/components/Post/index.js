@@ -1,14 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect, styled } from "frontity";
 
+import Typography from "@material-ui/core/Typography";
+import Breadcrumbs from "@material-ui/core/Breadcrumbs";
+import SvgIcon from "@material-ui/core/SvgIcon";
+
 import Link from "../link";
-import List from "../Blog/List";
 import FeaturedMedia from "../featured-media";
 import Info from "../Info";
 import CallToAction from "./CallToAction";
 import Comments from "./Comments";
 import breakpoints from "../../constants/breakpoints";
-
 
 const Container = styled.div`
   max-width: 50rem;
@@ -40,9 +42,9 @@ const Title = styled.h1`
   margin-bottom: 1.2rem;
   width: 100% !important;
   text-shadow: 0 5px 10px rgba(14, 27, 35, 0.25);
-  text-align: center;
+  text-align: left;
   margin-top: 50px;
-  color: #fff !important;
+  color: black !important;
   line-height: 1.4 !important;
   font-weight: 800;
   letter-spacing: 0.2px;
@@ -67,7 +69,7 @@ const ArticleContainer = styled.div`
 `;
 
 const StyledLink = styled(Link)`
-  padding: 15px 0;
+  color: inherit;
 `;
 
 const Author = styled.p`
@@ -84,9 +86,27 @@ const DateWrapper = styled.p`
 
 const InfoText = styled.span`
   font-size: 1.3rem;
-  color: white;
+  color: black;
   text-transform: capitalize;
 `;
+
+const InfoTextDate = styled.span`
+  font-size: 1rem;
+  color: black;
+  text-transform: capitalize;
+`;
+
+const StyledBreadcrumbs = styled(Breadcrumbs)`
+  .MuiBreadcrumbs-ol {
+    align-items: normal;
+  }
+`;
+
+const NavigateNextIcon = () => (
+  <SvgIcon>
+    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+  </SvgIcon>
+);
 
 const Post = ({ state, actions, libraries }) => {
   // Get information about the current URL.
@@ -103,8 +123,6 @@ const Post = ({ state, actions, libraries }) => {
     addLinkSmoothScroll();
   };
 
- 
-
   // Load the post, but only if the data is ready.
   return data.isReady ? (
     <>
@@ -118,10 +136,26 @@ const Post = ({ state, actions, libraries }) => {
           <Main>
             <Content>
               <Header>
+                <StyledBreadcrumbs
+                  aria-label="breadcrumb"
+                  separator={<NavigateNextIcon fontSize="small" />}
+                >
+                  <StyledLink link="/">
+                    <Typography color="inherit">Blog</Typography>
+                  </StyledLink>
+                  <Typography color="textPrimary">
+                    {post.title.rendered}
+                  </Typography>
+                </StyledBreadcrumbs>
                 <Title
                   dangerouslySetInnerHTML={{ __html: post.title.rendered }}
                 />
-                <Info InfoText={InfoText} author={author} date={post.date} />
+                <Info
+                  InfoText={InfoText}
+                  InfoTextDate={InfoTextDate}
+                  author={author}
+                  date={post.date}
+                />
               </Header>
               <Html2React html={post.content.rendered} />
             </Content>
@@ -378,7 +412,7 @@ const Content = styled.div`
     justify-content: center;
     padding: 0 35% !important;
   }
- 
+
   @media only screen and (max-width: 680px) {
     .wrapper-tabla {
       display: flex;
