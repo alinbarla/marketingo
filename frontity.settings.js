@@ -12,6 +12,11 @@ const settings = {
       description:
         "Hay que aprender como empezar un negocio online. El team Remarketingo te puede dar los mejores consejos y estrategias marketing.",
     },
+    yoast: {
+      transformLinks: {
+        ignore: "^(wp-(json|admin|content|includes))|feed|comments|xmlrpc",
+      },
+    },
   },
   packages: [
     "@frontity/wp-comments",
