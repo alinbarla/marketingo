@@ -34,7 +34,7 @@ const Theme = ({ state }) => {
       <Title />
       <Head>
         <meta name="description" content={state.frontity.description} />
-        <html lang="es" />
+        <html lang="it" />
         <link rel="icon" href={favicon} type="image/png" />
       </Head>
 
