@@ -6,7 +6,7 @@ import Header from "./header/index";
 import Footer from "./Layout/Footer";
 import Post from "./Post/index";
 import Blog from "./pages/blog";
-import Home from "./pages/index";
+//import Home from "./pages/index";
 import Title from "./title";
 import SobreMi from "./pages/sobre-mi";
 import PageError from "./page-error";
@@ -54,13 +54,13 @@ const Theme = ({ state }) => {
       on the type of URL we are in. */}
       <div>
         <Switch>
-          <Home when={link === "/"} />
+          {/* <Home when={link === "/"} /> */}
           <SobreMi when={link === links.sobreMi} />
-          <Blog when={link === links.blog} />
+          <Blog when={link === "/"} />
           <List when={data.isArchive} />
           <PrivacyPolicy when={link === links.privacyPolicy} />
           <Post when={data.isPostType} />
-          <Home when={data.is404} />
+          <Blog when={data.is404} />
           <PageError when={data.isError} />
         </Switch>
       </div>
