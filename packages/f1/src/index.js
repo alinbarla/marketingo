@@ -5,6 +5,39 @@ import links from "./processor/links";
 
 import linkPaths from "./constants/links";
 
+const allCategoriesHandler = {
+  name: "allCategories",
+  priority: 10,
+  pattern: "all-categories",
+  func: async ({ route, params, state, libraries }) => {
+    const { api } = libraries.source;
+
+    // 1. fetch the data you want from the endpoint page
+    const response = await api.get({
+      endpoint: "categories",
+      params: {
+        per_page: 100, // To make sure you get all of them
+      },
+    });
+
+    // 2. get an array with each item in json format
+    const unitems = await response.json();
+    let unmapitems = unitems.filter((item) => item.name !== "Uncategorized");
+    const items = unmapitems.map((item) => {
+      const newItem = item;
+      newItem.link = newItem.link.replace(state.source.url, "/");
+      return newItem;
+    });
+
+    // 3. add data to source
+    const currentPageData = state.source.data[route];
+
+    Object.assign(currentPageData, {
+      items,
+    });
+  },
+};
+
 const awsminF1 = {
   name: "@awsmin/f1",
   roots: {
@@ -38,6 +71,11 @@ const awsminF1 = {
    */
   actions: {
     theme: {
+      beforeSSR:
+        ({ actions }) =>
+        async () => {
+          await actions.source.fetch("all-categories");
+        },
       toggleMobileMenu: ({ state }) => {
         state.theme.isMobileMenuOpen = !state.theme.isMobileMenuOpen;
       },
@@ -53,6 +91,9 @@ const awsminF1 = {
        * inside the content HTML. You can add your own processors too
        */
       processors: [image, iframe, links],
+    },
+    source: {
+      handlers: [allCategoriesHandler],
     },
   },
 };
