@@ -22,7 +22,7 @@ const VerticalDot = styled.div`
 
 export class Info extends Component {
   getMonth = (date) => {
-    const monthString = date.toLocaleDateString("en-US", {
+    const monthString = date.toLocaleDateString("it-IT", {
       month: 'long',
     });
     return monthString;
