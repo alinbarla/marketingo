@@ -3,6 +3,9 @@ import image from "@frontity/html2react/processors/image";
 import iframe from "@frontity/html2react/processors/iframe";
 import links from "./processor/links";
 
+import ReactDOMServer from "react-dom/server";
+import { ServerStyleSheets } from "@material-ui/core/styles";
+
 import linkPaths from "./constants/links";
 
 const allCategoriesHandler = {
@@ -71,10 +74,42 @@ const awsminF1 = {
   actions: {
     theme: {
       beforeSSR:
-        ({ actions }) =>
+        ({ actions, libraries }) =>
         async () => {
           await actions.source.fetch("all-categories");
+
+          libraries.frontity.render = ({ App }) => {
+            const sheets = new ServerStyleSheets();
+
+            const html = ReactDOMServer.renderToString(sheets.collect(<App />));
+
+            // Return the `html` and the `css` collected.
+            return {
+              html,
+              css: sheets.toString(),
+            };
+          };
+
+          const template = libraries.frontity.template;
+          libraries.frontity.template = ({ head, result, ...rest }) => {
+            const { html, css } = result;
+
+            // Push the `css` in the head tags
+            head.push(`<style id="jss-server-side">${css}</style>`);
+
+            return template({
+              ...rest,
+              head,
+              html,
+            });
+          };
         },
+      beforeCSR: () => {
+        const jssStyles = document.querySelector("#jss-server-side");
+        if (jssStyles) {
+          jssStyles.parentElement.removeChild(jssStyles);
+        }
+      },
       toggleMobileMenu: ({ state }) => {
         state.theme.isMobileMenuOpen = !state.theme.isMobileMenuOpen;
       },
