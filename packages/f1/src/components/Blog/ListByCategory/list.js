@@ -38,7 +38,7 @@ const List = ({ state, actions }) => {
               {categoryData.items.map(({ type, id }) => {
                 const item = state.source[type][id];
                 return (
-                  <Grid key={item.id} item xs={4}>
+                  <Grid key={item.id} item xs={12} md={4}>
                     <Item item={item} />
                   </Grid>
                 );
