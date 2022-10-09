@@ -31,7 +31,7 @@ const Header = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 3rem;
+  padding-top: 1rem;
   margin-bottom: ${headerMarginBottom};
   @media (max-width: ${breakpoints.xl}) {
     padding-top: 0rem;
@@ -97,6 +97,7 @@ const InfoTextDate = styled.span`
 `;
 
 const StyledBreadcrumbs = styled(Breadcrumbs)`
+  margin: 0 auto 0 0 !important;
   .MuiBreadcrumbs-ol {
     align-items: normal;
   }
@@ -145,9 +146,11 @@ const Post = ({ state, actions, libraries }) => {
                   <StyledLink link="/">
                     <Typography color="inherit">Blog</Typography>
                   </StyledLink>
-                  {category &&<StyledLink link={category.link}>
-                    <Typography color="inherit">{category.name}</Typography>
-                  </StyledLink>}
+                  {category && (
+                    <StyledLink link={category.link}>
+                      <Typography color="inherit">{category.name}</Typography>
+                    </StyledLink>
+                  )}
                   <Typography color="textPrimary">
                     {post.title.rendered}
                   </Typography>
