@@ -22,12 +22,10 @@ const VerticalDot = styled.div`
 
 export class Info extends Component {
   getMonth = (date) => {
-    const monthString = date.toLocaleDateString("it-IT", {
-      month: "short",
+    const monthString = date.toLocaleDateString("en-US", {
+      month: 'long',
     });
-    const secondLastIndex = monthString.length - 1;
-    // To remove the period at the end. For example, "dec." becomes "dec"
-    return monthString.substring(0, secondLastIndex);
+    return monthString;
   };
 
   getDateString = () => {
@@ -46,7 +44,7 @@ export class Info extends Component {
       <Group>
         <Avatar />
         <Body>
-          <InfoText>Written By: {author.name}</InfoText>
+          <InfoText>{author.name}</InfoText>
           <VerticalDot>
             <InfoText>·</InfoText>
           </VerticalDot>

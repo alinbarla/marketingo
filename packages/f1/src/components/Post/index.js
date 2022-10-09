@@ -123,6 +123,8 @@ const Post = ({ state, actions, libraries }) => {
     addLinkSmoothScroll();
   };
 
+  const category = post.categories && state.source.category[post.categories[0]];
+
   // Load the post, but only if the data is ready.
   return data.isReady ? (
     <>
@@ -143,6 +145,9 @@ const Post = ({ state, actions, libraries }) => {
                   <StyledLink link="/">
                     <Typography color="inherit">Blog</Typography>
                   </StyledLink>
+                  {category &&<StyledLink link={category.link}>
+                    <Typography color="inherit">{category.name}</Typography>
+                  </StyledLink>}
                   <Typography color="textPrimary">
                     {post.title.rendered}
                   </Typography>
