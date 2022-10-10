@@ -15,7 +15,7 @@ import breakpoints from "../../constants/breakpoints";
 const Container = styled.div`
   max-width: 50rem;
   margin: 0 auto;
-  padding-top: 1.25rem;
+  padding-top: 0;
 `;
 
 const Main = styled.main`
