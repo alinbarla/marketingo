@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import { connect, styled, Head } from "frontity";
 
 import Grid from "@material-ui/core/Grid";
+import Typography from '@material-ui/core/Typography';
 
-import Item from "./Item";
+import Item from "../Item";
 import Container from "../../ContainerLarge";
 
 const List = ({ state, actions }) => {
@@ -33,7 +34,7 @@ const List = ({ state, actions }) => {
 
         return (
           <React.Fragment key={categoryData.id}>
-            <Title>{items[index].name}</Title>
+            <Title variant="h3" component="h2" gutterBottom>{items[index].name}</Title>
             <Grid container spacing={3}>
               {categoryData.items.map(({ type, id }) => {
                 const item = state.source[type][id];
@@ -53,9 +54,6 @@ const List = ({ state, actions }) => {
 
 export default connect(List);
 
-const Title = styled.h1`
-  margin-bottom: 0.9375rem;
-  letter-spacing: 0.0625rem;
-  line-height: 2.6125rem;
-  font-weight: 1000;
+const Title = styled(Typography)`
+  font-weight: 700 !important;
 `;

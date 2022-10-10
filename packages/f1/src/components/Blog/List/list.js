@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect, styled, Head } from "frontity";
 
-import Item from "./Item";
+import Item from "../Item";
 import Container from "../../ContainerLarge";
 import Pagination from "./pagination";
 import { getPostsFetchUrl } from "../../../utils/posts";

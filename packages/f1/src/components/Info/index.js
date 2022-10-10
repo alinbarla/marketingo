@@ -7,6 +7,7 @@ const Group = styled.div`
   display: flex;
   align-items: center;
   margin-right: auto;
+  margin-bottom: 1rem;
 `;
 
 const Body = styled.div`
@@ -23,7 +24,7 @@ const VerticalDot = styled.div`
 export class Info extends Component {
   getMonth = (date) => {
     const monthString = date.toLocaleDateString("it-IT", {
-      month: 'long',
+      month: "long",
     });
     return monthString;
   };
