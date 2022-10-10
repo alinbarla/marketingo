@@ -11,7 +11,7 @@ import {
   createTheme,
   ThemeProvider,
 } from "@material-ui/core/styles";
-import CssBaseline from '@material-ui/core/CssBaseline';
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 import linkPaths from "./constants/links";
 
@@ -53,8 +53,24 @@ const FrontityLink = React.forwardRef((props, ref) => {
 });
 
 const muiTheme = createTheme({
+  typography: {
+    fontFamily: [
+      "Inter",
+      "-apple-system",
+      "system-ui",
+      "BlinkMacSystemFont",
+      "Segoe UI",
+      "Roboto",
+      "Droid Sans",
+      "Helvetica Neue",
+      "Helvetica",
+      "Arial",
+      "sans-serif",
+    ].join(","),
+  },
   palette: {
     primary: { main: "#00d07e" },
+    background: { default: "#fff" },
   },
   components: {
     MuiLink: {
