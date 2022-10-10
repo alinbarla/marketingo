@@ -9,7 +9,6 @@ import InfoAvatar from "../Info/Avatar";
 const flexBreakpoint = breakpoints.md;
 
 const Section = styled.section`
-  padding: 5rem 0;
   margin-bottom: 5rem;
 `;
 

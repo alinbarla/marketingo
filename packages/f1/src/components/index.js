@@ -11,7 +11,7 @@ import Title from "./title";
 import SobreMi from "./pages/sobre-mi";
 import PageError from "./page-error";
 import List from "./Blog/List";
-import BootstrapCss from "./styles/bootstrap.css";
+//import BootstrapCss from "./styles/bootstrap.css";
 import gutenbergStyle from "./styles/gutenberg/style.css";
 import gutenbergTheme from "./styles/gutenberg/theme.css";
 import breakpoints from "../constants/breakpoints";
@@ -40,7 +40,7 @@ const Theme = ({ state }) => {
 
       {/* Add some global styles for the whole site, like body or a's.
       Not classes here because we use CSS-in-JS. Only global HTML tags. */}
-      <Global styles={css(BootstrapCss)} />
+      {/* <Global styles={css(BootstrapCss)} /> */}
       <Global styles={css(gutenbergStyle)} />
       <Global styles={css(gutenbergTheme)} />
       <Global styles={globalStyles} />
