@@ -5,7 +5,7 @@ const Title = ({ state }) => {
   // Get data about the current URL.
   const data = state.source.get("/");
   // Set the default title.
-  const { frontity = { title: "Remarketingo" } } = state;
+  const { frontity = { title: "Marketingo" } } = state;
   const { title: frontityTitle } = frontity;
   let title = frontityTitle;
 
