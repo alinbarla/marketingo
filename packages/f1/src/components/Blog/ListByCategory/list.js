@@ -21,9 +21,6 @@ const List = ({ state, actions }) => {
 
   return (
     <Container>
-      <Head>
-        <title>Remarketingo</title>
-      </Head>
       {data.map((categoryData, index) => {
         if (
           !categoryData ||

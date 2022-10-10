@@ -1,45 +1,40 @@
-import React, { useEffect } from "react";
-import { connect, styled, Head } from "frontity";
+import React from "react";
+import { connect, styled } from "frontity";
+
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
 
 import Item from "../Item";
 import Container from "../../ContainerLarge";
-import Pagination from "./pagination";
-import { getPostsFetchUrl } from "../../../utils/posts";
 
-const List = ({ state, actions }) => {
-  // Get the data of the current list.
-  const urlToFetch = getPostsFetchUrl(state.router.link);
-  const data = state.source.get(urlToFetch);
-
-  const fetchAndSetData = async () => {
-    await actions.source.fetch(urlToFetch);
-  };
-
-  useEffect(() => {
-    fetchAndSetData();
-  }, []);
+const List = ({ state }) => {
+  const data = state.source.get(state.router.link);
 
   if (!data || !data.items) return null;
 
-  let title = "Blog";
-  if (data.isAwsmJobOpeningsArchive) {
-    title = "Career";
-  }
-
   return (
     <Container>
-      <Head>
-        <title>Blog - Remarketingo</title>
-      </Head>
       <>
-        {data.items.map(({ type, id }) => {
-          const item = state.source[type][id];
-          return <Item key={item.id} item={item} />;
-        })}
+        <Title variant="h3" component="h2" gutterBottom>
+          {state.source.category[data.id].name}
+        </Title>
+        <Grid container spacing={3}>
+          {data.items.map(({ type, id }) => {
+            const item = state.source[type][id];
+            return (
+              <Grid key={item.id} item xs={12} md={4}>
+                <Item item={item} />
+              </Grid>
+            );
+          })}
+        </Grid>
       </>
-      <Pagination />
     </Container>
   );
 };
 
 export default connect(List);
+
+const Title = styled(Typography)`
+  font-weight: 700 !important;
+`;
