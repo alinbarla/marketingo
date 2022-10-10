@@ -1,10 +1,17 @@
-import Theme from "./components";
+import React from "react";
+import Untheme from "./components";
 import image from "@frontity/html2react/processors/image";
 import iframe from "@frontity/html2react/processors/iframe";
+import Link from "@frontity/components/link";
 import links from "./processor/links";
 
 import ReactDOMServer from "react-dom/server";
-import { ServerStyleSheets } from "@material-ui/core/styles";
+import {
+  ServerStyleSheets,
+  createTheme,
+  ThemeProvider,
+} from "@material-ui/core/styles";
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 import linkPaths from "./constants/links";
 
@@ -39,6 +46,31 @@ const allCategoriesHandler = {
     });
   },
 };
+
+const FrontityLink = React.forwardRef((props, ref) => {
+  const { href, ...other } = props;
+  return <Link link={href} {...other} />;
+});
+
+const muiTheme = createTheme({
+  palette: {
+    primary: { main: "#00d07e" },
+  },
+  components: {
+    MuiLink: {
+      defaultProps: {
+        component: FrontityLink,
+      },
+    },
+  },
+});
+
+const Theme = () => (
+  <ThemeProvider theme={muiTheme}>
+    <CssBaseline />
+    <Untheme />
+  </ThemeProvider>
+);
 
 const awsminF1 = {
   name: "@awsmin/f1",

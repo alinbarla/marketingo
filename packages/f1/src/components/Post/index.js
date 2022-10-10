@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import SvgIcon from "@material-ui/core/SvgIcon";
 
-import Link from "../link";
+import Link from "@material-ui/core/Link";
 import FeaturedMedia from "../featured-media";
 import Info from "../Info";
 import CallToAction from "./CallToAction";
@@ -103,8 +103,8 @@ const StyledBreadcrumbs = styled(Breadcrumbs)`
   }
 `;
 
-const NavigateNextIcon = () => (
-  <SvgIcon>
+const NavigateNextIcon = (props) => (
+  <SvgIcon {...props}>
     <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
   </SvgIcon>
 );
@@ -143,13 +143,13 @@ const Post = ({ state, actions, libraries }) => {
                   aria-label="breadcrumb"
                   separator={<NavigateNextIcon fontSize="small" />}
                 >
-                  <StyledLink link="/">
+                  <Link href="/" color="inherit">
                     <Typography color="inherit">Blog</Typography>
-                  </StyledLink>
+                  </Link>
                   {category && (
-                    <StyledLink link={category.link}>
+                    <Link href={category.link} color="inherit">
                       <Typography color="inherit">{category.name}</Typography>
-                    </StyledLink>
+                    </Link>
                   )}
                   <Typography color="textPrimary">
                     {post.title.rendered}
