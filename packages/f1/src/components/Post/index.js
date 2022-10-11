@@ -27,15 +27,7 @@ const Main = styled.main`
 const headerMarginBottom = "2.8125rem";
 
 const Header = styled.header`
-  z-index: 999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 1rem;
-  margin-bottom: ${headerMarginBottom};
-  @media (max-width: ${breakpoints.xl}) {
-    padding-top: 0rem;
-  }
+  background-color: ${(props) => props.color || "#00d07e"};
 `;
 
 const Title = styled.h1`
@@ -43,8 +35,7 @@ const Title = styled.h1`
   width: 100% !important;
   text-shadow: 0 5px 10px rgba(14, 27, 35, 0.25);
   text-align: left;
-  margin-top: 50px;
-  color: black !important;
+  color: white !important;
   line-height: 1.4 !important;
   font-weight: 800;
   letter-spacing: 0.2px;
@@ -62,10 +53,29 @@ const ArticleContainer = styled.div`
   width: 100%;
   max-width: 1035px;
   margin: 0 auto;
-  padding: 2.8125rem;
+  padding: 0 2.8125rem 2.8125rem 2.8125rem;
   .post-title {
     text-align: center;
   }
+`;
+
+const HeaderContent = styled.div`
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: ${headerMarginBottom};
+  max-width: 1035px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem 2.8125rem 0 2.8125rem;
+`;
+
+const MiniContent = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 680px;
+  color: white;
 `;
 
 const StyledLink = styled(Link)`
@@ -86,13 +96,11 @@ const DateWrapper = styled.p`
 
 const InfoText = styled.span`
   font-size: 1.3rem;
-  color: black;
   text-transform: capitalize;
 `;
 
 const InfoTextDate = styled.span`
   font-size: 1rem;
-  color: black;
   text-transform: capitalize;
 `;
 
@@ -101,6 +109,7 @@ const StyledBreadcrumbs = styled(Breadcrumbs)`
   .MuiBreadcrumbs-ol {
     align-items: normal;
   }
+  color: white !important;
 `;
 
 const NavigateNextIcon = (props) => (
@@ -129,6 +138,37 @@ const Post = ({ state, actions, libraries }) => {
   // Load the post, but only if the data is ready.
   return data.isReady ? (
     <>
+      <Header color={post.meta.background_header_color}>
+        <HeaderContent>
+          <Container>
+            <MiniContent>
+              <StyledBreadcrumbs
+                aria-label="breadcrumb"
+                separator={<NavigateNextIcon fontSize="small" />}
+              >
+                <Link href="/" color="inherit" underline="always">
+                  <Typography color="inherit">Blog</Typography>
+                </Link>
+                {category && (
+                  <Link href={category.link} color="inherit" underline="always">
+                    <Typography color="inherit">{category.name}</Typography>
+                  </Link>
+                )}
+                <Typography color="inherit">{post.title.rendered}</Typography>
+              </StyledBreadcrumbs>
+              <Title
+                dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+              />
+              <Info
+                InfoText={InfoText}
+                InfoTextDate={InfoTextDate}
+                author={author}
+                date={post.date}
+              />
+            </MiniContent>
+          </Container>
+        </HeaderContent>
+      </Header>
       <ArticleContainer>
         {/* Look at the settings to see if we should include the featured image */}
         {state.theme.featured.showOnPost && (
@@ -138,7 +178,7 @@ const Post = ({ state, actions, libraries }) => {
         <Container>
           <Main>
             <Content>
-              <Header>
+              {/* <Header>
                 <StyledBreadcrumbs
                   aria-label="breadcrumb"
                   separator={<NavigateNextIcon fontSize="small" />}
@@ -151,7 +191,7 @@ const Post = ({ state, actions, libraries }) => {
                       <Typography color="inherit">{category.name}</Typography>
                     </Link>
                   )}
-                  <Typography color="textPrimary">
+                  <Typography color="inherit">
                     {post.title.rendered}
                   </Typography>
                 </StyledBreadcrumbs>
@@ -164,7 +204,7 @@ const Post = ({ state, actions, libraries }) => {
                   author={author}
                   date={post.date}
                 />
-              </Header>
+              </Header> */}
               <Html2React html={post.content.rendered} />
             </Content>
           </Main>
@@ -253,7 +293,7 @@ const Content = styled.div`
   h3,
   h4 {
     margin-bottom: 20px;
-    margin-top: 40px;
+    margin-top: 20px;
   }
 
   h4 {
