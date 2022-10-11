@@ -72,11 +72,9 @@ const muiTheme = createTheme({
     primary: { main: "#00d07e" },
     background: { default: "#fff" },
   },
-  components: {
+  props: {
     MuiLink: {
-      defaultProps: {
-        component: FrontityLink,
-      },
+      component: FrontityLink,
     },
   },
 });
