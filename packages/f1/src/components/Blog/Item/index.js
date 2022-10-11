@@ -39,7 +39,7 @@ const Title = styled.h2`
   text-align: center;
   letter-spacing: 0.0625rem;
   line-height: 2.6125rem;
-  transition: all 0.3s ease-out
+  transition: 250ms ease;
 `;
 
 const InfoText = styled.span`
@@ -58,7 +58,7 @@ const readMoreLink = css`
   background-color: #00d07e;
   border-color: #00d07e;
   box-shadow: none;
-  display: block;
+  display: none;
   padding: 1.25rem;
   text-align: center;
   margin-top: 1.625rem;
@@ -66,7 +66,7 @@ const readMoreLink = css`
 
 const Excerpt = styled.div`
   line-height: 1.6em;
-  font-size: 15px;
+  font-size: 15px !important;
 `;
 
 const Item = ({ state, item }) => {
