@@ -7,6 +7,7 @@ const Button = styled.button`
   font-size: 1.425rem;
   width: 100%;
   margin-top: 1.75rem;
+  cursor: pointer;
 `;
 
 const SubmitButton = () => <Button type="submit">Deja un comentario</Button>;
