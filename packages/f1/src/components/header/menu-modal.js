@@ -1,17 +1,21 @@
 import React from "react";
 import { styled, connect } from "frontity";
 import Link from "../link";
+import logo from "../images/MARKETINGO-logo.svg"
 
 const MenuModal = ({ state }) => {
   const { menu } = state.theme;
-  const isThereLinks = menu != null && menu.length > 0;
+  const { items } = state.source.get("all-categories/");
+  const filterItems = items.filter((item) => item.name !== "Uncategorized");
+
+  const isThereLinks = filterItems != null && filterItems.length > 0;
 
   return (
     <>
       <MenuOverlay />
       <MenuContent as="nav">
         {isThereLinks &&
-          menu.map(([name, link]) => (
+          filterItems.map(({name, link}) => (
             <MenuLink
               key={name}
               link={link}
@@ -27,7 +31,7 @@ const MenuModal = ({ state }) => {
 
 const MenuOverlay = styled.div`
   background-color: var(--brand);
-  background-image: url('https://svgshare.com/i/Sq6.svg');
+  background-image: url(${logo});
   background-repeat: no-repeat;
   background-size: 300px;
   background-position-x: 10px;

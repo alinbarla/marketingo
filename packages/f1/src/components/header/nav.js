@@ -9,7 +9,7 @@ import { expandBreaekpoint } from "./styles";
  * It renders the navigation links
  */
 const Nav = ({ state }) => {
-  const { items } = state.source.data["all-categories/"];
+  const { items } = state.source.get("all-categories/");
   const filterItems = items.filter((item) => item.name !== "Uncategorized");
 
   return (
