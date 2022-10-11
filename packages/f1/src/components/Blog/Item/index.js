@@ -39,13 +39,14 @@ const Title = styled.h2`
   text-align: center;
   letter-spacing: 0.0625rem;
   line-height: 2.6125rem;
+  transition: all 0.3s ease-out
 `;
 
 const InfoText = styled.span`
   color: #555;
   font-weight: 400;
   text-transform: capitalize;
-  font-size: 1.2rem;
+  font-size: 15px;
   line-height: 2.25rem;
   font-family: "Inter", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -65,6 +66,7 @@ const readMoreLink = css`
 
 const Excerpt = styled.div`
   line-height: 1.6em;
+  font-size: 15px;
 `;
 
 const Item = ({ state, item }) => {
