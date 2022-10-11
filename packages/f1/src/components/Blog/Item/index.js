@@ -167,11 +167,7 @@ const ItemNew = ({ state, item }) => {
           dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }}
         />
       </CardContent>
-      <CardActions>
-        <Button size="small" color="primary" component={Link} href={item.link}>
-          Leer más →
-        </Button>
-      </CardActions>
+     
     </StyledCard>
   );
 };
