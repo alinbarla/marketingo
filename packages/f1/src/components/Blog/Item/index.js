@@ -105,6 +105,7 @@ import { useTheme } from "@material-ui/core/styles";
 
 const StyledCard = styled(Card)`
   margin: 0 auto 3.5rem;
+  border-radius: 10px !important;
 `;
 
 const StyledLink = styled(Link)`
@@ -134,6 +135,7 @@ const ItemNew = ({ state, item }) => {
   return (
     <StyledCard variant="outlined">
       {featured_media && (
+        <Link href={item.link} underline="none">
           <CardMedia
             component="img"
             alt={media.title.rendered}
@@ -141,26 +143,27 @@ const ItemNew = ({ state, item }) => {
             image={media.source_url}
             srcSet={srcset}
           />
-        )}
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            <StyledLink
-              href={item.link}
-              underline="none"
-              color="inherit"
-              theme={theme}
-            >
-              {title.rendered}
-            </StyledLink>
-          </Typography>
-          <Info author={author} InfoText={InfoText} date={date} />
-          <Typography
-            variant="body2"
-            color="textSecondary"
-            component="p"
-            dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }}
-          />
-        </CardContent>
+        </Link>
+      )}
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="h2">
+          <StyledLink
+            href={item.link}
+            underline="none"
+            color="inherit"
+            theme={theme}
+          >
+            {title.rendered}
+          </StyledLink>
+        </Typography>
+        <Info author={author} InfoText={InfoText} date={date} />
+        <Typography
+          variant="body2"
+          color="textSecondary"
+          component="p"
+          dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }}
+        />
+      </CardContent>
       <CardActions>
         <Button size="small" color="primary" component={Link} href={item.link}>
           Leer más →
