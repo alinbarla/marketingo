@@ -106,6 +106,7 @@ import { useTheme } from "@material-ui/core/styles";
 const StyledCard = styled(Card)`
   margin: 0 auto 3.5rem;
   border-radius: 10px !important;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 `;
 
 const StyledLink = styled(Link)`
