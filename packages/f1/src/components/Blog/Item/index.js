@@ -101,30 +101,39 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import { useTheme } from "@material-ui/core/styles";
 
 const StyledCard = styled(Card)`
   margin: 0 auto 3.5rem;
 `;
 
+const StyledLink = styled(Link)`
+  &:hover {
+    color: ${(props) => props.theme.palette.primary.main};
+  }
+`;
+
 const ItemNew = ({ state, item }) => {
   const { featured_media, title, date } = item;
   const author = state.source.author[item.author];
-  const media = state.source.attachment[featured_media]
+  const media = state.source.attachment[featured_media];
   const srcset =
-		Object.values(media.media_details.sizes)
-			// Get the url and width of each size.
-			.map((it) => [it.source_url, it.width])
-			// Recude them to a string with the format required by `srcset`.
-			.reduce(
-				(final, current, index, array) =>
-					final.concat(`${current.join(' ')}w${index !== array.length - 1 ? ', ' : ''}`),
-				'',
-			) || undefined;
+    Object.values(media.media_details.sizes)
+      // Get the url and width of each size.
+      .map((it) => [it.source_url, it.width])
+      // Recude them to a string with the format required by `srcset`.
+      .reduce(
+        (final, current, index, array) =>
+          final.concat(
+            `${current.join(" ")}w${index !== array.length - 1 ? ", " : ""}`
+          ),
+        ""
+      ) || undefined;
+  const theme = useTheme();
 
   return (
     <StyledCard variant="outlined">
-      <CardActionArea>
-        {featured_media && (
+      {featured_media && (
           <CardMedia
             component="img"
             alt={media.title.rendered}
@@ -135,10 +144,14 @@ const ItemNew = ({ state, item }) => {
         )}
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            <Link
+            <StyledLink
               href={item.link}
               underline="none"
-              color="inherit">{title.rendered}</Link>
+              color="inherit"
+              theme={theme}
+            >
+              {title.rendered}
+            </StyledLink>
           </Typography>
           <Info author={author} InfoText={InfoText} date={date} />
           <Typography
@@ -148,7 +161,6 @@ const ItemNew = ({ state, item }) => {
             dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }}
           />
         </CardContent>
-      </CardActionArea>
       <CardActions>
         <Button size="small" color="primary" component={Link} href={item.link}>
           Leer más →
