@@ -60,11 +60,11 @@ const Footer = () => {
       <Container>
         <Body>
           <PageLink link="/">
-            <Logo src={logo} alt="Remarketingo" />
+            <Logo src={logo} alt="Marketingo" />
           </PageLink>
           <Social />
           <Legal>
-            <LegalText>© COPYRIGHT 2021 · REMARKETINGO</LegalText>
+            <LegalText>© COPYRIGHT 2023 · MARKETINGO</LegalText>
           </Legal>
         </Body>
       </Container>
