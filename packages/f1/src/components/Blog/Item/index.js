@@ -9,7 +9,6 @@ const Article = styled.article`
   width: 100%;
   margin: 0 auto 3.5rem;
   padding: 15px 15px 25px;
-  border: 1px solid #e7ebed;
   border-radius: 10px;
 `;
 
@@ -108,7 +107,7 @@ import { useTheme } from "@material-ui/core/styles";
 const StyledCard = styled(Card)`
   margin: 0 auto 3.5rem;
   border-radius: 10px !important;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  box-shadow: 0 100px 80px rgb(70 125 249 / 4%), 0 41.7776px 33.4221px rgb(70 125 249 / 3%), 0 22.3363px 17.869px rgb(70 125 249 / 2%), 0 12.5216px 10.0172px rgb(70 125 249 / 2%), 0 6.6501px 5.32008px rgb(70 125 249 / 2%), 0 2.76726px 2.21381px rgb(70 125 249 / 1%);
 `;
 
 const StyledLink = styled(Link)`
