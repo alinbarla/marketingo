@@ -10,6 +10,7 @@ const Article = styled.article`
   margin: 0 auto 3.5rem;
   padding: 15px 15px 25px;
   border-radius: 10px;
+  border: none !important;
 `;
 
 const Image = styled.img`
