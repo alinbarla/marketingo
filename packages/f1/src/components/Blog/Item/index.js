@@ -160,7 +160,7 @@ const ItemNew = ({ state, item }) => {
 
   return (
     <StyledCard variant="outlined">
-      {featured_media && (
+      {state.theme.featured.showOnList && featured_media && (
         <Link href={item.link} underline="none">
           <CardMedia
             component="img"
