@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { styled } from "frontity";
 
 import Avatar from "./Avatar";
@@ -21,39 +21,34 @@ const VerticalDot = styled.div`
   margin: 0 0.25rem;
 `;
 
-export class Info extends Component {
-  getMonth = (date) => {
+const Info = ({author, InfoText, InfoTextDate=InfoText, date, ...props}) => {
+  const getMonth = (date) => {
     const monthString = date.toLocaleDateString("it-IT", {
       month: "long",
     });
     return monthString;
   };
 
-  getDateString = () => {
-    const { date: postDate } = this.props;
-    const date = new Date(postDate);
-    const month = this.getMonth(date);
-    const day = date.getDate();
-    const year = date.getFullYear();
+  const getDateString = () => {
+    const dateObj = new Date(date);
+    const month = getMonth(dateObj);
+    const day = dateObj.getDate();
+    const year = dateObj.getFullYear();
     return `${day} ${month} ${year}`;
   };
 
-  render() {
-    const { author, InfoText, InfoTextDate = InfoText } = this.props;
-    const dateString = this.getDateString();
-    return (
-      <Group>
-        <Avatar />
-        <Body>
-          <InfoText>{author.name}</InfoText>
-          <VerticalDot>
-            <InfoText>·</InfoText>
-          </VerticalDot>
-          <InfoTextDate> {dateString}</InfoTextDate>
-        </Body>
-      </Group>
-    );
-  }
-}
+  return (
+    <Group {...props}>
+      <Avatar />
+      <Body>
+        <InfoText>{author.name}</InfoText>
+        <VerticalDot>
+          <InfoText>·</InfoText>
+        </VerticalDot>
+        <InfoTextDate> {getDateString()}</InfoTextDate>
+      </Body>
+    </Group>
+  );
+};
 
 export default Info;
