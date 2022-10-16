@@ -118,6 +118,23 @@ const NavigateNextIcon = (props) => (
   </SvgIcon>
 );
 
+const StyledFeaturedMedia = styled(FeaturedMedia)`
+  &::before {
+    content: "";
+    position: absolute;
+    left: -100vw;
+    right: -100vw;
+    bottom: -40vw;
+    height: 40%;
+    background-color: white;
+  }
+  @media (min-width: ${breakpoints.md}) {
+    &::before {
+      bottom: -10vw;
+    }
+  }
+`;
+
 const Post = ({ state, actions, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
@@ -165,46 +182,18 @@ const Post = ({ state, actions, libraries }) => {
                 author={author}
                 date={post.date}
               />
+              {/* Look at the settings to see if we should include the featured image */}
+              {state.theme.featured.showOnPost && (
+                <StyledFeaturedMedia id={post.featured_media} />
+              )}
             </MiniContent>
           </Container>
         </HeaderContent>
       </Header>
       <ArticleContainer>
-        {/* Look at the settings to see if we should include the featured image */}
-        {state.theme.featured.showOnPost && (
-          <FeaturedMedia id={post.featured_media} />
-        )}
-
         <Container>
           <Main>
             <Content>
-              {/* <Header>
-                <StyledBreadcrumbs
-                  aria-label="breadcrumb"
-                  separator={<NavigateNextIcon fontSize="small" />}
-                >
-                  <Link href="/" color="inherit">
-                    <Typography color="inherit">Blog</Typography>
-                  </Link>
-                  {category && (
-                    <Link href={category.link} color="inherit">
-                      <Typography color="inherit">{category.name}</Typography>
-                    </Link>
-                  )}
-                  <Typography color="inherit">
-                    {post.title.rendered}
-                  </Typography>
-                </StyledBreadcrumbs>
-                <Title
-                  dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-                />
-                <Info
-                  InfoText={InfoText}
-                  InfoTextDate={InfoTextDate}
-                  author={author}
-                  date={post.date}
-                />
-              </Header> */}
               <Html2React html={post.content.rendered} />
             </Content>
           </Main>
