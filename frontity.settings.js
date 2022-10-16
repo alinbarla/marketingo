@@ -9,8 +9,7 @@ const settings = {
     frontity: {
       url: "https://deploy.marketingo.it/",
       title: "Tutti gli strumenti marketing",
-      description:
-        "Tips e strategie Marketing",
+      description: "Tips e strategie Marketing",
     },
     yoast: {
       transformLinks: {
@@ -27,7 +26,7 @@ const settings = {
           menu: [],
           featured: {
             showOnList: false,
-            showOnPost: false,
+            showOnPost: true,
           },
         },
       },
@@ -37,9 +36,6 @@ const settings = {
       state: {
         source: {
           url: sourceUrl,
-          params: {
-            per_page: 5,
-          },
         },
       },
     },
