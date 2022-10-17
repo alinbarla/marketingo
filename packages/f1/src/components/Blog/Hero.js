@@ -11,6 +11,7 @@ import { useTheme } from "@material-ui/core/styles";
 
 import Info from "../Info/index";
 import Container from "../ContainerLarge";
+import breakpoints from "../../constants/breakpoints";
 
 const FeaturedCard = ({ item, showMedia = false, state, ...props }) => {
   if (!item) return null;
@@ -81,14 +82,21 @@ const Hero = ({ state }) => {
               showMedia={state.theme.featured.showOnList}
             />
           </Grid>
-          <Grid item xs={12} md={5} container direction="row" spacing={2}>
+          <MobileGridHero
+            item
+            xs={12}
+            md={5}
+            container
+            direction="row"
+            spacing={2}
+          >
             <Grid item xs={12}>
               <FeaturedCard state={state} item={featuredItemList[1]} />
             </Grid>
             <Grid item xs={12}>
               <FeaturedCard state={state} item={featuredItemList[2]} />
             </Grid>
-          </Grid>
+          </MobileGridHero>
         </Grid>
       </Container>
     </Section>
@@ -103,6 +111,7 @@ const StyledInfo = styled(Info)`
 
 const StyledCard = styled(Card)`
   height: 100%;
+  width: 100%;
   border: none !important;
   border-radius: 10px !important;
   box-shadow: 0 100px 80px rgb(70 125 249 / 4%),
@@ -144,4 +153,15 @@ const InfoText = styled.span`
 
 const Section = styled.section`
   margin-bottom: 5rem;
+`;
+
+const MobileGridHero = styled(Grid)`
+  @media (max-width: ${breakpoints.md}) {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    .MuiGrid-item {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+  }
 `;
