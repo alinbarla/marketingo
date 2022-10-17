@@ -2,7 +2,9 @@ import React, { useEffect } from "react";
 import { connect, styled, Head } from "frontity";
 
 import Grid from "@material-ui/core/Grid";
-import Typography from '@material-ui/core/Typography';
+import Typography from "@material-ui/core/Typography";
+import Link from "@material-ui/core/Link";
+import { useTheme } from "@material-ui/core/styles";
 
 import Item from "../Item";
 import Container from "../../ContainerLarge";
@@ -18,6 +20,7 @@ const List = ({ state, actions }) => {
   }, []);
 
   const data = items.map((item) => state.source.get(item.link));
+  const theme = useTheme();
 
   return (
     <Container>
@@ -29,12 +32,26 @@ const List = ({ state, actions }) => {
         )
           return null;
 
+        const categoryDataItemList = categoryData.items
+          .slice(0, 3)
+          .map(({ type, id }) => state.source[type][id]);
+
         return (
-          <React.Fragment key={categoryData.id}>
-            <Title variant="h3" component="h2" gutterBottom>{items[index].name}</Title>
+          <React.Fragment key={items[index].id}>
+            <Typography component="h2" variant="h3" gutterBottom>
+              <StyledLink
+                href={items[index].link}
+                underline="none"
+                color="inherit"
+                theme={theme}
+                variant="h3"
+              >
+                {items[index].name}
+              </StyledLink>
+            </Typography>
+
             <Grid container spacing={3}>
-              {categoryData.items.map(({ type, id }) => {
-                const item = state.source[type][id];
+              {categoryDataItemList.map((item) => {
                 return (
                   <Grid key={item.id} item xs={12} md={4}>
                     <Item item={item} />
@@ -52,5 +69,12 @@ const List = ({ state, actions }) => {
 export default connect(List);
 
 const Title = styled(Typography)`
+  font-weight: 700 !important;
+`;
+
+const StyledLink = styled(Link)`
+  &:hover {
+    color: ${(props) => props.theme.palette.primary.main};
+  }
   font-weight: 700 !important;
 `;
