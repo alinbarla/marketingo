@@ -65,7 +65,7 @@ const FeaturedCard = ({ item, showMedia = false, state, ...props }) => {
 
 const Hero = ({ state }) => {
   const data = state.source.get(state.router.link);
-  const featuredList = data.items.slice(0, 3);
+  const featuredList = !data.items ? [] : data.items.slice(0, 3);
   const featuredItemList = React.useMemo(
     () => featuredList.map(({ type, id }) => state.source[type][id]),
     [featuredList]
