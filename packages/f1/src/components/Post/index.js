@@ -28,6 +28,8 @@ const headerMarginBottom = "2.8125rem";
 
 const Header = styled.header`
   background-color: ${(props) => props.color || "#00d07e"};
+  overflow: hidden;
+  position: relative;
 `;
 
 const Title = styled.h1`
@@ -119,20 +121,22 @@ const NavigateNextIcon = (props) => (
 );
 
 const StyledFeaturedMedia = styled(FeaturedMedia)`
+  position: relative;
+  margin: 0 auto;
+  max-width: 600px;
+  margin-top: -10px;
   &::before {
     content: "";
     position: absolute;
     left: -100vw;
     right: -100vw;
-    bottom: -40vw;
-    height: 40%;
+    bottom: 0;
+    height: 50%;
     background-color: white;
   }
-  @media (min-width: ${breakpoints.md}) {
-    &::before {
-      bottom: -10vw;
-    }
-  }
+`;
+const StyledInfo = styled(Info)`
+  margin-bottom: 3rem;
 `;
 
 const Post = ({ state, actions, libraries }) => {
@@ -176,7 +180,7 @@ const Post = ({ state, actions, libraries }) => {
               <Title
                 dangerouslySetInnerHTML={{ __html: post.title.rendered }}
               />
-              <Info
+              <StyledInfo
                 InfoText={InfoText}
                 InfoTextDate={InfoTextDate}
                 author={author}
