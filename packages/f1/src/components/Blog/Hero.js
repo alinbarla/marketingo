@@ -153,6 +153,9 @@ const InfoText = styled.span`
 
 const Section = styled.section`
   margin-bottom: 5rem;
+  @media (min-width: ${breakpoints.md}) {
+    margin-top: 3rem;
+  }
 `;
 
 const MobileGridHero = styled(Grid)`
