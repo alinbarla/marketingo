@@ -116,6 +116,7 @@ const StyledCard = styled(Card)`
     0 6.6501px 5.32008px rgb(70 125 249 / 2%),
     0 2.76726px 2.21381px rgb(70 125 249 / 1%) !important;
   transition: box-shadow 0.25s !important;
+  cursor: pointer;
   .postExcerptCard p {
     font-size: 18px !important;
     line-height: 1.4rem !important;
@@ -141,7 +142,7 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const ItemNew = ({ state, item }) => {
+const ItemNew = ({ state, actions, item }) => {
   const { featured_media, title, date } = item;
   const author = state.source.author[item.author];
   const media = state.source.attachment[featured_media];
@@ -159,8 +160,18 @@ const ItemNew = ({ state, item }) => {
       ) || undefined;
   const theme = useTheme();
 
+  const handleCardClick = (e, link) => {
+    e.preventDefault();
+    actions.router.set(link);
+    window.scrollTo(0, 0);
+    document.body.focus();
+  };
+
   return (
-    <StyledCard variant="outlined">
+    <StyledCard
+      variant="outlined"
+      onClick={(e) => handleCardClick(e, item.link)}
+    >
       {state.theme.featured.showOnList && featured_media && (
         <Link href={item.link} underline="none">
           <CardMedia

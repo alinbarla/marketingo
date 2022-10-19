@@ -13,57 +13,65 @@ import Info from "../Info/index";
 import Container from "../ContainerLarge";
 import breakpoints from "../../constants/breakpoints";
 
-const FeaturedCard = ({ item, showMedia = false, state, ...props }) => {
-  if (!item) return null;
-  const { featured_media, title, date } = item;
-  const author = state.source.author[item.author];
-  const media = state.source.attachment[featured_media];
-  const srcset =
-    Object.values(media.media_details.sizes)
-      // Get the url and width of each size.
-      .map((it) => [it.source_url, it.width])
-      // Recude them to a string with the format required by `srcset`.
-      .reduce(
-        (final, current, index, array) =>
-          final.concat(
-            `${current.join(" ")}w${index !== array.length - 1 ? ", " : ""}`
-          ),
-        ""
-      ) || undefined;
-  const theme = useTheme();
+const FeaturedCard = connect(
+  ({ item, showMedia = false, state, actions, ...props }) => {
+    if (!item) return null;
+    const { featured_media, title, date } = item;
+    const author = state.source.author[item.author];
+    const media = state.source.attachment[featured_media];
+    const srcset =
+      Object.values(media.media_details.sizes)
+        // Get the url and width of each size.
+        .map((it) => [it.source_url, it.width])
+        // Recude them to a string with the format required by `srcset`.
+        .reduce(
+          (final, current, index, array) =>
+            final.concat(
+              `${current.join(" ")}w${index !== array.length - 1 ? ", " : ""}`
+            ),
+          ""
+        ) || undefined;
+    const theme = useTheme();
+    const handleCardClick = (e, link) => {
+      e.preventDefault();
+      actions.router.set(link);
+      window.scrollTo(0, 0);
+      document.body.focus();
+    };
 
-  return (
-    <StyledCard {...props}>
-      {showMedia && featured_media && (
-        <Link href={item.link} underline="none">
-          <CardMedia
-            component="img"
-            alt={media.title.rendered}
-            height="200"
-            image={media.source_url}
-            srcSet={srcset}
-          />
-        </Link>
-      )}
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="h2">
-          <StyledLink
-            href={item.link}
-            underline="none"
-            color="inherit"
-            theme={theme}
-            className={"postTitleCard"}
-          >
-            {title.rendered}
-          </StyledLink>
-        </Typography>
-        <StyledInfo author={author} InfoText={InfoText} date={date} />
-      </CardContent>
-    </StyledCard>
-  );
-};
+    return (
+      <StyledCard onClick={(e) => handleCardClick(e, item.link)} {...props}>
+        {showMedia && featured_media && (
+          <Link href={item.link} underline="none">
+            <CardMedia
+              component="img"
+              alt={media.title.rendered}
+              height="200"
+              image={media.source_url}
+              srcSet={srcset}
+            />
+          </Link>
+        )}
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            <StyledLink
+              href={item.link}
+              underline="none"
+              color="inherit"
+              theme={theme}
+              className={"postTitleCard"}
+            >
+              {title.rendered}
+            </StyledLink>
+          </Typography>
+          <StyledInfo author={author} InfoText={InfoText} date={date} />
+        </CardContent>
+      </StyledCard>
+    );
+  }
+);
 
-const Hero = ({ state }) => {
+const Hero = ({ state, actions }) => {
   const data = state.source.get(state.router.link);
   const featuredList = !data.items ? [] : data.items.slice(0, 3);
   const featuredItemList = React.useMemo(
@@ -77,7 +85,6 @@ const Hero = ({ state }) => {
         <Grid container spacing={3}>
           <Grid item xs={12} md={7}>
             <FeaturedCard
-              state={state}
               item={featuredItemList[0]}
               showMedia={state.theme.featured.showOnList}
             />
@@ -121,6 +128,7 @@ const StyledCard = styled(Card)`
     0 6.6501px 5.32008px rgb(70 125 249 / 2%),
     0 2.76726px 2.21381px rgb(70 125 249 / 1%) !important;
   transition: box-shadow 250ms !important;
+  cursor: pointer;
   .postTitleCard {
     font-size: 1.5rem !important;
     font-weight: 800 !important;
