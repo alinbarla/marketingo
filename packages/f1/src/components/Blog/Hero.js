@@ -119,7 +119,8 @@ const StyledCard = styled(Card)`
     0 22.3363px 17.869px rgb(70 125 249 / 2%),
     0 12.5216px 10.0172px rgb(70 125 249 / 2%),
     0 6.6501px 5.32008px rgb(70 125 249 / 2%),
-    0 2.76726px 2.21381px rgb(70 125 249 / 1%);
+    0 2.76726px 2.21381px rgb(70 125 249 / 1%) !important;
+  transition: box-shadow 250ms !important;
   .postTitleCard {
     font-size: 1.5rem !important;
     font-weight: 800 !important;
@@ -131,7 +132,7 @@ const StyledCard = styled(Card)`
       0 22.3363px 17.869px rgb(0 0 0 / 4%),
       0 12.5216px 10.0172px rgb(0 0 0 / 4%),
       0 6.6501px 5.32008px rgb(0 0 0 / 4%),
-      0 2.76726px 2.21381px rgb(0 0 0 / 3%);
+      0 2.76726px 2.21381px rgb(0 0 0 / 3%) !important;
   }
 `;
 
