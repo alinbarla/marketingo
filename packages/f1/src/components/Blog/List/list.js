@@ -5,7 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 
 import Item from "../Item";
-import Pagination from "./pagination";
+import Pagination from "./PaginationComponent";
 import Container from "../../ContainerLarge";
 
 const checkCategoryOrCategoriaHub = (path) => {
@@ -32,8 +32,8 @@ const List = ({ state, libraries }) => {
     <Container>
       <>
         <Title variant="h3" component="h2" gutterBottom>
-          {isCategory  && state.source.category[data.id].name}
-          {isCategoriaHub  && state.source.categoria_hub[data.id].name}
+          {isCategory && state.source.category[data.id].name}
+          {isCategoriaHub && state.source.categoria_hub[data.id].name}
         </Title>
         <Grid container spacing={3}>
           {data.items.map(({ type, id }) => {
