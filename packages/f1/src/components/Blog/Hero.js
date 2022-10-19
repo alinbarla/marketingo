@@ -13,6 +13,7 @@ import Info from "../Info/index";
 import Container from "../ContainerLarge";
 import breakpoints from "../../constants/breakpoints";
 import StyledCard from "./StyledCard";
+import StyledLink from "./StyledLink";
 
 const FeaturedCard = connect(
   ({ item, showMedia = false, state, actions, ...props }) => {
@@ -124,12 +125,6 @@ const ExtraStyledCard = styled(StyledCard)`
   height: 100%;
   width: 100%;
   margin: 0;
-`;
-
-const StyledLink = styled(Link)`
-  &:hover {
-    color: ${(props) => props.theme.palette.primary.main};
-  }
 `;
 
 const InfoText = styled.span`

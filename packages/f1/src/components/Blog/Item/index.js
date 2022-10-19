@@ -8,6 +8,7 @@ import { useTheme } from "@material-ui/core/styles";
 
 import Info from "../../Info/index";
 import StyledCard from "../StyledCard";
+import StyledLink from "../StyledLink";
 
 const InfoText = styled.span`
   color: #555;
@@ -17,12 +18,6 @@ const InfoText = styled.span`
   line-height: 2.25rem;
   font-family: "Inter", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-`;
-
-const StyledLink = styled(Link)`
-  &:hover {
-    color: ${(props) => props.theme.palette.primary.main};
-  }
 `;
 
 const Item = ({ state, actions, item }) => {

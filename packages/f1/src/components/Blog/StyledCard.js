@@ -11,7 +11,7 @@ const StyledCard = styled(Card)`
     0 12.5216px 10.0172px rgb(70 125 249 / 2%),
     0 6.6501px 5.32008px rgb(70 125 249 / 2%),
     0 2.76726px 2.21381px rgb(70 125 249 / 1%) !important;
-  transition: box-shadow 0.25s !important;
+  transition: box-shadow 250ms !important;
   cursor: pointer;
   .postExcerptCard p {
     font-size: 18px !important;

@@ -3,7 +3,7 @@ import { connect, styled, Head } from "frontity";
 
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import Link from "@material-ui/core/Link";
+import Link from "../StyledLink";
 import { useTheme } from "@material-ui/core/styles";
 
 import Item from "../Item";
@@ -73,8 +73,5 @@ const Title = styled(Typography)`
 `;
 
 const StyledLink = styled(Link)`
-  &:hover {
-    color: ${(props) => props.theme.palette.primary.main};
-  }
   font-weight: 700 !important;
 `;
