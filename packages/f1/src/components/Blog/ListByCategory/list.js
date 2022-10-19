@@ -43,7 +43,7 @@ const List = ({ state, actions }) => {
                 href={items[index].link}
                 underline="none"
                 color="inherit"
-                theme={theme}
+                colorLink={theme.palette.primary.main}
                 variant="h3"
               >
                 {items[index].name}

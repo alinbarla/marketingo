@@ -5,7 +5,7 @@ import Link from "@material-ui/core/Link";
 const StyledLink = styled(Link)`
   transition: color 250ms !important;
   &:hover {
-    color: ${(props) => props.theme.palette.primary.main};
+    color: ${(props) => props.colorLink};
   }
 `;
 

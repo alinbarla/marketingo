@@ -68,7 +68,7 @@ const Item = ({ state, actions, item }) => {
             href={item.link}
             underline="none"
             color="inherit"
-            theme={theme}
+            colorLink={theme.palette.primary.main}
             className={"postTitleCard"}
           >
             {title.rendered}
