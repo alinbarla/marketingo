@@ -36,6 +36,9 @@ const settings = {
       state: {
         source: {
           url: sourceUrl,
+          params: {
+            per_page: 9,
+          },
           postTypes: [
             {
               type: "hub",
