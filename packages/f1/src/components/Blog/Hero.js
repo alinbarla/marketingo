@@ -12,6 +12,7 @@ import { useTheme } from "@material-ui/core/styles";
 import Info from "../Info/index";
 import Container from "../ContainerLarge";
 import breakpoints from "../../constants/breakpoints";
+import StyledCard from "./StyledCard";
 
 const FeaturedCard = connect(
   ({ item, showMedia = false, state, actions, ...props }) => {
@@ -40,7 +41,10 @@ const FeaturedCard = connect(
     };
 
     return (
-      <StyledCard onClick={(e) => handleCardClick(e, item.link)} {...props}>
+      <ExtraStyledCard
+        onClick={(e) => handleCardClick(e, item.link)}
+        {...props}
+      >
         {showMedia && featured_media && (
           <Link href={item.link} underline="none">
             <CardMedia
@@ -66,7 +70,7 @@ const FeaturedCard = connect(
           </Typography>
           <StyledInfo author={author} InfoText={InfoText} date={date} />
         </CardContent>
-      </StyledCard>
+      </ExtraStyledCard>
     );
   }
 );
@@ -116,32 +120,10 @@ const StyledInfo = styled(Info)`
   margin-bottom: 0;
 `;
 
-const StyledCard = styled(Card)`
+const ExtraStyledCard = styled(StyledCard)`
   height: 100%;
   width: 100%;
-  border: none !important;
-  border-radius: 10px !important;
-  box-shadow: 0 100px 80px rgb(70 125 249 / 4%),
-    0 41.7776px 33.4221px rgb(70 125 249 / 3%),
-    0 22.3363px 17.869px rgb(70 125 249 / 2%),
-    0 12.5216px 10.0172px rgb(70 125 249 / 2%),
-    0 6.6501px 5.32008px rgb(70 125 249 / 2%),
-    0 2.76726px 2.21381px rgb(70 125 249 / 1%) !important;
-  transition: box-shadow 250ms !important;
-  cursor: pointer;
-  .postTitleCard {
-    font-size: 1.5rem !important;
-    font-weight: 800 !important;
-    line-height: normal !important;
-  }
-  &:hover {
-    box-shadow: 0 100px 80px rgb(0 0 0 / 6%),
-      0 41.7776px 33.4221px rgb(0 0 0 / 5%),
-      0 22.3363px 17.869px rgb(0 0 0 / 4%),
-      0 12.5216px 10.0172px rgb(0 0 0 / 4%),
-      0 6.6501px 5.32008px rgb(0 0 0 / 4%),
-      0 2.76726px 2.21381px rgb(0 0 0 / 3%) !important;
-  }
+  margin: 0;
 `;
 
 const StyledLink = styled(Link)`
