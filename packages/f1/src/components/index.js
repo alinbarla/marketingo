@@ -60,7 +60,7 @@ const Theme = ({ state }) => {
           <List when={data.isArchive} />
           <PrivacyPolicy when={link === links.privacyPolicy} />
           <Post when={data.isPostType} />
-          <Blog when={data.is404} />
+          <RedirectToHome when={data.is404} />
           <PageError when={data.isError} />
         </Switch>
       </div>
@@ -173,3 +173,11 @@ const HeadContainer = styled.div`
   background-color: white;
   z-index: 1000;
 `;
+
+const RedirectToHome = connect(({actions}) => {
+  React.useEffect(() => {
+    actions.router.set("/");
+  });
+
+  return <></>;
+});
