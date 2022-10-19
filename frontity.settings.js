@@ -36,6 +36,19 @@ const settings = {
       state: {
         source: {
           url: sourceUrl,
+          postTypes: [
+            {
+              type: "hub",
+              endpoint: "hub",
+            },
+          ],
+          taxonomies: [
+            {
+              taxonomy: "categoria_hub",
+              endpoint: "categoria_hub",
+              postTypeEndpoint: "hub",
+            },
+          ],
         },
       },
     },
