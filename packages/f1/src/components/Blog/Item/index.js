@@ -51,7 +51,7 @@ const Item = ({ state, actions, item }) => {
       variant="outlined"
       onClick={(e) => handleCardClick(e, item.link)}
     >
-      {state.theme.featured.showOnList && featured_media && (
+      {media && state.theme.featured.showOnList && (
         <Link href={item.link} underline="none">
           <CardMedia
             component="img"
