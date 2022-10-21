@@ -47,6 +47,45 @@ const allCategoriesHandler = {
   },
 };
 
+const allCategoriaHubHandler = {
+  name: "allCategoriaHub",
+  priority: 10,
+  pattern: "all-categoria-hub",
+  func: async ({ route, params, state, libraries }) => {
+    const { api } = libraries.source;
+
+    // 1. fetch the data you want from the endpoint page
+    const response = await api.get({
+      endpoint: "categoria_hub",
+      params: {
+        per_page: 100, // To make sure you get all of them
+      },
+    });
+
+    // 2. get an array with each item in json format
+    const unitems = await response.json();
+    const items = unitems.map((item) => {
+      const newItem = item;
+      newItem.link = newItem.link.replace(state.source.url, "/");
+      return newItem;
+    });
+
+    // 3. add data to source
+    const currentPageData = state.source.data[route];
+
+    Object.assign(currentPageData, {
+      items,
+    });
+  },
+};
+
+const categoriaHubArchiveHandler = {
+  pattern: "/hub/",
+  func: ({ state }) => {
+    state.source.data["/hub/"].isCategoriaHubArchive = true;
+  },
+};
+
 const FrontityLink = React.forwardRef((props, ref) => {
   const { href, ...other } = props;
   return <Link link={href} {...other} />;
@@ -123,6 +162,7 @@ const awsminF1 = {
         ({ actions, libraries }) =>
         async () => {
           await actions.source.fetch("all-categories");
+          await actions.source.fetch("all-categoria-hub");
 
           libraries.frontity.render = ({ App }) => {
             const sheets = new ServerStyleSheets();
@@ -173,7 +213,11 @@ const awsminF1 = {
       processors: [image, iframe, links],
     },
     source: {
-      handlers: [allCategoriesHandler],
+      handlers: [
+        allCategoriesHandler,
+        allCategoriaHubHandler,
+        categoriaHubArchiveHandler,
+      ],
     },
   },
 };

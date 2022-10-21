@@ -18,6 +18,7 @@ import breakpoints from "../constants/breakpoints";
 import favicon from "./images/favicon.png";
 import links from "../constants/links";
 import PrivacyPolicy from "./pages/privacy-policy";
+import Hub from "./Hub/Hub";
 
 /**
  * Theme is the root React component of our theme. The one we will export
@@ -57,9 +58,10 @@ const Theme = ({ state }) => {
           {/* <Home when={link === "/"} /> */}
           <SobreMi when={link === links.sobreMi} />
           <Blog when={link === "/"} />
+          <Hub when={data.isCategoriaHubArchive} />
           <List when={data.isArchive} />
           <PrivacyPolicy when={link === links.privacyPolicy} />
-          <Post when={data.isPostType} />
+          <Post when={data.isPost} />
           <RedirectToHome when={data.is404} />
           <PageError when={data.isError} />
         </Switch>
@@ -174,7 +176,7 @@ const HeadContainer = styled.div`
   z-index: 1000;
 `;
 
-const RedirectToHome = connect(({actions}) => {
+const RedirectToHome = connect(({ actions }) => {
   React.useEffect(() => {
     actions.router.set("/");
   });
