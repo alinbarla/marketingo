@@ -14,7 +14,7 @@ import breakpoints from "../../constants/breakpoints";
 const HubArchiveByCategoriaHub = ({ state }) => {
   const data = state.source.get(state.router.link);
   if (!data || !data.items) return null;
-  const isMobile = useMediaQuery(`max-width: ${breakpoints.md}`);
+  const isMobile = useMediaQuery(`(max-width: ${breakpoints.md})`);
 
   return (
     <Container maxWidth="lg">
@@ -27,7 +27,7 @@ const HubArchiveByCategoriaHub = ({ state }) => {
           {/* <Title variant="h3" component="h2" gutterBottom>
             {state.source.categoria_hub[data.id].name}
           </Title> */}
-          <Grid container spacing={3}>
+          <Grid container spacing={2}>
             {data.items.map(({ id }) => {
               return (
                 <Grid key={id} item xs={12} md={4}>

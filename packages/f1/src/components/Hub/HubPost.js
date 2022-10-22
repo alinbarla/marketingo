@@ -16,7 +16,7 @@ const HubPost = ({ state, libraries }) => {
   const Html2React = libraries.html2react.Component;
   const categoriaHub =
     post.categoria_hub && state.source.categoria_hub[post.categoria_hub[0]];
-  const isMobile = useMediaQuery(`max-width: ${breakpoints.md}`);
+  const isMobile = useMediaQuery(`(max-width: ${breakpoints.md})`);
 
   return (
     <Container maxWidth="lg">

@@ -56,6 +56,7 @@ const RandomColorStyledCard = styled(StyledCard, {
   max-width: 300px !important;
   max-height: 150px !important;
   text-align: center !important;
+  margin-bottom: 1rem !important;
 `;
 
 const Title = styled(Typography)`
