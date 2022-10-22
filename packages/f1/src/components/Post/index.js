@@ -155,6 +155,8 @@ const Post = ({ state, actions, libraries }) => {
   };
 
   const category = post.categories && state.source.category[post.categories[0]];
+  const categoriaHub =
+    post.categoria_hub && state.source.categoria_hub[post.categoria_hub[0]];
 
   // Load the post, but only if the data is ready.
   return data.isReady ? (
@@ -167,12 +169,28 @@ const Post = ({ state, actions, libraries }) => {
                 aria-label="breadcrumb"
                 separator={<NavigateNextIcon fontSize="small" />}
               >
-                <Link href="/" color="inherit" underline="always">
-                  <Typography color="inherit">Blog</Typography>
-                </Link>
-                {category && (
+                {data.isPost && (
+                  <Link href="/" color="inherit" underline="always">
+                    <Typography color="inherit">Blog</Typography>
+                  </Link>
+                )}
+                {data.isHub && (
+                  <Link href="/hub" color="inherit" underline="always">
+                    <Typography color="inherit">Hub</Typography>
+                  </Link>
+                )}
+                {data.isPost && category && (
                   <Link href={category.link} color="inherit" underline="always">
                     <Typography color="inherit">{category.name}</Typography>
+                  </Link>
+                )}
+                {data.isHub && categoriaHub && (
+                  <Link
+                    href={categoriaHub.link}
+                    color="inherit"
+                    underline="always"
+                  >
+                    <Typography color="inherit">{categoriaHub.name}</Typography>
                   </Link>
                 )}
                 <Typography color="inherit">{post.title.rendered}</Typography>
@@ -180,14 +198,16 @@ const Post = ({ state, actions, libraries }) => {
               <Title
                 dangerouslySetInnerHTML={{ __html: post.title.rendered }}
               />
-              <StyledInfo
-                InfoText={InfoText}
-                InfoTextDate={InfoTextDate}
-                author={author}
-                date={post.date}
-              />
+              {data.isPost && (
+                <StyledInfo
+                  InfoText={InfoText}
+                  InfoTextDate={InfoTextDate}
+                  author={author}
+                  date={post.date}
+                />
+              )}
               {/* Look at the settings to see if we should include the featured image */}
-              {state.theme.featured.showOnPost && (
+              {data.isPost && state.theme.featured.showOnPost && (
                 <StyledFeaturedMedia id={post.featured_media} />
               )}
             </MiniContent>
@@ -203,8 +223,7 @@ const Post = ({ state, actions, libraries }) => {
           </Main>
         </Container>
       </ArticleContainer>
-      <CallToAction />
-      <Comments postId={data.id} />
+      <CallToAction /> {data.isPost && <Comments postId={data.id} />}
     </>
   ) : null;
 };
