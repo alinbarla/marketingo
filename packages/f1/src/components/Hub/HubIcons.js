@@ -8,7 +8,13 @@ export const ArrowRightIcon = (props) => (
 );
 
 export const ArrowLeftIcon = (props) => (
-    <SvgIcon {...props}>
-      <path d="M14 7l-5 5 5 5V7z"></path>
-    </SvgIcon>
-  );
+  <SvgIcon {...props}>
+    <path d="M14 7l-5 5 5 5V7z"></path>
+  </SvgIcon>
+);
+
+export const NavigateNextIcon = (props) => (
+  <SvgIcon {...props}>
+    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+  </SvgIcon>
+);

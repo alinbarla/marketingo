@@ -52,6 +52,13 @@ const Title = styled.h1`
   }
 `;
 
+const TitleHub = styled.h1`
+  color: #ffffff !important;
+  font-weight: 500 !important;
+  font-size: 2.1rem !important;
+  line-height: normal !important;
+`;
+
 const ArticleContainer = styled.div`
   width: 100%;
   max-width: 1035px;
@@ -162,43 +169,42 @@ const Post = ({ state, actions, libraries }) => {
   // Load the post, but only if the data is ready.
   return data.isReady ? (
     <>
-      <Header color={post.meta.background_header_color}>
+      <Header
+        color={data.isPost ? post.meta.background_header_color : "#4a66f7"}
+      >
         <HeaderContent>
           <Container>
             <MiniContent>
-              <StyledBreadcrumbs
-                aria-label="breadcrumb"
-                separator={<NavigateNextIcon fontSize="small" />}
-              >
-                {data.isPost && (
+              {data.isPost && (
+                <StyledBreadcrumbs
+                  aria-label="breadcrumb"
+                  separator={<NavigateNextIcon fontSize="small" />}
+                >
                   <Link href="/" color="inherit" underline="always">
                     <Typography color="inherit">Blog</Typography>
                   </Link>
-                )}
-                {data.isHub && (
-                  <Link href="/hub" color="inherit" underline="always">
-                    <Typography color="inherit">Hub</Typography>
-                  </Link>
-                )}
-                {data.isPost && category && (
-                  <Link href={category.link} color="inherit" underline="always">
-                    <Typography color="inherit">{category.name}</Typography>
-                  </Link>
-                )}
-                {data.isHub && categoriaHub && (
-                  <Link
-                    href={categoriaHub.link}
-                    color="inherit"
-                    underline="always"
-                  >
-                    <Typography color="inherit">{categoriaHub.name}</Typography>
-                  </Link>
-                )}
-                <Typography color="inherit">{post.title.rendered}</Typography>
-              </StyledBreadcrumbs>
-              <Title
-                dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-              />
+                  {category && (
+                    <Link
+                      href={category.link}
+                      color="inherit"
+                      underline="always"
+                    >
+                      <Typography color="inherit">{category.name}</Typography>
+                    </Link>
+                  )}
+                  <Typography color="inherit">{post.title.rendered}</Typography>
+                </StyledBreadcrumbs>
+              )}
+              {data.isPost && (
+                <Title
+                  dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+                />
+              )}
+              {data.isHub && (
+                <TitleHub
+                  dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+                />
+              )}
               {data.isPost && (
                 <StyledInfo
                   InfoText={InfoText}
