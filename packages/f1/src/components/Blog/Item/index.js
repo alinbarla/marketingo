@@ -7,8 +7,8 @@ import Typography from "@material-ui/core/Typography";
 import { useTheme } from "@material-ui/core/styles";
 
 import Info from "../../Info/index";
-import StyledCard from "../StyledCard";
-import StyledLink from "../StyledLink";
+import StyledCard from "../../StyledCard";
+import StyledLink from "../../StyledLink";
 
 const InfoText = styled.span`
   color: #555;

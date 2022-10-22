@@ -12,8 +12,8 @@ import { useTheme } from "@material-ui/core/styles";
 import Info from "../Info/index";
 import Container from "../ContainerLarge";
 import breakpoints from "../../constants/breakpoints";
-import StyledCard from "./StyledCard";
-import StyledLink from "./StyledLink";
+import StyledCard from "../StyledCard";
+import StyledLink from "../StyledLink";
 
 const FeaturedCard = connect(
   ({ item, showMedia = false, state, actions, ...props }) => {

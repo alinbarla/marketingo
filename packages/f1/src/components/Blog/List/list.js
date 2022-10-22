@@ -5,7 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 
 import Item from "../Item";
-import Pagination from "./PaginationComponent";
+import Pagination from "../../PaginationComponent";
 import Container from "../../ContainerLarge";
 
 const checkCategoryOrCategoriaHub = (path) => {
