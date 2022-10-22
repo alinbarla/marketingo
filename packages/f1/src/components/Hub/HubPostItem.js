@@ -39,17 +39,9 @@ const HubPostItem = ({ state, actions, id }) => {
       onClick={(e) => handleCardClick(e, hubPost.link)}
     >
       <CardContent>
-        <Typography gutterBottom variant="h5" component="h2">
-          <StyledLink
-            href={hubPost.link}
-            underline="none"
-            color="inherit"
-            colorLink={theme.palette.primary.main}
-            className={"postTitleCard"}
-          >
-            {hubPost.title.rendered}
-          </StyledLink>
-        </Typography>
+        <Title gutterBottom variant="h5" component="h2">
+          {hubPost.title.rendered}
+        </Title>
       </CardContent>
     </RandomColorStyledCard>
   );
@@ -61,6 +53,14 @@ const RandomColorStyledCard = styled(StyledCard, {
   shouldForwardProp: (prop) => prop !== "bgColor",
 })`
   background-color: ${(props) => props.bgColor} !important;
-  min-width: 300px !important;
-  min-height: 150px !important;
+  max-width: 300px !important;
+  max-height: 150px !important;
+  text-align: center !important;
+`;
+
+const Title = styled(Typography)`
+  font-size: 16px !important;
+  line-height: 24px !important;
+  font-weight: 700 !important;;
+  opacity: 0.7 !important;
 `;
