@@ -58,6 +58,7 @@ const HubSidebar = ({ state, actions }) => {
 const Title = styled(Typography)`
   font-weight: 700 !important;
   text-align: center !important;
+  margin-top: 1rem !important;
 `;
 
 const ExtraGrid = styled(Grid)`

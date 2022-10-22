@@ -4,6 +4,7 @@ import { connect, styled } from "frontity";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import Divider from "@material-ui/core/Divider";
 
 import breakpoints from "../../constants/breakpoints";
 import HubPostSidebar from "./HubPostSidebar";
@@ -31,7 +32,13 @@ const HubPost = ({ state, libraries }) => {
         </Grid>
         <Grid item xs={12} md={1}>
           {isMobile && (
-            <HubPostSidebar name={categoriaHub.name} link={categoriaHub.link} />
+            <>
+              <Divider />
+              <HubPostSidebar
+                name={categoriaHub.name}
+                link={categoriaHub.link}
+              />
+            </>
           )}
         </Grid>
       </Grid>
