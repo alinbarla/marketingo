@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 
 import Pagination from "../PaginationComponent";
 import Container from "@material-ui/core/Container";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import HubPostItem from "./HubPostItem";
 import HubSidebar from "./HubSidebar";
 import breakpoints from "../../constants/breakpoints";
@@ -13,15 +14,19 @@ import breakpoints from "../../constants/breakpoints";
 const HubArchiveByCategoriaHub = ({ state }) => {
   const data = state.source.get(state.router.link);
   if (!data || !data.items) return null;
+  const isMobile = useMediaQuery(`max-width: ${breakpoints.md}`);
 
   return (
     <Container maxWidth="lg">
       <Grid container spacing={5}>
-        <ExtraGrid item xs={12} md={1}></ExtraGrid>
+        <ExtraGrid item xs={12} md={3}>
+          {!isMobile && <HubSidebar />}
+        </ExtraGrid>
+
         <Grid item xs={12} md={8}>
-          <Title variant="h3" component="h2" gutterBottom>
+          {/* <Title variant="h3" component="h2" gutterBottom>
             {state.source.categoria_hub[data.id].name}
-          </Title>
+          </Title> */}
           <Grid container spacing={3}>
             {data.items.map(({ id }) => {
               return (
@@ -33,8 +38,8 @@ const HubArchiveByCategoriaHub = ({ state }) => {
           </Grid>
           <Pagination />
         </Grid>
-        <Grid item xs={12} md={3}>
-          <HubSidebar />
+        <Grid item xs={12} md={1}>
+          {isMobile && <HubSidebar />}
         </Grid>
       </Grid>
     </Container>

@@ -20,17 +20,12 @@ const Hub = ({ state, actions }) => {
 
   return (
     <Container>
-      <Title variant="h3" component="h2" gutterBottom>
+      {/* <Title variant="h3" component="h2" gutterBottom>
         Hub
-      </Title>
-      <HubGrid container spacing={3}>
+      </Title> */}
+      <HubGrid container spacing={5}>
         {data.map((categoriaHubData, index) => {
-          if (
-            !categoriaHubData ||
-            !categoriaHubData.items ||
-            categoriaHubData.items.length === 0
-          )
-            return null;
+          if (!categoriaHubData || !categoriaHubData.items) return null;
 
           return (
             <Grid
