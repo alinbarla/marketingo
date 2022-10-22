@@ -10,11 +10,14 @@ import { expandBreaekpoint } from "./styles";
  */
 const Nav = ({ state }) => {
   const { items } = state.source.get("all-categories/");
-  const filterItems = items.filter((item) => item.name !== "Uncategorized");
+  const filterItems = [
+    { name: "Hub", link: "/hub/" },
+    ...items.filter((item) => item.name !== "Uncategorized"),
+  ];
 
   return (
     <NavContainer>
-      {filterItems.map(({name, link}) => {
+      {filterItems.map(({ name, link }) => {
         // Check if the link matched the current page url
         const isCurrentPage = state.router.link === link;
         return (

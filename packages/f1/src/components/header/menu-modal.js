@@ -1,12 +1,15 @@
 import React from "react";
 import { styled, connect } from "frontity";
 import Link from "../link";
-import logo from "../images/MARKETINGO-logo.svg"
+import logo from "../images/MARKETINGO-logo.svg";
 
 const MenuModal = ({ state }) => {
   const { menu } = state.theme;
   const { items } = state.source.get("all-categories/");
-  const filterItems = items.filter((item) => item.name !== "Uncategorized");
+  const filterItems = [
+    { name: "Hub", link: "/hub/" },
+    ...items.filter((item) => item.name !== "Uncategorized"),
+  ];
 
   const isThereLinks = filterItems != null && filterItems.length > 0;
 
@@ -15,7 +18,7 @@ const MenuModal = ({ state }) => {
       <MenuOverlay />
       <MenuContent as="nav">
         {isThereLinks &&
-          filterItems.map(({name, link}) => (
+          filterItems.map(({ name, link }) => (
             <MenuLink
               key={name}
               link={link}

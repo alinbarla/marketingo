@@ -19,6 +19,7 @@ import favicon from "./images/favicon.png";
 import links from "../constants/links";
 import PrivacyPolicy from "./pages/privacy-policy";
 import Hub from "./Hub/Hub";
+import HubArchiveByCategoriaHub from "./Hub/HubArchiveByCategoriaHub";
 
 /**
  * Theme is the root React component of our theme. The one we will export
@@ -47,9 +48,11 @@ const Theme = ({ state }) => {
       <Global styles={globalStyles} />
 
       {/* Add the header of the site. */}
-      <HeadContainer>
-        <Header />
-      </HeadContainer>
+      <HeaderContainer>
+        <HeadContainer>
+          <Header />
+        </HeadContainer>
+      </HeaderContainer>
 
       {/* Add the main section. It renders a different component depending
       on the type of URL we are in. */}
@@ -59,9 +62,12 @@ const Theme = ({ state }) => {
           <SobreMi when={link === links.sobreMi} />
           <Blog when={link === "/"} />
           <Hub when={data.isCategoriaHubArchive} />
+          <HubArchiveByCategoriaHub
+            when={data.isCategoriaHub && data.isArchive}
+          />
           <List when={data.isArchive} />
           <PrivacyPolicy when={link === links.privacyPolicy} />
-          <Post when={data.isPost} />
+          <Post when={data.isPost || data.isHub} />
           <RedirectToHome when={data.is404} />
           <PageError when={data.isError} />
         </Switch>
@@ -173,7 +179,16 @@ const HeadContainer = styled.div`
   margin: 0 auto;
   padding: 1.25rem 0.9375rem;
   background-color: white;
-  z-index: 1000;
+`;
+
+const HeaderContainer = styled.div`
+  background-color: white;
+  z-index: 1201;
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  flex-direction: column;
 `;
 
 const RedirectToHome = connect(({ actions }) => {
