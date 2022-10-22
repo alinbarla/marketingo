@@ -1,21 +1,9 @@
 import React, { useEffect } from "react";
 import Typography from "@material-ui/core/Typography";
-import StyledCard from "../StyledCard";
-import CardContent from "@material-ui/core/CardContent";
 import { connect, styled } from "frontity";
-
-const colorArr = [
-  "#fee4cb",
-  "#e5e2ff",
-  "#ffd3e1",
-  "#c7f7dc",
-  "#fdfdbd",
-  "#ff8787",
-];
-
-const getRandomColor = () => {
-  return colorArr[Math.floor(Math.random() * colorArr.length)];
-};
+import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
+import { ArrowRightIcon } from "./HubIcons";
 
 const HubSidebar = ({ state, actions }) => {
   const { items } = state.source.get("all-categoria-hub/");
@@ -42,40 +30,40 @@ const HubSidebar = ({ state, actions }) => {
       <Title variant="h5" component="h3" gutterBottom>
         Categoria Hub List
       </Title>
-      {data.map((categoriaHubData, index) => {
-        if (!categoriaHubData || !categoriaHubData.link) return null;
+      <ExtraGrid container spacing={3}>
+        {data.map((categoriaHubData, index) => {
+          if (!categoriaHubData || !categoriaHubData.link) return null;
 
-        return (
-          <HubSidebarItem
-            key={`hub-sidebar-item-${items[index].name}-${index}`}
-            variant="outlined"
-            bgColor={'white'}
-            onClick={(e) => handleCardClick(e, categoriaHubData.link)}
-          >
-            <CardContent>
-              <Typography className={"postTitleCard"}>
+          return (
+            <Grid
+              key={`hub-sidebar-item-${items[index].name}-${index}`}
+              item
+              xs={12}
+            >
+              <Button
+                onClick={(e) => handleCardClick(e, categoriaHubData.link)}
+                fullWidth
+                startIcon={<ArrowRightIcon />}
+              >
                 {items[index].name}
-              </Typography>
-            </CardContent>
-          </HubSidebarItem>
-        );
-      })}
+              </Button>
+            </Grid>
+          );
+        })}
+      </ExtraGrid>
     </>
   );
 };
 
-const HubSidebarItem = styled(StyledCard, {
-  shouldForwardProp: (prop) => prop !== "bgColor",
-})`
-  background-color: ${(props) => props.bgColor} !important;
-  min-width: 150px !important;
-  min-height: 60px !important;
-  text-align: center !important;
-`;
-
 const Title = styled(Typography)`
   font-weight: 700 !important;
   text-align: center !important;
+`;
+
+const ExtraGrid = styled(Grid)`
+  text-align: center !important;
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
 `;
 
 export default connect(HubSidebar);
