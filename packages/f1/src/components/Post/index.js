@@ -11,6 +11,7 @@ import Info from "../Info";
 import CallToAction from "./CallToAction";
 import Comments from "./Comments";
 import breakpoints from "../../constants/breakpoints";
+import HubPost from "../Hub/HubPost";
 
 const Container = styled.div`
   max-width: 50rem;
@@ -214,15 +215,18 @@ const Post = ({ state, actions, libraries }) => {
           </Container>
         </HeaderContent>
       </Header>
-      <ArticleContainer>
-        <Container>
-          <Main>
-            <Content>
-              <Html2React html={post.content.rendered} />
-            </Content>
-          </Main>
-        </Container>
-      </ArticleContainer>
+      {data.isPost && (
+        <ArticleContainer>
+          <Container>
+            <Main>
+              <Content>
+                <Html2React html={post.content.rendered} />
+              </Content>
+            </Main>
+          </Container>
+        </ArticleContainer>
+      )}
+      {data.isHub && <HubPost />}
       <CallToAction /> {data.isPost && <Comments postId={data.id} />}
     </>
   ) : null;
