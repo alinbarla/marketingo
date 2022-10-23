@@ -111,6 +111,7 @@ const StackedCardMain = styled(Card)`
   --offset: 0 !important;
   z-index: 4 !important;
   border-radius: 6px !important;
+  background: #eef2ff;
 `;
 
 const StackedCardChild = styled(StackedCardMain, {
@@ -125,6 +126,7 @@ const StackedCardChild = styled(StackedCardMain, {
   height: ${(props) => props.height}px !important;
   width: ${(props) => props.width}px !important;
   border: none !Important;
+  background: #eef2ff;
 `;
 
 export default StackedCard;
