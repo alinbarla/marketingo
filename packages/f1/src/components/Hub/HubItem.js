@@ -26,7 +26,7 @@ const HubItem = ({ state, actions, item, name }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Typography>{cardCount} posts</Typography>
+        <Typography className={"postCount"}>{cardCount} articoli</Typography>
       </CardActions>
     </HubStackedCard>
   );
@@ -42,6 +42,9 @@ const HubStackedCard = styled(StackedCard)`
   .postTitleCard {
     font-weight: 800 !important;
     line-height: normal !important;
+  }
+  .postCount {
+    color: blue;
   }
   min-width: 300px;
   min-height: 150px;
