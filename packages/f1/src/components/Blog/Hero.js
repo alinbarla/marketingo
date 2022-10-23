@@ -133,8 +133,7 @@ const InfoText = styled.span`
   text-transform: capitalize;
   font-size: 15px;
   line-height: 2.25rem;
-  font-family: "Inter", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Avenir, Helvetica, Arial, sans-serif !important;
 `;
 
 const Section = styled.section`
