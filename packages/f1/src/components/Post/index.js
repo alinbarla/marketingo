@@ -40,10 +40,9 @@ const Title = styled.h1`
   text-align: left;
   color: white !important;
   line-height: 1.4 !important;
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: 0.2px;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+  font-family: Avenir, Helvetica, Arial, sans-serif !important;,
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
   font-size: 1.875rem !important;
 
@@ -94,7 +93,7 @@ const StyledLink = styled(Link)`
 
 const Author = styled.p`
   color: rgba(12, 17, 43, 0.9);
-  font-size: 0.9em;
+  font-size: 1rem;
   display: inline;
 `;
 
@@ -266,8 +265,7 @@ const Content = styled.div`
 
   p {
     margin-bottom: 1.5rem;
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
-      Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: Avenir, Helvetica, Arial, sans-serif !important;
   }
 
   h1,
@@ -277,8 +275,7 @@ const Content = styled.div`
   h5,
   h6 {
     color: #111;
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
-      Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: Avenir, Helvetica, Arial, sans-serif !important;
     font-weight: 900;
     line-height: 1.2;
     margin: 0 0 20px;
