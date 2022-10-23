@@ -89,9 +89,7 @@ const globalStyles = css`
   body {
     margin: 0;
     color: var(--bodycolor);
-    font-family: "Inter", -apple-system, system-ui, BlinkMacSystemFont,
-      "Segoe UI", Roboto, "Droid Sans", "Helvetica Neue", Helvetica, Arial,
-      sans-serif;
+    font-family: Avenir, Helvetica, Arial, sans-serif !important;
     font-feature-settings: "kern";
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
@@ -116,6 +114,7 @@ const globalStyles = css`
   h5,
   h6 {
     color: var(--black);
+    Avenir, Helvetica, Arial, sans-serif !important;
   }
 
   h2 {
