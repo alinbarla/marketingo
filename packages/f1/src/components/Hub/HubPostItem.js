@@ -52,7 +52,7 @@ export default connect(HubPostItem);
 const RandomColorStyledCard = styled(StyledCard, {
   shouldForwardProp: (prop) => prop !== "bgColor",
 })`
-  background-color: ${(props) => props.bgColor} !important;
+  background: ${(props) => props.bgColor} !important;
   max-width: 300px !important;
   max-height: 150px !important;
   text-align: center !important;
