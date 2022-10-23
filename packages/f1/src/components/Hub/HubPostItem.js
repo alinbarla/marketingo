@@ -8,12 +8,12 @@ import StyledCard from "../StyledCard";
 import StyledLink from "../StyledLink";
 
 const colorArr = [
-  "red",
-  "black",
-  "yellow",
-  "acqua",
-  "cream",
-  "orange",
+  "linear-gradient(135deg, #CE9FFC 0%,#7367F0 100%);",
+  "linear-gradient(135deg, #13f1fc 0%,#0470dc 100%);",
+  "linear-gradient(135deg, #FF57B9 0%,#A704FD 100%);",
+  "linear-gradient(135deg, #fad961 0%,#f76b1c 100%);",
+  "linear-gradient(135deg, #42e695 0%,#3bb2b8 100%);",
+  "linear-gradient(135deg, #C56CD6 0%,#3425AF 100%);",
 ];
 
 const getRandomColor = () => {
