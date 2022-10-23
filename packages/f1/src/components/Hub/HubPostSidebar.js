@@ -63,7 +63,7 @@ const Title = styled(Typography)`
 `;
 
 const ExtraGrid = styled(Grid)`
-  text-align: center !important;
+  text-align: left !important;
   margin-top: 1rem !important;
   margin-bottom: 1rem !important;
 `;
