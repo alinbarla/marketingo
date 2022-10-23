@@ -44,7 +44,9 @@ const HubStackedCard = styled(StackedCard)`
     line-height: normal !important;
   }
   .postCount {
-    color: blue;
+    color: #2c3f50;
+    text-decoration: underline;
+    font-weight: 800;
   }
   min-width: 300px;
   min-height: 150px;
