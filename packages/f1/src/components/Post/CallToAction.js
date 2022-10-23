@@ -34,7 +34,7 @@ const CallToAction = () => {
       <Container>
         <Image
           src={image}
-          alt="Paper airplane flying through the air, indicating a message being sent."
+          alt="Una busta che rappresenta un email mandata."
         />
         <Title>Più di +3.700 persone ricevono il nostro contenuto</Title>
         <p>
