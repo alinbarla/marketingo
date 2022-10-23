@@ -43,7 +43,7 @@ const HubStackedCard = styled(StackedCard)`
     font-weight: 600 !important;
     line-height: normal !important;
     color: #2c3f50;
-    font-size: 18px;
+    font-size: 30px;
     font-family: Avenir, Helvetica, Arial, sans-serif !important;
   }
   .postCount {
