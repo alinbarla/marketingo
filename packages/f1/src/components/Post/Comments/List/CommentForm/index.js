@@ -38,8 +38,8 @@ const replyTitleCss = css`
 `;
 
 const CommentNotes = styled.p`
-  font-size: 1.3rem;
-  margin-bottom: 1.75rem;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
 `;
 
 const CommentForm = ({ postId, actions, parent, title }) => {
@@ -62,7 +62,7 @@ const CommentForm = ({ postId, actions, parent, title }) => {
     <Container>
       <h3 css={titleCss}>{title}</h3>
       <CommentNotes>
-        Sono Online e rispondo in pochi minuti 😁
+        🟢 Sono online e rispondo in pochi minuti 😁
       </CommentNotes>
       <form onSubmit={handleSubmit}>
         <Message postId={postId} />
