@@ -62,7 +62,7 @@ const CommentForm = ({ postId, actions, parent, title }) => {
     <Container>
       <h3 css={titleCss}>{title}</h3>
       <CommentNotes>
-        Estamos tomando muy en serio la privacidad de nuestros lectores
+        Sono Online e rispondo in pochi minuti 😁
       </CommentNotes>
       <form onSubmit={handleSubmit}>
         <Message postId={postId} />
