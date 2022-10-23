@@ -40,8 +40,11 @@ const HubStackedCard = styled(StackedCard)`
   border: none !important;
   border-radius: 10px !important;
   .postTitleCard {
-    font-weight: 800 !important;
+    font-weight: 600 !important;
     line-height: normal !important;
+    color: #2c3f50;
+    font-size: 18px;
+    font-family: Avenir, Helvetica, Arial, sans-serif !important;
   }
   .postCount {
     color: #2c3f50;
