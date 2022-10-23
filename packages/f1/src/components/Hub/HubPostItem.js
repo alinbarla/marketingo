@@ -63,6 +63,6 @@ const Title = styled(Typography)`
   font-size: 16px !important;
   line-height: 24px !important;
   font-weight: 700 !important;;
-  opacity: 0.7 !important;
+  opacity: 0.95 !important;
   color: white;
 `;
