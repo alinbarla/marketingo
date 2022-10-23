@@ -94,16 +94,9 @@ const FrontityLink = React.forwardRef((props, ref) => {
 const muiTheme = createTheme({
   typography: {
     fontFamily: [
-      "Inter",
-      "-apple-system",
-      "system-ui",
-      "BlinkMacSystemFont",
-      "Segoe UI",
-      "Roboto",
-      "Droid Sans",
-      "Helvetica Neue",
-      "Helvetica",
-      "Arial",
+      "Avenir", 
+      "Helvetica", 
+      "Arial", 
       "sans-serif",
     ].join(","),
   },
