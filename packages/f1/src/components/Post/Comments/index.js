@@ -42,7 +42,7 @@ const Comments = ({ state, actions, postId }) => {
       <Section>
         <Container>
           <Body>
-            <Title>Discussion</Title>
+            <Title>Discussione</Title>
             <List
               items={data.items}
               Comment={ParentComment}
@@ -52,7 +52,7 @@ const Comments = ({ state, actions, postId }) => {
             />
           </Body>
           {!commentForm && (
-            <CommentForm postId={postId} title="Deja un comentario:" />
+            <CommentForm postId={postId} title="Commenta:" />
           )}
         </Container>
       </Section>
