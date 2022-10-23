@@ -36,10 +36,9 @@ const CallToAction = () => {
           src={image}
           alt="Paper airplane flying through the air, indicating a message being sent."
         />
-        <Title>Más de +3.700 personas reciben mis consejos marketing</Title>
+        <Title>Più di +3.700 persone ricevono il nostro contenuto</Title>
         <p>
-          Recibe contenido marketing exclusivo que no encontrarás en el blog
-          Remarketingo.
+          Ricevi direttamente nella tua mail le strategie che ci hanno aiutato a costruire un business online da 6 cifre.
         </p>
         <ContactContainer />
       </Container>
