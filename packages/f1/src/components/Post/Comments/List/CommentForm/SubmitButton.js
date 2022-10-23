@@ -10,6 +10,6 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const SubmitButton = () => <Button type="submit">Deja un comentario</Button>;
+const SubmitButton = () => <Button type="submit">Commenta</Button>;
 
 export default SubmitButton;
