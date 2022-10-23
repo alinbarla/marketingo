@@ -2,7 +2,7 @@ import React from "react";
 import { styled } from "frontity";
 
 import { containerStyles } from "../Container";
-import image from "./email.webp";
+import image from "./email.svg";
 import ContactContainer from "../ContactContainer";
 
 const Section = styled.section`
