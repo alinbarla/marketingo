@@ -57,6 +57,12 @@ const RandomColorStyledCard = styled(StyledCard, {
   max-height: 150px !important;
   text-align: center !important;
   margin-bottom: 1rem !important;
+  .MuiCardContent-root {
+    padding: 20px !important;
+  }
+  .MuiCardContent-root:last-child {
+    padding-bottom: 20px !important;
+  }
 `;
 
 const Title = styled(Typography)`
