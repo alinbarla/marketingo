@@ -19,15 +19,13 @@ const HubArchiveByCategoriaHub = ({ state }) => {
 
   return (
     <Container maxWidth="lg">
-      <Grid container spacing={5}>
-        <ExtraGrid item xs={12} md={3}>
-          {!isMobile && <HubSidebar />}
-        </ExtraGrid>
-
+      <Grid container spacing={1}>
+        {!isMobile && (
+          <ExtraGrid item xs={12} md={3}>
+            <HubSidebar />
+          </ExtraGrid>
+        )}
         <Grid item xs={12} md={8}>
-          {/* <Title variant="h3" component="h2" gutterBottom>
-            {state.source.categoria_hub[data.id].name}
-          </Title> */}
           <Grid container spacing={2}>
             {data.items.map(({ id }) => {
               return (

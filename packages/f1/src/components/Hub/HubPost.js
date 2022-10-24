@@ -33,15 +33,15 @@ const HubPost = ({ state, libraries }) => {
         />
       )}
       <Container maxWidth="lg">
-        <Grid container spacing={5}>
-          <ExtraGrid item xs={12} md={3}>
-            {!isMobile && (
+        <Grid container spacing={1}>
+          {!isMobile && (
+            <ExtraGrid item xs={12} md={3}>
               <HubPostSidebar
                 name={categoriaHub.name}
                 link={categoriaHub.link}
               />
-            )}
-          </ExtraGrid>
+            </ExtraGrid>
+          )}
           <Grid item xs={12} md={8}>
             <Html2React html={post.content.rendered} />
           </Grid>
