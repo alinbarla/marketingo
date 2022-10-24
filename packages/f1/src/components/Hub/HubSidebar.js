@@ -30,7 +30,7 @@ const HubSidebar = ({ state, actions }) => {
       <Title variant="h5" component="h3" gutterBottom>
         Categoria Hub List
       </Title>
-      <ExtraGrid container spacing={3}>
+      <ExtraGrid container spacing={0}>
         {data.map((categoriaHubData, index) => {
           if (!categoriaHubData || !categoriaHubData.link) return null;
 
@@ -42,8 +42,8 @@ const HubSidebar = ({ state, actions }) => {
             >
               <Button
                 onClick={(e) => handleCardClick(e, categoriaHubData.link)}
-                fullWidth
                 startIcon={<ArrowRightIcon />}
+                fullWidth
               >
                 {items[index].name}
               </Button>
@@ -65,6 +65,9 @@ const ExtraGrid = styled(Grid)`
   text-align: left !important;
   margin-top: 1rem !important;
   margin-bottom: 1rem !important;
+  .MuiButton-label {
+    justify-content: flex-start !important;
+  }
 `;
 
 export default connect(HubSidebar);

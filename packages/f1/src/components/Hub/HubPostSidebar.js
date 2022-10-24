@@ -35,7 +35,7 @@ const HubPostSidebar = ({ state, name, actions, link }) => {
       >
         Return
       </Title>
-      <ExtraGrid container spacing={3}>
+      <ExtraGrid container spacing={0}>
         {items.map((item, index) => {
           return (
             <Grid key={`hub-post-sidebar-item-${name}-${index}`} item xs={12}>
@@ -66,4 +66,7 @@ const ExtraGrid = styled(Grid)`
   text-align: left !important;
   margin-top: 1rem !important;
   margin-bottom: 1rem !important;
+  .MuiButton-label {
+    justify-content: flex-start !important;
+  }
 `;
