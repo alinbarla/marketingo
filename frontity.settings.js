@@ -50,6 +50,9 @@ const settings = {
               taxonomy: "categoria_hub",
               endpoint: "categoria_hub",
               postTypeEndpoint: "hub",
+              params: {
+                per_page: 100,
+              },
             },
           ],
         },
@@ -75,4 +78,3 @@ const settings = {
 };
 
 export default settings;
- 
