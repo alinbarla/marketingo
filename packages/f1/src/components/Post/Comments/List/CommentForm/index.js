@@ -9,6 +9,7 @@ import Message from "./Message";
 import Button from "../../../../../components/Button";
 import breakpoints from "../../../../../constants/breakpoints";
 import SubmitButton from "./SubmitButton";
+import CommentsSnackbar from "./CommentsSnackbar";
 
 const Container = styled.section`
   padding: 3.4375rem 0.9375rem;
@@ -73,6 +74,7 @@ const CommentForm = ({ postId, actions, parent, title }) => {
         <Website postId={postId} />
         <SubmitButton />
       </form>
+      <CommentsSnackbar />
     </Container>
   );
 };
