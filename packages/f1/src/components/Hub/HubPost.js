@@ -25,13 +25,11 @@ const HubPost = ({ state, libraries }) => {
 
   return (
     <>
-      {!isMobile && (
-        <BreadcrumbsHub
-          categoriaHubName={categoriaHub.name}
-          categoriaHubLink={categoriaHub.link}
-          postName={post.title.rendered}
-        />
-      )}
+      <BreadcrumbsHub
+        categoriaHubName={categoriaHub.name}
+        categoriaHubLink={categoriaHub.link}
+        postName={post.title.rendered}
+      />
       <Container maxWidth="lg">
         <Grid container spacing={1}>
           {!isMobile && (
@@ -103,6 +101,11 @@ const StyledBreadcrumbs = styled(Breadcrumbs)`
   }
   .active {
     color: #b5b5b5 !important;
+  }
+  @media (max-width: ${breakpoints.md}) {
+    .MuiBreadcrumbs-ol {
+      margin-left: 1rem;
+    }
   }
 `;
 

@@ -4,6 +4,7 @@ import HubItem from "./HubItem";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Container from "../ContainerLarge";
+import HubHeader from "./HubHeader";
 
 const Hub = ({ state, actions }) => {
   const { items } = state.source.get("all-categoria-hub/");
@@ -19,27 +20,27 @@ const Hub = ({ state, actions }) => {
   if (!data) return null;
 
   return (
-    <Container>
-      {/* <Title variant="h3" component="h2" gutterBottom>
-        Hub
-      </Title> */}
-      <HubGrid container spacing={5}>
-        {data.map((categoriaHubData, index) => {
-          if (!categoriaHubData || !categoriaHubData.items) return null;
+    <>
+      <HubHeader />
+      <Container  maxWidth="lg">
+        <HubGrid container spacing={5}>
+          {data.map((categoriaHubData, index) => {
+            if (!categoriaHubData || !categoriaHubData.items) return null;
 
-          return (
-            <Grid
-              key={`hub-item-${items[index].name}-${index}`}
-              item
-              xs={12}
-              md={4}
-            >
-              <HubItem item={categoriaHubData} name={items[index].name} />
-            </Grid>
-          );
-        })}
-      </HubGrid>
-    </Container>
+            return (
+              <Grid
+                key={`hub-item-${items[index].name}-${index}`}
+                item
+                xs={12}
+                md={4}
+              >
+                <HubItem item={categoriaHubData} name={items[index].name} />
+              </Grid>
+            );
+          })}
+        </HubGrid>
+      </Container>
+    </>
   );
 };
 
