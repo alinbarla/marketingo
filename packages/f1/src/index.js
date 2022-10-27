@@ -14,6 +14,7 @@ import {
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 import linkPaths from "./constants/links";
+import tooltips from "./processor/tooltip";
 
 const allCategoriesHandler = {
   name: "allCategories",
@@ -93,12 +94,7 @@ const FrontityLink = React.forwardRef((props, ref) => {
 
 const muiTheme = createTheme({
   typography: {
-    fontFamily: [
-      "Avenir", 
-      "Helvetica", 
-      "Arial", 
-      "sans-serif",
-    ].join(","),
+    fontFamily: ["Avenir", "Helvetica", "Arial", "sans-serif"].join(","),
   },
   palette: {
     primary: { main: "#00d07e" },
@@ -203,7 +199,7 @@ const awsminF1 = {
        * Add a processor to `html2react` so it processes the `<img>` tags
        * inside the content HTML. You can add your own processors too
        */
-      processors: [image, iframe, links],
+      processors: [image, iframe, links, tooltips],
     },
     source: {
       handlers: [
