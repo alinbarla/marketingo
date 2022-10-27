@@ -51,7 +51,7 @@ const settings = {
               endpoint: "categoria_hub",
               postTypeEndpoint: "hub",
               params: {
-                per_page: 100,
+                per_page: 15,
               },
             },
           ],
