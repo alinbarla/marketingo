@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { connect, styled } from "frontity";
 import StackedCard from "./StackedCard";
 import { CardActions, CardContent, Typography } from "@material-ui/core";
 
 const HubItem = ({ state, actions, item, name }) => {
   if (!item) return null;
-  const cardCount = item.items.length;
+  const [length, setLength] = useState(0);
+  const [isReady, setIsReady] = useState(false);
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -14,10 +15,26 @@ const HubItem = ({ state, actions, item, name }) => {
     document.body.focus();
   };
 
+  const getLength = async (next) => {
+    if (next) {
+      await actions.source.fetch(next);
+      const data = state.source.get(next);
+      setLength((i) => i + data.items.length);
+      getLength(data.next);
+    } else {
+      if (!isReady) setIsReady(true);
+    }
+  };
+
+  useEffect(() => {
+    setLength(item.items.length);
+    getLength(item.next);
+  }, []);
+
   return (
     <HubStackedCard
       variant="outlined"
-      childCount={cardCount}
+      childCount={length}
       onClick={handleClick}
     >
       <CardContent>
@@ -26,7 +43,7 @@ const HubItem = ({ state, actions, item, name }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Typography className={"postCount"}>{cardCount} Articoli</Typography>
+        {isReady && <Typography className={"postCount"}>{length} Articoli</Typography>}
       </CardActions>
     </HubStackedCard>
   );
