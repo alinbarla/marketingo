@@ -1,5 +1,6 @@
 import React from "react";
 
+import Box from '@material-ui/core/Box';
 import Link from "@material-ui/core/Link";
 import Pagination from "@material-ui/lab/Pagination";
 import PaginationItem from "@material-ui/lab/PaginationItem";
@@ -11,7 +12,7 @@ const PaginationComponent = ({ state, libraries }) => {
   const { path, page, query } = libraries.source.parse(state.router.link);
 
   return (
-    <Box display={"flex"} justifyContent={"center"}>
+    <Box display={"flex"} justifyContent={"center"} mb={"1rem"}>
       <Pagination
         page={page}
         count={totalPages}
@@ -26,11 +27,5 @@ const PaginationComponent = ({ state, libraries }) => {
     </Box>
   );
 };
-
-const Box = styled.div`
-  display: ${(props) => props.display};
-  justify-content: ${(props) => props.justifyContent};
-  margin-bottom: 2rem;
-`;
 
 export default connect(PaginationComponent);
