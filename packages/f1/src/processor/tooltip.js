@@ -12,7 +12,7 @@ const HtmlTooltip = withStyles((theme) => ({
     border: "1px solid transparent",
     transition: "visibility, opacity, transform 200ms",
     padding: "1ch 1.5ch",
-    borderRadius: "15px",
+    borderRadius: "6px",
     boxShadow: "0 1em 2em -.5em rgba(0, 0, 0, 0.35)",
     backgroundColor: "#333",
     color: "#fff",
