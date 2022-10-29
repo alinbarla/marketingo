@@ -12,6 +12,7 @@ const HtmlTooltip = withStyles((theme) => ({
     maxWidth: 220,
     fontSize: theme.typography.pxToRem(12),
     border: "1px solid #dadde9",
+    transition: "visibility, opacity, transform 200ms",
   },
 }))(Tooltip);
 
