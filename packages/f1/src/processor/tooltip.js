@@ -16,6 +16,7 @@ const HtmlTooltip = withStyles((theme) => ({
     boxShadow: "0 1em 2em -.5em rgba(0, 0, 0, 0.35)",
     backgroundColor: "#333",
     color: "#fff",
+    textOverflow: "ellipsis",
   },
 }))(Tooltip);
 
