@@ -9,10 +9,10 @@ const HtmlTooltip = withStyles((theme) => ({
   tooltip: {
     maxWidth: 220,
     fontSize: theme.typography.pxToRem(12),
-    border: "5px solid transparent",
+    border: "1px solid transparent",
     transition: "visibility, opacity, transform 200ms",
     padding: "1ch 1.5ch",
-    borderRadius: ".3ch",
+    borderRadius: "15px",
     boxShadow: "0 1em 2em -.5em rgba(0, 0, 0, 0.35)",
     backgroundColor: "#333",
     color: "#fff",
