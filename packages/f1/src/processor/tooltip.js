@@ -32,7 +32,7 @@ const TooltipTrigger = React.forwardRef((props, ref) => (
       {...props}
     />
     <InfoIcon
-      style={{ position: "absolute", fontSize: "1.00rem" }}
+      style={{ transform: "translate(0px,-10px)", fontSize: "1rem" }}
       htmlColor={props.color}
     />
   </React.Fragment>
