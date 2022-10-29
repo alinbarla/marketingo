@@ -7,12 +7,16 @@ import SvgIcon from "@material-ui/core/SvgIcon";
 
 const HtmlTooltip = withStyles((theme) => ({
   tooltip: {
-    backgroundColor: "#f5f5f9",
-    color: "rgba(0, 0, 0, 0.87)",
     maxWidth: 220,
     fontSize: theme.typography.pxToRem(12),
-    border: "1px solid #dadde9",
+    border: "5px solid transparent",
     transition: "visibility, opacity, transform 200ms",
+    text-overflow: "ellipsis",
+    padding: "1ch 1.5ch",
+    border-radius: ".3ch",
+    box-shadow: "0 1em 2em -.5em rgba(0, 0, 0, 0.35)",
+    backgroundColor: "#333",
+    color: "#fff",
   },
 }))(Tooltip);
 
