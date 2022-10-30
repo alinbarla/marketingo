@@ -26,20 +26,22 @@ const InfoIcon = (props) => (
   </SvgIcon>
 );
 
+const TooltipSpan = styled("span", {
+  shouldForwardProp: (prop) => prop != "color",
+})`
+  text-decoration: underline dotted !important;
+  color: ${(props) => props.color} !important;
+`;
+
+const TooltipInfoIcon = styled(InfoIcon)`
+  transform: translate(0px, -5px) !important;
+  font-size: 1rem !important;
+`;
+
 const TooltipTrigger = React.forwardRef((props, ref) => (
   <React.Fragment>
-    <span
-      ref={ref}
-      style={{
-        textDecoration: "underline dotted",
-        color: props.color,
-      }}
-      {...props}
-    />
-    <InfoIcon
-      style={{ transform: "translate(0px,-5px)", fontSize: "1rem" }}
-      htmlColor={props.color}
-    />
+    <TooltipSpan ref={ref} {...props} />
+    <TooltipInfoIcon htmlColor={props.color} />
   </React.Fragment>
 ));
 

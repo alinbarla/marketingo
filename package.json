@@ -14,7 +14,8 @@
     "start": "frontity serve --port $PORT",
     "dev": "frontity dev",
     "build": "frontity build",
-    "serve": "frontity serve"
+    "serve": "frontity serve",
+    "postinstall": "patch-package"
   },
   "prettier": {},
   "dependencies": {
@@ -30,6 +31,7 @@
     "@material-ui/core": "^4.12.4",
     "@material-ui/lab": "^4.0.0-alpha.61",
     "frontity": "^1.17.2",
+    "patch-package": "^6.5.0",
     "slidetoggle": "^3.3.2"
   },
   "eslintConfig": {

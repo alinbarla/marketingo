@@ -1,0 +1,123 @@
+diff --git a/node_modules/@material-ui/core/Grow/Grow.js b/node_modules/@material-ui/core/Grow/Grow.js
+index c3813f5..e927b4b 100644
+--- a/node_modules/@material-ui/core/Grow/Grow.js
++++ b/node_modules/@material-ui/core/Grow/Grow.js
+@@ -41,6 +41,16 @@ var styles = {
+     transform: 'none'
+   }
+ };
++
++/**
++ * Conditionally apply a workaround for the CSS transition bug in Safari 15.4 / WebKit browsers.
++ * Remove this workaround once the WebKit bug fix is released.
++ */
++const isWebKit154 =
++  typeof navigator !== 'undefined' &&
++  /^((?!chrome|android).)*(safari|mobile)/i.test(navigator.userAgent) &&
++  /(os |version\/)15(.|_)[4-9]/i.test(navigator.userAgent);
++
+ /**
+  * The Grow transition is used by the [Tooltip](/components/tooltips/) and
+  * [Popover](/components/popover/) components.
+@@ -116,7 +126,7 @@ var Grow = /*#__PURE__*/React.forwardRef(function Grow(props, ref) {
+       duration: duration,
+       delay: delay
+     }), theme.transitions.create('transform', {
+-      duration: duration * 0.666,
++      duration: isWebKit154 ? duration : duration * 0.666,
+       delay: delay
+     })].join(',');
+ 
+@@ -149,8 +159,8 @@ var Grow = /*#__PURE__*/React.forwardRef(function Grow(props, ref) {
+       duration: duration,
+       delay: delay
+     }), theme.transitions.create('transform', {
+-      duration: duration * 0.666,
+-      delay: delay || duration * 0.333
++      duration: isWebKit154 ? duration : duration * 0.666,
++      delay: isWebKit154 ? delay : delay || duration * 0.333
+     })].join(',');
+     node.style.opacity = '0';
+     node.style.transform = getScale(0.75);
+diff --git a/node_modules/@material-ui/core/es/Grow/Grow.js b/node_modules/@material-ui/core/es/Grow/Grow.js
+index 1ff8114..aec4c79 100644
+--- a/node_modules/@material-ui/core/es/Grow/Grow.js
++++ b/node_modules/@material-ui/core/es/Grow/Grow.js
+@@ -21,6 +21,16 @@ const styles = {
+     transform: 'none'
+   }
+ };
++
++/**
++ * Conditionally apply a workaround for the CSS transition bug in Safari 15.4 / WebKit browsers.
++ * Remove this workaround once the WebKit bug fix is released.
++ */
++const isWebKit154 =
++  typeof navigator !== 'undefined' &&
++  /^((?!chrome|android).)*(safari|mobile)/i.test(navigator.userAgent) &&
++  /(os |version\/)15(.|_)[4-9]/i.test(navigator.userAgent);
++
+ /**
+  * The Grow transition is used by the [Tooltip](/components/tooltips/) and
+  * [Popover](/components/popover/) components.
+@@ -91,7 +101,7 @@ const Grow = /*#__PURE__*/React.forwardRef(function Grow(props, ref) {
+       duration,
+       delay
+     }), theme.transitions.create('transform', {
+-      duration: duration * 0.666,
++      duration: isWebKit154 ? duration : duration * 0.666,
+       delay
+     })].join(',');
+ 
+@@ -124,8 +134,8 @@ const Grow = /*#__PURE__*/React.forwardRef(function Grow(props, ref) {
+       duration,
+       delay
+     }), theme.transitions.create('transform', {
+-      duration: duration * 0.666,
+-      delay: delay || duration * 0.333
++      duration: isWebKit154 ? duration : duration * 0.666,
++      delay: isWebKit154 ? delay : delay || duration * 0.333
+     })].join(',');
+     node.style.opacity = '0';
+     node.style.transform = getScale(0.75);
+diff --git a/node_modules/@material-ui/core/esm/Grow/Grow.js b/node_modules/@material-ui/core/esm/Grow/Grow.js
+index 62aae74..6b53d6d 100644
+--- a/node_modules/@material-ui/core/esm/Grow/Grow.js
++++ b/node_modules/@material-ui/core/esm/Grow/Grow.js
+@@ -22,6 +22,16 @@ var styles = {
+     transform: 'none'
+   }
+ };
++
++/**
++ * Conditionally apply a workaround for the CSS transition bug in Safari 15.4 / WebKit browsers.
++ * Remove this workaround once the WebKit bug fix is released.
++ */
++const isWebKit154 =
++  typeof navigator !== 'undefined' &&
++  /^((?!chrome|android).)*(safari|mobile)/i.test(navigator.userAgent) &&
++  /(os |version\/)15(.|_)[4-9]/i.test(navigator.userAgent);
++
+ /**
+  * The Grow transition is used by the [Tooltip](/components/tooltips/) and
+  * [Popover](/components/popover/) components.
+@@ -98,7 +108,7 @@ var Grow = /*#__PURE__*/React.forwardRef(function Grow(props, ref) {
+       duration: duration,
+       delay: delay
+     }), theme.transitions.create('transform', {
+-      duration: duration * 0.666,
++      duration: isWebKit154 ? duration : duration * 0.666,
+       delay: delay
+     })].join(',');
+ 
+@@ -131,8 +141,8 @@ var Grow = /*#__PURE__*/React.forwardRef(function Grow(props, ref) {
+       duration: duration,
+       delay: delay
+     }), theme.transitions.create('transform', {
+-      duration: duration * 0.666,
+-      delay: delay || duration * 0.333
++      duration: isWebKit154 ? duration : duration * 0.666,
++      delay: isWebKit154 ? delay : delay || duration * 0.333
+     })].join(',');
+     node.style.opacity = '0';
+     node.style.transform = getScale(0.75);
