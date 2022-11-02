@@ -27,7 +27,7 @@ const HubArchiveByCategoriaHub = ({ state, actions }) => {
   React.useEffect(() => {
     setNextLink(data.next);
     setItemsList(data.items);
-  }, []);
+  }, [data.items]);
 
   const handleClickMore = async (e) => {
     e.preventDefault();
