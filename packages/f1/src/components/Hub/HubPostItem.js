@@ -81,8 +81,9 @@ const HubPostItem = ({ state, actions, id }) => {
         </CardMediaOverlay>
         <CardMedia
           component="img"
+          alt={media.title.rendered}
           height="200"
-          src={media ? media : noMedia}
+          src={media ? media.source_url : noMedia}
           srcSet={media && srcset}
         />
       </Box>
