@@ -31,6 +31,7 @@ const TooltipSpan = styled("span", {
 })`
   text-decoration: underline dotted !important;
   color: ${(props) => props.color} !important;
+  cursor: help;
 `;
 
 const TooltipInfoIcon = styled(InfoIcon)`
