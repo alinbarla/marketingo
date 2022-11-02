@@ -76,6 +76,8 @@ const tooltips = {
             []
           ),
           arrow: true,
+          enterTouchDelay: 0,
+          leaveTouchDelay: 1500,
         },
         React.createElement(
           TooltipTrigger,
