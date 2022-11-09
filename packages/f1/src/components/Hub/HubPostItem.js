@@ -77,7 +77,7 @@ const HubPostItem = ({ state, actions, id }) => {
         onClick={(e) => handleCardClick(e, hubPost.link)}
       >
         <CardMediaOverlay>
-          <h1>Leggi</h1>
+          <h2>Leggi</h2>
         </CardMediaOverlay>
         <CardMedia
           component="img"
@@ -181,6 +181,7 @@ const CardMediaOverlay = styled.div`
   height: 200px;
   width: 250px;
   z-index: 10;
+  color: white;
   border-top-left-radius: 10px !important;
   border-top-right-radius: 10px !important;
   background: rgba(0, 0, 0, 0.55);
