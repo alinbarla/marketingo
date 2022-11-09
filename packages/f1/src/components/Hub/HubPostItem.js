@@ -145,6 +145,9 @@ const RandomColorStyledCard = styled(StyledCard, {
   .MuiDivider-root {
     background-color: white !important;
   }
+  .colorWhite{
+    color: white;
+  }
 `;
 
 const CardFab = styled(Fab)`
