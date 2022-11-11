@@ -38,7 +38,7 @@ const LoadingWrapper = styled.div`
   /* ----- Base ----- */
   /* ----- Loader ----- */
   width: 100vw;
-  height: 100vh;
+  height: 80vh;
 
   .loader-wrapper {
     width: 148px;
