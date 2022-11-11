@@ -20,6 +20,7 @@ import links from "../constants/links";
 import PrivacyPolicy from "./pages/privacy-policy";
 import Hub from "./Hub/Hub";
 import HubArchiveByCategoriaHub from "./Hub/HubArchiveByCategoriaHub";
+import LoadingComponent from "./LoadingComponent";
 
 /**
  * Theme is the root React component of our theme. The one we will export
@@ -59,6 +60,7 @@ const Theme = ({ state }) => {
       <div>
         <Switch>
           {/* <Home when={link === "/"} /> */}
+          <LoadingComponent when={data.isFetching} />
           <SobreMi when={link === links.sobreMi} />
           <Blog when={link === "/"} />
           <Hub when={data.isCategoriaHubArchive} />
