@@ -16,7 +16,7 @@ import breakpoints from "../../constants/breakpoints";
 
 const HubArchiveByCategoriaHub = ({ state, actions }) => {
   const data = state.source.get(state.router.link);
-  if (!data || !data.items) return null;
+  if (!data || !data.items) return <ExtraDiv />;
 
   const categoria_hub = state.source.categoria_hub[data.id];
 

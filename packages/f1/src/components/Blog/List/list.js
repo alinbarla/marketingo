@@ -23,7 +23,7 @@ const checkCategoryOrCategoriaHub = (path) => {
 const List = ({ state, libraries }) => {
   const data = state.source.get(state.router.link);
 
-  if (!data || !data.items) return null;
+  if (!data || !data.items) return <ExtraDiv/>;
 
   const { isCategoriaHub, isCategory } = checkCategoryOrCategoriaHub(
     state.router.link

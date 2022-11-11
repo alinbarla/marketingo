@@ -18,7 +18,7 @@ const Hub = ({ state, actions }) => {
   }, []);
 
   const data = items.map((item) => state.source.get(item.link));
-  if (!data) return null;
+  if (!data) return <ExtraDiv />;
 
   return (
     <ExtraDiv>
