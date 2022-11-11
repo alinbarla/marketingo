@@ -3,7 +3,7 @@ import { connect, styled } from "frontity";
 import StackedCard from "./StackedCard";
 import { CardActions, CardContent, Typography } from "@material-ui/core";
 
-const HubItem = ({ state, actions, item, name }) => {
+const HubItem = ({ state, actions, item }) => {
   if (!item) return null;
   const [length, setLength] = useState(0);
   const [isReady, setIsReady] = useState(false);
@@ -39,7 +39,7 @@ const HubItem = ({ state, actions, item, name }) => {
     >
       <CardContent>
         <Typography className={"postTitleCard"} variant="h4" component="h2">
-          {name}
+          {state.source.categoria_hub[item.id].name}
         </Typography>
       </CardContent>
       <CardActions>

@@ -81,9 +81,31 @@ const allCategoriaHubHandler = {
 };
 
 const categoriaHubArchiveHandler = {
+  name: "hub",
   pattern: "/hub/",
-  func: ({ state }) => {
-    state.source.data["/hub/"].isCategoriaHubArchive = true;
+  func: async ({ link, params, state, libraries, force }) => {
+    const { api, populate, fetch } = libraries.source;
+    // 1. fetch the data you want from the endpoint page
+    const response = await api.get({
+      endpoint: "categoria_hub",
+      params: {
+        per_page: 100, // To make sure you get all of them
+      },
+    });
+
+    // 2. populate the Frontity state
+    const items = await populate({
+      response,
+      state,
+      force,
+    });
+
+    // 3. add data to source
+    const currentPageData = state.source.data[link];
+    Object.assign(currentPageData, {
+      items,
+      isCategoriaHubArchive: true,
+    });
   },
 };
 
