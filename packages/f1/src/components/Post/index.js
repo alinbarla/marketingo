@@ -12,6 +12,7 @@ import CallToAction from "./CallToAction";
 import Comments from "./Comments";
 import breakpoints from "../../constants/breakpoints";
 import HubPost from "../Hub/HubPost";
+import ExtraDiv from "../ExtraDiv";
 
 const Container = styled.div`
   max-width: 50rem;
@@ -145,7 +146,6 @@ const StyledFeaturedMedia = styled(FeaturedMedia)`
 const StyledInfo = styled(Info)`
   margin-bottom: 3rem;
 `;
-
 const Post = ({ state, actions, libraries }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
@@ -167,7 +167,7 @@ const Post = ({ state, actions, libraries }) => {
 
   // Load the post, but only if the data is ready.
   return data.isReady ? (
-    <>
+    <ExtraDiv>
       <Header
         color={data.isPost ? post.meta.background_header_color : "#4a66f7"}
       >
@@ -233,8 +233,8 @@ const Post = ({ state, actions, libraries }) => {
       )}
       {data.isHub && <HubPost />}
       <CallToAction /> {data.isPost && <Comments postId={data.id} />}
-    </>
-  ) : null;
+    </ExtraDiv>
+  ) : <ExtraDiv />;
 };
 
 export default connect(Post);

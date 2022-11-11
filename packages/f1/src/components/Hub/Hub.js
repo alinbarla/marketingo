@@ -5,9 +5,10 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Container from "../ContainerLarge";
 import HubHeader from "./HubHeader";
+import ExtraDiv from "../ExtraDiv";
 
 const Hub = ({ state, actions }) => {
-  const { items } = state.source.get("all-categoria-hub/");
+  const { items } = state.source.get(state.router.link);
   const fetchAndSetData = () => {
     items.forEach(async (item) => await actions.source.fetch(item.link));
   };
@@ -20,27 +21,28 @@ const Hub = ({ state, actions }) => {
   if (!data) return null;
 
   return (
-    <>
+    <ExtraDiv>
       <HubHeader />
-      <Container  maxWidth="lg">
+      <Container maxWidth="lg">
         <HubGrid container spacing={5}>
           {data.map((categoriaHubData, index) => {
             if (!categoriaHubData || !categoriaHubData.items) return null;
+            console.log(categoriaHubData);
 
             return (
               <Grid
-                key={`hub-item-${items[index].name}-${index}`}
+                key={`hub-item-${items[index].id}-${index}`}
                 item
                 xs={12}
                 md={4}
               >
-                <HubItem item={categoriaHubData} name={items[index].name} />
+                <HubItem item={categoriaHubData} />
               </Grid>
             );
           })}
         </HubGrid>
       </Container>
-    </>
+    </ExtraDiv>
   );
 };
 

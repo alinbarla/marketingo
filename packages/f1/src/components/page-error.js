@@ -1,5 +1,6 @@
 import React from "react";
 import { styled, connect } from "frontity";
+import ExtraDiv from "./ExtraDiv";
 
 const description404 = (
   <>
@@ -26,10 +27,12 @@ const Page404 = ({ state }) => {
   const title404 = "Oops! 404";
 
   return (
-    <Container>
-      <Title>{data.is404 ? title404 : title}</Title>
-      <Description>{data.is404 ? description404 : description}</Description>
-    </Container>
+    <ExtraDiv>
+      <Container>
+        <Title>{data.is404 ? title404 : title}</Title>
+        <Description>{data.is404 ? description404 : description}</Description>
+      </Container>
+    </ExtraDiv>
   );
 };
 

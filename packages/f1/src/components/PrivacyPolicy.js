@@ -1,8 +1,9 @@
 import React from "react";
+import ExtraDiv from "./ExtraDiv";
 
 const PrivacyPolicy = () => {
   return (
-    <div>
+    <ExtraDiv>
       <p>
         Icons made by{" "}
         <a
@@ -26,7 +27,7 @@ const PrivacyPolicy = () => {
           www.flaticon.com
         </a>
       </p>
-    </div>
+    </ExtraDiv>
   );
 };
 

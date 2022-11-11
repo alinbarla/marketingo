@@ -6,10 +6,12 @@ import Introduction from "./Introduction";
 import Features from "./Features";
 import CallToAction from "./CallToAction";
 
+import ExtraDiv from "../ExtraDiv";
+
 export class About extends Component {
   render() {
     return (
-      <div>
+      <ExtraDiv>
         <Head>
           <title>Sobre mi - Remarketingo</title>
         </Head>
@@ -17,7 +19,7 @@ export class About extends Component {
         <Introduction />
         <Features />
         <CallToAction />
-      </div>
+      </ExtraDiv>
     );
   }
 }

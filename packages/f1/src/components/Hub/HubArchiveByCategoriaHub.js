@@ -1,9 +1,9 @@
 import React from "react";
 import { connect, styled } from "frontity";
+import ExtraDiv from "../ExtraDiv";
 
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import Container from "@material-ui/core/Container";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -38,7 +38,7 @@ const HubArchiveByCategoriaHub = ({ state, actions }) => {
   };
 
   return (
-    <>
+    <ExtraDiv>
       <HubHeader categoriaHubName={categoria_hub.name} />
       <Container maxWidth="lg">
         <MainGrid container spacing={1}>
@@ -79,7 +79,7 @@ const HubArchiveByCategoriaHub = ({ state, actions }) => {
           </Grid>
         </MainGrid>
       </Container>
-    </>
+    </ExtraDiv>
   );
 };
 

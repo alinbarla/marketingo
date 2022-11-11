@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import Item from "../Item";
 import Pagination from "../../PaginationComponent";
 import Container from "../../ContainerLarge";
+import ExtraDiv from "../../ExtraDiv";
 
 const checkCategoryOrCategoriaHub = (path) => {
   const pathArray = path.split("/");
@@ -29,8 +30,8 @@ const List = ({ state, libraries }) => {
   );
 
   return (
-    <Container>
-      <>
+    <ExtraDiv>
+      <Container>
         <Title variant="h3" component="h2" gutterBottom>
           {isCategory && state.source.category[data.id].name}
           {isCategoriaHub && state.source.categoria_hub[data.id].name}
@@ -46,8 +47,8 @@ const List = ({ state, libraries }) => {
           })}
         </Grid>
         <Pagination />
-      </>
-    </Container>
+      </Container>
+    </ExtraDiv>
   );
 };
 
