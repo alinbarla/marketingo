@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/icons/icon-192.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="description" content="Professional motorcycle services on demand. Connect with expert motorcycle mechanics and service providers in your area." />
+    <meta name="keywords" content="motorcycle service, bike repair, mobile mechanic, motorcycle maintenance, on-demand service" />
+    <meta name="author" content="MotoService" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://motoservice.app/" />
+    <meta property="og:title" content="MotoService - Professional Motorcycle Services On Demand" />
+    <meta property="og:description" content="Connect with expert motorcycle mechanics and service providers in your area. Fast, reliable, and professional service." />
+    <meta property="og:image" content="/icons/icon-512.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://motoservice.app/" />
+    <meta property="twitter:title" content="MotoService - Professional Motorcycle Services On Demand" />
+    <meta property="twitter:description" content="Connect with expert motorcycle mechanics and service providers in your area. Fast, reliable, and professional service." />
+    <meta property="twitter:image" content="/icons/icon-512.png" />
+
+    <meta name="description" content="Professional motorcycle services on demand. Connect with expert motorcycle mechanics and service providers in your area." />
+    <meta name="keywords" content="motorcycle service, bike repair, mobile mechanic, motorcycle maintenance, on-demand service" />
+    <meta name="author" content="MotoService" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://motoservice.app/" />
+    <meta property="og:title" content="MotoService - Professional Motorcycle Services On Demand" />
+    <meta property="og:description" content="Connect with expert motorcycle mechanics and service providers in your area. Fast, reliable, and professional service." />
+    <meta property="og:image" content="/icons/icon-512.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://motoservice.app/" />
+    <meta property="twitter:title" content="MotoService - Professional Motorcycle Services On Demand" />
+    <meta property="twitter:description" content="Connect with expert motorcycle mechanics and service providers in your area. Fast, reliable, and professional service." />
+    <meta property="twitter:image" content="/icons/icon-512.png" />
+
+    <meta name="theme-color" content="#4f46e5" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="MotoService" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MotoService - Professional Motorcycle Services On Demand</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Only register service worker outside WebContainer environment
+      if ('serviceWorker' in navigator && !window.location.hostname.includes('webcontainer')) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js');
+        });
+      }
+    </script>
+  </body>
+</html>
